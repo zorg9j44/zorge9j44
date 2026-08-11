@@ -1,0 +1,915 @@
+<!-- ==========================================================================
+     STROY-MASTER — DARK NAVY & ORANGE TILDA EXPORT BUNDLE (БЛОК T123 / ZERO BLOCK)
+     Инструкция по интеграции в Tilda:
+     1. В Tilda добавьте блок «Другое» -> «T123 (HTML-код)».
+     2. Вставьте весь код из этого файла в редактор блока T123.
+     3. Сохраните и опубликуйте страницу.
+     ========================================================================== -->
+
+<style>
+/* --- DARK NAVY & ORANGE INDUSTRIAL TILDA CSS --- */
+@import url('https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;500;600;700;800;900&family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@500;700&display=swap');
+
+:root {
+  --color-bg-body: #080D1A;
+  --color-bg-darkest: #060913;
+  --color-bg-card: #0F172A;
+  --color-bg-card-hover: #141F36;
+  --color-orange: #FF5500;
+  --color-orange-hover: #FF6A1A;
+  --color-orange-glow: rgba(255, 85, 0, 0.35);
+  --color-border: #1E293B;
+  --color-border-card: #1F2E4D;
+  --color-text-white: #FFFFFF;
+  --color-text-body: #94A3B8;
+  --color-text-muted: #64748B;
+  --color-text-light: #CBD5E1;
+  --font-main: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
+  --font-mono: 'JetBrains Mono', monospace, ui-monospace;
+}
+
+.sm-tilda-wrapper *, .sm-tilda-wrapper *::before, .sm-tilda-wrapper *::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+  border-radius: 0 !important;
+}
+
+.sm-tilda-wrapper {
+  font-family: var(--font-main);
+  background-color: var(--color-bg-body);
+  color: var(--color-text-light);
+  line-height: 1.5;
+  width: 100%;
+}
+
+.sm-tilda-wrapper a {
+  color: inherit;
+  text-decoration: none;
+  transition: all 0.2s ease;
+}
+
+.sm-tilda-wrapper button, .sm-tilda-wrapper input, .sm-tilda-wrapper select {
+  font-family: inherit;
+  font-size: inherit;
+  line-height: inherit;
+  color: inherit;
+  border: none;
+  background: none;
+}
+
+.sm-tilda-wrapper img, .sm-tilda-wrapper svg {
+  display: block;
+  max-width: 100%;
+}
+
+.sm-tilda-wrapper .container {
+  width: 1200px;
+  margin: 0 auto;
+  padding: 0 15px;
+  box-sizing: border-box;
+}
+
+.sm-tilda-wrapper .button {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  gap: 8px;
+  font-family: var(--font-main);
+  font-size: 13px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.08em;
+  padding: 14px 28px;
+  cursor: pointer;
+  border: 1px solid transparent;
+  transition: all 0.2s ease;
+  white-space: nowrap;
+}
+
+.sm-tilda-wrapper .button--primary {
+  background-color: var(--color-orange);
+  color: var(--color-text-white);
+  border-color: var(--color-orange);
+  box-shadow: 0 4px 20px var(--color-orange-glow);
+}
+
+.sm-tilda-wrapper .button--primary:hover {
+  background-color: var(--color-orange-hover);
+  border-color: var(--color-orange-hover);
+  transform: translateY(-2px);
+}
+
+.sm-tilda-wrapper .button--outline {
+  background-color: transparent;
+  color: var(--color-text-white);
+  border-color: rgba(255, 255, 255, 0.25);
+}
+
+.sm-tilda-wrapper .button--outline:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  border-color: var(--color-text-white);
+}
+
+.sm-tilda-wrapper .button--header {
+  padding: 8px 14px;
+  font-size: 11px;
+  font-weight: 800;
+  letter-spacing: 0.04em;
+  background-color: var(--color-orange);
+  color: var(--color-text-white);
+  border-color: var(--color-orange);
+  flex-shrink: 0;
+  white-space: nowrap;
+  min-width: max-content;
+  display: inline-flex;
+}
+
+.sm-tilda-wrapper .button--full {
+  width: 100%;
+}
+
+.sm-tilda-wrapper .badge {
+  display: inline-flex;
+  align-items: center;
+  gap: 8px;
+  padding: 6px 14px;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  border: 1px solid #2A3B5C;
+  background-color: rgba(15, 23, 42, 0.85);
+  color: var(--color-text-white);
+}
+
+.sm-tilda-wrapper .badge-dot {
+  width: 6px;
+  height: 6px;
+  background-color: var(--color-orange);
+  display: inline-block;
+  animation: pulse-dot 2s infinite;
+}
+
+@keyframes pulse-dot {
+  0%, 100% { opacity: 1; transform: scale(1); }
+  50% { opacity: 0.4; transform: scale(0.85); }
+}
+
+.sm-tilda-wrapper .section-tag {
+  display: block;
+  font-size: 11px;
+  font-weight: 800;
+  text-transform: uppercase;
+  letter-spacing: 0.14em;
+  color: var(--color-orange);
+  margin-bottom: 8px;
+}
+
+.sm-tilda-wrapper .section-title {
+  font-size: 32px;
+  font-weight: 900;
+  text-transform: uppercase;
+  letter-spacing: -0.02em;
+  line-height: 1.15;
+  margin-bottom: 12px;
+  color: var(--color-text-white);
+}
+
+.sm-tilda-wrapper .section-desc {
+  font-size: 15px;
+  line-height: 1.6;
+  max-width: 680px;
+  color: var(--color-text-body);
+}
+
+.sm-tilda-wrapper .section-desc--center {
+  margin: 0 auto;
+}
+
+.sm-tilda-wrapper .section-heading {
+  margin-bottom: 48px;
+  text-align: center;
+}
+
+/* Header in 1 Row */
+.sm-tilda-wrapper .header {
+  position: sticky;
+  top: 0;
+  z-index: 100;
+  background-color: rgba(10, 15, 29, 0.95);
+  backdrop-filter: blur(12px);
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sm-tilda-wrapper .header__container {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  height: 70px;
+  flex-wrap: nowrap;
+  gap: 12px;
+}
+
+.sm-tilda-wrapper .brand-logo {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  flex-shrink: 0;
+}
+
+.sm-tilda-wrapper .brand-logo__mark {
+  width: 34px;
+  height: 34px;
+  background-color: var(--color-orange);
+  color: var(--color-text-white);
+  font-weight: 900;
+  font-size: 14px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.sm-tilda-wrapper .brand-logo__name {
+  font-size: 15px;
+  font-weight: 900;
+  color: var(--color-text-white);
+  text-transform: uppercase;
+}
+
+.sm-tilda-wrapper .brand-logo__sub {
+  font-size: 8.5px;
+  font-weight: 700;
+  color: var(--color-text-muted);
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+}
+
+.sm-tilda-wrapper .header-nav {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-wrap: nowrap;
+  white-space: nowrap;
+}
+
+.sm-tilda-wrapper .header-nav__link {
+  font-size: 11px;
+  font-weight: 700;
+  text-transform: uppercase;
+  color: var(--color-text-light);
+}
+
+.sm-tilda-wrapper .header-nav__link:hover {
+  color: var(--color-orange);
+}
+
+.sm-tilda-wrapper .header-actions {
+  display: flex;
+  align-items: center;
+  gap: 12px;
+  flex-shrink: 0;
+  flex-wrap: nowrap;
+}
+
+.sm-tilda-wrapper .header-phone {
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  color: var(--color-text-white);
+  font-weight: 800;
+  font-size: 12px;
+}
+
+/* Hero Section (Würth Style) */
+.sm-tilda-wrapper .section--hero {
+  background: radial-gradient(circle at 75% 30%, rgba(30, 58, 138, 0.25) 0%, rgba(8, 13, 26, 1) 70%);
+  border-bottom: 1px solid var(--color-border);
+  padding: 60px 0 0;
+}
+
+.sm-tilda-wrapper .hero-main-row {
+  display: grid;
+  grid-template-columns: 1.15fr 0.85fr;
+  gap: 40px;
+  align-items: center;
+  margin-bottom: 60px;
+}
+
+.sm-tilda-wrapper .hero-title {
+  font-size: 46px;
+  font-weight: 900;
+  line-height: 1.1;
+  text-transform: uppercase;
+  margin: 20px 0 16px;
+}
+
+.sm-tilda-wrapper .text-accent {
+  color: var(--color-orange);
+  text-shadow: 0 0 25px rgba(255, 85, 0, 0.4);
+}
+
+.sm-tilda-wrapper .hero-subtitle {
+  font-size: 17px;
+  color: var(--color-text-light);
+  max-width: 580px;
+  margin-bottom: 32px;
+}
+
+.sm-tilda-wrapper .hero-cta {
+  display: flex;
+  align-items: center;
+  gap: 16px;
+}
+
+.sm-tilda-wrapper .hero-visual__box {
+  width: 100%;
+  height: 440px;
+  border: 1px solid var(--color-border-card);
+  background: linear-gradient(145deg, #101B33 0%, #090E1D 100%);
+  overflow: hidden;
+  box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
+}
+
+.sm-tilda-wrapper .hero-visual__box img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center top;
+}
+
+/* 6-Tab Ribbon */
+.sm-tilda-wrapper .hero-ribbon-bar {
+  background-color: var(--color-bg-darkest);
+  border-top: 1px solid var(--color-border);
+}
+
+.sm-tilda-wrapper .hero-ribbon-grid {
+  display: grid;
+  grid-template-columns: repeat(6, 1fr);
+  gap: 1px;
+  background-color: var(--color-border);
+}
+
+.sm-tilda-wrapper .hero-ribbon-item {
+  background-color: var(--color-bg-card);
+  padding: 20px 16px;
+  display: flex;
+  align-items: center;
+  gap: 12px;
+}
+
+.sm-tilda-wrapper .hero-ribbon-item--active {
+  background-color: var(--color-bg-card-hover);
+  border-top: 2px solid var(--color-orange);
+}
+
+.sm-tilda-wrapper .hero-ribbon-item__text {
+  font-size: 11px;
+  font-weight: 700;
+  color: var(--color-text-white);
+  text-transform: uppercase;
+}
+
+/* Sections */
+.sm-tilda-wrapper .section {
+  padding: 80px 0;
+  border-bottom: 1px solid var(--color-border);
+}
+
+.sm-tilda-wrapper .process-grid, .sm-tilda-wrapper .why-grid, .sm-tilda-wrapper .pricing-grid, .sm-tilda-wrapper .qa-grid, .sm-tilda-wrapper .video-reviews-grid {
+  display: grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 24px;
+}
+
+.sm-tilda-wrapper .process-card, .sm-tilda-wrapper .why-card, .sm-tilda-wrapper .qa-card, .sm-tilda-wrapper .video-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  padding: 28px;
+}
+
+.sm-tilda-wrapper .showcase-banner {
+  background: linear-gradient(135deg, #0F1D38 0%, #0A1124 100%);
+  border: 1px solid var(--color-border-card);
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  align-items: center;
+}
+
+.sm-tilda-wrapper .showcase-banner__content {
+  padding: 48px;
+}
+
+.sm-tilda-wrapper .pricing-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  padding: 36px 30px;
+}
+
+.sm-tilda-wrapper .pricing-card--featured {
+  background-color: #131E38;
+  border: 2px solid var(--color-orange);
+}
+
+.sm-tilda-wrapper .pricing-card__price-val {
+  font-family: var(--font-mono);
+  font-size: 30px;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+/* Portfolio Grid */
+.sm-tilda-wrapper .portfolio-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 24px;
+}
+
+.sm-tilda-wrapper .portfolio-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  overflow: hidden;
+}
+
+.sm-tilda-wrapper .portfolio-card img {
+  width: 100%;
+  height: 280px;
+  object-fit: cover;
+}
+
+.sm-tilda-wrapper .portfolio-card__meta {
+  padding: 24px;
+}
+
+/* Video Card */
+.sm-tilda-wrapper .video-card__thumb {
+  position: relative;
+  height: 220px;
+  background: linear-gradient(135deg, #101B33 0%, #080D1A 100%);
+  overflow: hidden;
+  margin: -28px -28px 20px -28px;
+}
+
+.sm-tilda-wrapper .video-card__thumb img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+.sm-tilda-wrapper .video-play-btn {
+  width: 60px;
+  height: 60px;
+  background-color: var(--color-orange);
+  color: var(--color-text-white);
+  border: 2px solid #FFFFFF;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  position: absolute;
+  top: 50%;
+  left: 50%;
+  transform: translate(-50%, -50%);
+}
+
+/* Calculator */
+.sm-tilda-wrapper .calc-layout {
+  display: grid;
+  grid-template-columns: 5fr 7fr;
+  gap: 48px;
+}
+
+.sm-tilda-wrapper .calc-form-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  padding: 40px;
+}
+
+.sm-tilda-wrapper .calc-select, .sm-tilda-wrapper .calc-input {
+  width: 100%;
+  background-color: var(--color-bg-darkest);
+  border: 1px solid var(--color-border-card);
+  padding: 12px 16px;
+  font-size: 14px;
+  color: #FFF;
+}
+
+.sm-tilda-wrapper .calc-result-box {
+  background-color: #0B132B;
+  border: 1px solid var(--color-border-card);
+  padding: 24px;
+  margin: 24px 0;
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 20px;
+}
+
+.sm-tilda-wrapper .calc-result-total {
+  font-family: var(--font-mono);
+  font-size: 22px;
+  font-weight: 700;
+  color: var(--color-orange);
+}
+
+/* Footer */
+.sm-tilda-wrapper .footer {
+  background-color: var(--color-bg-darkest);
+  color: var(--color-text-muted);
+  padding: 64px 0 24px;
+  font-size: 12px;
+}
+
+.sm-tilda-wrapper .footer__main {
+  display: grid;
+  grid-template-columns: 1.5fr 1fr 1.2fr 1.3fr;
+  gap: 40px;
+  border-bottom: 1px solid var(--color-border);
+  padding-bottom: 48px;
+}
+
+/* Modals */
+.sm-tilda-wrapper .modal-container {
+  position: fixed;
+  inset: 0;
+  z-index: 10000;
+  background-color: rgba(8, 13, 26, 0.85);
+  display: none;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+
+.sm-tilda-wrapper .modal-container.is-active {
+  display: flex;
+}
+
+.sm-tilda-wrapper .modal-card {
+  background-color: var(--color-bg-card);
+  border: 1px solid var(--color-border-card);
+  max-width: 480px;
+  width: 100%;
+  padding: 40px;
+  position: relative;
+  color: #FFF;
+}
+
+.sm-tilda-wrapper .modal-close {
+  position: absolute;
+  top: 16px;
+  right: 16px;
+  width: 32px;
+  height: 32px;
+  background-color: var(--color-bg-darkest);
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: #FFF;
+}
+
+.sm-tilda-wrapper .back-to-top {
+  position: fixed;
+  bottom: 30px;
+  right: 30px;
+  z-index: 999;
+  background-color: var(--color-orange);
+  color: #FFFFFF;
+  padding: 12px 18px;
+  font-size: 11px;
+  font-weight: 800;
+  cursor: pointer;
+  display: none;
+}
+
+.sm-tilda-wrapper .back-to-top.is-visible {
+  display: flex;
+}
+
+@media (max-width: 1080px) {
+  .sm-tilda-wrapper .container { width: 100%; padding: 0 20px; }
+  .sm-tilda-wrapper .hero-main-row, .sm-tilda-wrapper .showcase-banner, .sm-tilda-wrapper .calc-layout, .sm-tilda-wrapper .why-grid, .sm-tilda-wrapper .pricing-grid, .sm-tilda-wrapper .portfolio-grid { grid-template-columns: 1fr; }
+  .sm-tilda-wrapper .process-grid, .sm-tilda-wrapper .qa-grid, .sm-tilda-wrapper .video-reviews-grid { grid-template-columns: repeat(2, 1fr); }
+  .sm-tilda-wrapper .hero-ribbon-grid { grid-template-columns: repeat(3, 1fr); }
+  .sm-tilda-wrapper .header-nav { display: none; }
+}
+
+@media (max-width: 768px) {
+  .sm-tilda-wrapper .hero-title { font-size: 30px; }
+  .sm-tilda-wrapper .process-grid, .sm-tilda-wrapper .qa-grid, .sm-tilda-wrapper .video-reviews-grid { grid-template-columns: 1fr; }
+  .sm-tilda-wrapper .hero-ribbon-grid { grid-template-columns: repeat(2, 1fr); }
+  .sm-tilda-wrapper .hero-cta { flex-direction: column; }
+  .sm-tilda-wrapper .footer__main { grid-template-columns: 1fr; }
+}
+</style>
+
+<div class="sm-tilda-wrapper">
+  
+  <!-- Top Utility Bar -->
+  <div style="background:#060913;padding:6px 0;font-size:11px;border-bottom:1px solid #1E293B;">
+    <div class="container" style="display:flex;justify-content:space-between;">
+      <div><span class="badge-dot"></span> Москва и МО · Член СРО №0482 · Пн–Вс: 8:00 – 21:00</div>
+      <div><a href="mailto:info@stroy-master-b2b.ru">info@stroy-master-b2b.ru</a></div>
+    </div>
+  </div>
+
+  <!-- Header strictly in 1 Row -->
+  <header class="header">
+    <div class="container header__container">
+      <div class="brand-logo">
+        <span class="brand-logo__mark">СМ</span>
+        <div>
+          <div class="brand-logo__name">СТРОЙ-МАСТЕР</div>
+          <div class="brand-logo__sub">Строительный холдинг</div>
+        </div>
+      </div>
+      <nav class="header-nav">
+        <a href="#process" class="header-nav__link">Этапы</a>
+        <a href="#why-us" class="header-nav__link">Преимущества</a>
+        <a href="#pricing" class="header-nav__link">Тарифы</a>
+        <a href="#calculator" class="header-nav__link">Калькулятор</a>
+        <a href="#qa-cards" class="header-nav__link">База знаний</a>
+        <a href="#reviews" class="header-nav__link">Видеоотзывы</a>
+        <a href="#portfolio" class="header-nav__link">Портфолио</a>
+      </nav>
+      <div class="header-actions">
+        <a href="tel:+74951234567" class="header-phone">+7 (495) 123-45-67</a>
+        <button type="button" data-modal-target="call-modal" class="button button--header">Вызвать замерщика</button>
+      </div>
+    </div>
+  </header>
+
+  <!-- Hero Section (Würth Style) -->
+  <section class="section--hero" id="hero">
+    <div class="container">
+      <div class="hero-main-row">
+        <div class="hero-content">
+          <span class="badge"><span class="badge-dot"></span>СРО №0482 · E-E-A-T Стандарт 2026</span>
+          <h1 class="hero-title">Капитальный ремонт точно в срок с <span class="text-accent">фиксированной сметой</span></h1>
+          <p class="hero-subtitle">Гарантия 5 лет по договору. Смета не растет в процессе работы ни на 1 рубль.</p>
+          <div class="hero-cta">
+            <a href="#calculator" class="button button--primary">Рассчитать смету</a>
+            <button type="button" data-modal-target="call-modal" class="button button--outline">Вызвать замерщика</button>
+          </div>
+        </div>
+        <div class="hero-visual__box">
+          <img src="hero_engineer.png" onerror="this.onerror=null; this.src='file:///C:/Users/37061/.gemini/antigravity-ide/brain/1c7d5acd-e32c-4c0f-bf32-141e6715473b/hero_architect_photo_1786354626613.png';" alt="Главный инженер технадзора">
+        </div>
+      </div>
+    </div>
+
+    <!-- 6-Tab Ribbon -->
+    <div class="hero-ribbon-bar">
+      <div class="container">
+        <div class="hero-ribbon-grid">
+          <div class="hero-ribbon-item hero-ribbon-item--active"><div class="hero-ribbon-item__text">14 лет на рынке</div></div>
+          <div class="hero-ribbon-item"><div class="hero-ribbon-item__text">СРО №0482</div></div>
+          <div class="hero-ribbon-item"><div class="hero-ribbon-item__text">50 млн ₽ страховка</div></div>
+          <div class="hero-ribbon-item"><div class="hero-ribbon-item__text">0.1% в день штраф</div></div>
+          <div class="hero-ribbon-item"><div class="hero-ribbon-item__text">До 20% скидка на опт</div></div>
+          <div class="hero-ribbon-item"><div class="hero-ribbon-item__text">Гарантия 5 лет</div></div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Process Steps -->
+  <section class="section" id="process">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-tag">Прозрачный регламент</span>
+        <h2 class="section-title">6 шагов реализации объекта</h2>
+      </div>
+      <div class="process-grid">
+        <div class="process-card"><h3>01. Замер и смета</h3><p>Лазерный 3D-обмер объекта и детальный расчет сметы.</p></div>
+        <div class="process-card"><h3>02. Договор СРО</h3><p>Фиксация цены и графика с финансовой ответственностью.</p></div>
+        <div class="process-card"><h3>03. Закупка материалов</h3><p>Прямой завоз со складов Knauf, Rehau со скидкой 20%.</p></div>
+        <div class="process-card"><h3>04. Черновые работы</h3><p>Стяжка, выравнивание, разводка электрики и сантехники.</p></div>
+        <div class="process-card"><h3>05. Чистовая отделка</h3><p>Укладка плитки, малярные работы, установка чистовых приборов.</p></div>
+        <div class="process-card"><h3>06. Сдача по КС-2</h3><p>Генеральный клининг и вручение комплекта документации.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Laser Leveling Showcase -->
+  <section class="section" id="why-us">
+    <div class="container">
+      <div class="showcase-banner">
+        <img src="file:///C:/Users/37061/.gemini/antigravity-ide/brain/1c7d5acd-e32c-4c0f-bf32-141e6715473b/laser_leveling_precision_1786352431809.png" alt="Лазерная точность выравнивания" style="height:340px;object-fit:cover;">
+        <div class="showcase-banner__content">
+          <span class="section-tag">Инженерный контроль</span>
+          <h3 class="section-title">Лазерная точность выравнивания с допуском до 1 мм</h3>
+          <p class="section-desc">Используем немецкие лазерные нивелиры и трехмерные сканеры геометрии помещений.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Open Knowledge Base FAQ Cards -->
+  <section class="section" id="qa-cards">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-tag">База знаний</span>
+        <h2 class="section-title">Ответы на главные вопросы заказчиков</h2>
+      </div>
+      <div class="qa-grid">
+        <div class="qa-card"><h3>Может ли вырасти смета?</h3><p><strong>Исключено.</strong> Стоимость жестко фиксируется в договоре СРО.</p></div>
+        <div class="qa-card"><h3>Ответственность за сроки?</h3><p><strong>Штраф 0.1% в день</strong> задержки с вычетом из финального акта КС-2.</p></div>
+        <div class="qa-card"><h3>Как контролировать?</h3><p><strong>HD-камеры 24/7</strong> и ежедневные фотоотчеты в Telegram.</p></div>
+        <div class="qa-card"><h3>Работа с юрлицами?</h3><p><strong>Безналичный расчет с НДС 20%</strong>, закрывающие акты КС-2/КС-3.</p></div>
+        <div class="qa-card"><h3>Качество материалов?</h3><p>Прямые поставки от Knauf, Ceresit, Rehau с сертификатами ГОСТ.</p></div>
+        <div class="qa-card"><h3>Гарантия 5 лет?</h3><p>Выезд аварийной инженерной бригады в течение 24 часов.</p></div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Video Reviews Section -->
+  <section class="section" id="reviews">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-tag">Видеоотзывы</span>
+        <h2 class="section-title">Живые кейсы со сданных объектов</h2>
+      </div>
+      <div class="video-reviews-grid">
+        <div class="video-card" data-modal-target="video-modal">
+          <div class="video-card__thumb">
+            <img src="file:///C:/Users/37061/.gemini/antigravity-ide/brain/1c7d5acd-e32c-4c0f-bf32-141e6715473b/video_review_office_1786270676228.png" alt="Видеоотзыв">
+            <div class="video-play-btn">▶</div>
+          </div>
+          <h4>Михаил Воронов (IT-Офис 450 м²)</h4>
+          <p>«Сдали офис на 3 дня раньше срока. Все акты подписаны без замечаний технадзора.»</p>
+        </div>
+        <div class="video-card" data-modal-target="video-modal">
+          <div class="video-card__thumb">
+            <img src="file:///C:/Users/37061/.gemini/antigravity-ide/brain/1c7d5acd-e32c-4c0f-bf32-141e6715473b/video_review_apartment_1786270695152.png" alt="Видеоотзыв">
+            <div class="video-play-btn">▶</div>
+          </div>
+          <h4>Елена Смирнова (Пентхаус 240 м²)</h4>
+          <p>«Никаких доплат в процессе! Отличные фотоотчеты в Telegram и идеальная шумоизоляция.»</p>
+        </div>
+        <div class="video-card" data-modal-target="video-modal">
+          <div class="video-card__thumb">
+            <img src="file:///C:/Users/37061/.gemini/antigravity-ide/brain/1c7d5acd-e32c-4c0f-bf32-141e6715473b/laser_leveling_precision_1786352431809.png" alt="Видеоотзыв">
+            <div class="video-play-btn">▶</div>
+          </div>
+          <h4>Артем Григорьев (Ритейл 520 м²)</h4>
+          <p>«Лазерная геометрия с допуском до 1 мм. Закупали материалы напрямую с заводов.»</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Portfolio Section -->
+  <section class="section" id="portfolio">
+    <div class="container">
+      <div class="section-heading">
+        <span class="section-tag">Портфолио объектов</span>
+        <h2 class="section-title">Реализованные проекты 2024–2026</h2>
+      </div>
+      <div class="portfolio-grid">
+        <div class="portfolio-card">
+          <img src="file:///C:/Users/37061/.gemini/antigravity-ide/brain/1c7d5acd-e32c-4c0f-bf32-141e6715473b/portfolio_penthouse_luxury_1786352458126.png" alt="Пентхаус Сити Парк">
+          <div class="portfolio-card__meta">
+            <h4>Капитальный ремонт пентхауса 240 м²</h4>
+            <p>ЖК «Сити Парк». Срок: 75 дней. Смета: 3 850 000 ₽.</p>
+          </div>
+        </div>
+        <div class="portfolio-card">
+          <img src="file:///C:/Users/37061/.gemini/antigravity-ide/brain/1c7d5acd-e32c-4c0f-bf32-141e6715473b/portfolio_office_corporate_1786352485231.png" alt="Офис Метрополис">
+          <div class="portfolio-card__meta">
+            <h4>Реконструкция офиса класса A 520 м²</h4>
+            <p>Бизнес-Центр «Метрополис». Срок: 45 дней по КС-2.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Calculator -->
+  <section class="section" id="calculator">
+    <div class="container">
+      <div class="calc-layout">
+        <div>
+          <span class="badge">Калькулятор сметы</span>
+          <h2 class="section-title">Рассчитайте бюджет за 2 минуты</h2>
+          <p>Онлайн-расчет стоимости и сроков выполнения ремонта.</p>
+        </div>
+        <div class="calc-form-card">
+          <form id="tilda-calc-form">
+            <div style="margin-bottom:16px;">
+              <label>Площадь (м²): <strong id="t-area-val">85</strong> м²</label>
+              <input type="range" id="t-area" min="10" max="500" value="85" style="width:100%;">
+            </div>
+            <div class="calc-result-box">
+              <div>
+                <div style="font-size:10px;text-transform:uppercase;">Бюджет:</div>
+                <div class="calc-result-total" id="t-total">1 020 000 ₽</div>
+              </div>
+              <div>
+                <div style="font-size:10px;text-transform:uppercase;">Срок:</div>
+                <div style="font-weight:700;" id="t-days">53 рабочих дня</div>
+              </div>
+            </div>
+            <div style="margin-bottom:14px;">
+              <input type="tel" placeholder="+7 (___) ___-__-__" required class="calc-input" style="margin-bottom:10px;">
+              <button type="submit" class="button button--primary button--full">Получить подробную смету в PDF</button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    <div class="container">
+      <div class="footer__main">
+        <div>
+          <div style="font-size:16px;font-weight:900;color:#FFF;margin-bottom:8px;">СТРОЙ-МАСТЕР</div>
+          <p>Строительный холдинг E-E-A-T стандарта. СРО №0482.01.</p>
+        </div>
+        <div>
+          <div style="color:#FFF;font-weight:700;margin-bottom:10px;">Контакты</div>
+          <div>Тел: +7 (495) 123-45-67</div>
+          <div>Москва, Пресненская наб., 12</div>
+        </div>
+      </div>
+    </div>
+  </footer>
+
+  <!-- Modal Call -->
+  <div id="call-modal" class="modal-container">
+    <div class="modal-card">
+      <button type="button" data-modal-close class="modal-close">✕</button>
+      <h3 class="section-title">Вызов замерщика</h3>
+      <form style="margin-top:16px;">
+        <input type="text" placeholder="Ваше имя" required class="calc-input" style="margin-bottom:10px;">
+        <input type="tel" placeholder="+7 (___) ___-__-__" required class="calc-input" style="margin-bottom:14px;">
+        <button type="submit" class="button button--primary button--full">Вызвать специалиста</button>
+      </form>
+    </div>
+  </div>
+
+  <!-- Video Modal -->
+  <div id="video-modal" class="modal-container">
+    <div class="modal-card" style="max-width:640px;">
+      <button type="button" data-modal-close class="modal-close">✕</button>
+      <h3 class="section-title">Видеоотзыв заказчика</h3>
+      <div style="background:#000;aspect-ratio:16/9;display:flex;align-items:center;justify-content:center;color:#FFF;margin:16px 0;">
+        <div style="text-align:center;">
+          <div style="font-size:40px;color:#FF5500;">▶</div>
+          <div>Воспроизведение видеоотзыва HD 1080p</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- Back to Top -->
+  <button type="button" id="t-back-to-top" class="back-to-top">↑ НАВЕРХ</button>
+</div>
+
+<script>
+document.addEventListener('DOMContentLoaded', () => {
+  const areaSlider = document.getElementById('t-area');
+  const areaVal = document.getElementById('t-area-val');
+  const totalEl = document.getElementById('t-total');
+  const daysEl = document.getElementById('t-days');
+
+  if (areaSlider) {
+    areaSlider.addEventListener('input', (e) => {
+      const area = parseInt(e.target.value, 10) || 85;
+      if (areaVal) areaVal.textContent = area;
+      const total = area * 12000;
+      const days = Math.round(15 + area * 0.45);
+      if (totalEl) totalEl.textContent = total.toString().replace(/\B(?=(\d{3})+(?!\d))/g, " ") + " ₽";
+      if (daysEl) daysEl.textContent = `${days} рабочих дней`;
+    });
+  }
+
+  // Modals
+  document.querySelectorAll('[data-modal-target]').forEach(btn => {
+    btn.addEventListener('click', (e) => {
+      e.preventDefault();
+      const id = btn.getAttribute('data-modal-target');
+      const modal = document.getElementById(id);
+      if (modal) modal.classList.add('is-active');
+    });
+  });
+
+  document.querySelectorAll('[data-modal-close]').forEach(btn => {
+    btn.addEventListener('click', () => {
+      const modal = btn.closest('.modal-container');
+      if (modal) modal.classList.remove('is-active');
+    });
+  });
+
+  // Back to top
+  const topBtn = document.getElementById('t-back-to-top');
+  if (topBtn) {
+    window.addEventListener('scroll', () => {
+      if (window.scrollY > 350) topBtn.classList.add('is-visible');
+      else topBtn.classList.remove('is-visible');
+    });
+    topBtn.addEventListener('click', () => window.scrollTo({ top: 0, behavior: 'smooth' }));
+  }
+});
+</script>
