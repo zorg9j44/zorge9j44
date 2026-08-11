@@ -49,8 +49,8 @@
   --font-main: 'Plus Jakarta Sans', 'Inter', system-ui, -apple-system, sans-serif;
   --font-mono: 'JetBrains Mono', monospace, ui-monospace;
   
-  /* Layout: 1200px Tilda Zero Block Grid Standard */
-  --container-width: 1200px;
+  /* Layout: 1160px Tilda Standard 12-Column Grid (Zero Block Standard) */
+  --container-width: 1160px;
 }
 
 /* --- 2. Global Reset & Industrial Strict Zero-Radius --- */
@@ -103,11 +103,12 @@ img, svg {
   max-width: 100%;
 }
 
-/* --- 3. Mandatory Fixed Container (1200px Tilda Standard Grid) --- */
+/* --- 3. Mandatory Fixed Container (1160px Tilda Standard 12-Column Grid) --- */
 .container {
-  width: 1200px;
+  width: 1160px;
+  max-width: 1160px;
   margin: 0 auto;
-  padding: 0 15px;
+  padding: 0 10px;
   box-sizing: border-box;
 }
 
