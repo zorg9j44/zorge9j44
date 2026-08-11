@@ -18,7 +18,9 @@ fs.mkdirSync(distDir, { recursive: true });
 function copyRecursive(src, dest) {
   const stats = fs.statSync(src);
   if (stats.isDirectory()) {
-    fs.mkdirSync(dest, { recursive: true });
+    if (!fs.existsSync(dest)) {
+      fs.mkdirSync(dest, { recursive: true });
+    }
     const entries = fs.readdirSync(src);
     for (const entry of entries) {
       copyRecursive(path.join(src, entry), path.join(dest, entry));
@@ -28,15 +30,16 @@ function copyRecursive(src, dest) {
   }
 }
 
-// Files and folders to include in deployment bundle
-const itemsToCopy = ['index.html', 'tilda-export.html', 'css', 'js', 'assets'];
+// Copy everything except system / git / dist / node_modules
+const entries = fs.readdirSync(__dirname);
+const ignoreList = ['.git', '.gitignore', 'node_modules', 'dist', 'dist-ssr', 'build.js', 'package-lock.json'];
 
-for (const item of itemsToCopy) {
-  const srcPath = path.join(__dirname, item);
-  const destPath = path.join(distDir, item);
-  if (fs.existsSync(srcPath)) {
+for (const entry of entries) {
+  if (!ignoreList.includes(entry)) {
+    const srcPath = path.join(__dirname, entry);
+    const destPath = path.join(distDir, entry);
     copyRecursive(srcPath, destPath);
-    console.log(`[build] Copied ${item} to dist/`);
+    console.log(`[build] Copied ${entry} to dist/`);
   }
 }
 
