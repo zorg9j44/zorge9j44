@@ -1,0 +1,1453 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Строй-Мастер — Капитальный ремонт объектов точно в срок с фиксированной сметой</title>
+  <meta name="description" content="Строительный холдинг Строй-Мастер. Капитальный ремонт квартир, офисов и коммерческой недвижимости под ключ по договору СРО. Гарантия 5 лет. Фиксированная смета.">
+  
+  <!-- Dark Navy & Orange Industrial Design for Tilda 1200px Zero Block Grid -->
+  <link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+  <!-- ==========================================================================
+       0. TOP UTILITY BAR (Würth MODYF Reference Style)
+       ========================================================================== -->
+  <div class="top-bar">
+    <div class="container top-bar__container">
+      <div class="top-bar__left">
+        <span class="top-bar__item top-bar__item--accent">
+          <span class="badge-dot"></span> Москва и Московская область
+        </span>
+        <span class="top-bar__item">Член СРО «Альянс Строителей» №0482.01</span>
+        <span class="top-bar__item">Пн–Вс: 8:00 – 21:00</span>
+      </div>
+      <div class="top-bar__right">
+        <a href="mailto:info@stroy-master-b2b.ru" class="top-bar__link">info@stroy-master-b2b.ru</a>
+        <span>|</span>
+        <a href="#calculator" class="top-bar__link top-bar__item--accent">Онлайн-расчет сметы →</a>
+      </div>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       1. HEADER (STRICT 1-ROW ALIGNMENT: Logo + Nav + Phone + CTA Button)
+       ========================================================================== -->
+  <header class="header">
+    <div class="container header__container">
+      
+      <!-- Brand Logo -->
+      <a href="#" class="brand-logo">
+        <span class="brand-logo__mark">СМ</span>
+        <span class="brand-logo__info">
+          <span class="brand-logo__name">СТРОЙ-МАСТЕР</span>
+          <span class="brand-logo__sub">Строительный холдинг</span>
+        </span>
+      </a>
+
+      <!-- Desktop Navigation Links (All in 1 Row) -->
+      <nav class="header-nav" aria-label="Основная навигация">
+        <a href="#process" class="header-nav__link">Этапы</a>
+        <a href="#why-us" class="header-nav__link">Преимущества</a>
+        <a href="#pricing" class="header-nav__link">Тарифы</a>
+        <a href="#calculator" class="header-nav__link">Калькулятор</a>
+        <a href="#qa-cards" class="header-nav__link">База знаний</a>
+        <a href="#reviews" class="header-nav__link">Видеоотзывы</a>
+        <a href="#portfolio" class="header-nav__link">Портфолио</a>
+      </nav>
+
+      <!-- Phone in 1 Row + Action Button -->
+      <div class="header-actions">
+        <a href="tel:+74951234567" class="header-phone">
+          <span class="svg-icon header-phone__icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M3 5a2 2 0 012-2h3.28a1 1 0 01.948.684l1.498 4.493a1 1 0 01-.502 1.21l-2.257 1.13a11.042 11.042 0 005.516 5.516l1.13-2.257a1 1 0 011.21-.502l4.493 1.498a1 1 0 01.684.949V19a2 2 0 01-2 2h-1C9.716 21 3 14.284 3 6V5z"/>
+            </svg>
+          </span>
+          <span>+7 (495) 123-45-67</span>
+        </a>
+
+        <button type="button" data-modal-target="call-modal" class="button button--header">
+          Вызвать замерщика
+        </button>
+
+        <!-- Mobile Hamburger Toggle -->
+        <button type="button" id="mobile-menu-btn" class="button mobile-menu-toggle" aria-label="Меню">
+          <span class="svg-icon">
+            <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2">
+              <path stroke-linecap="round" stroke-linejoin="round" d="M4 6h16M4 12h16M4 18h16"/>
+            </svg>
+          </span>
+        </button>
+      </div>
+
+    </div>
+
+    <!-- Mobile Navigation Dropdown -->
+    <nav id="mobile-menu" class="mobile-nav" aria-label="Мобильное меню">
+      <div class="container">
+        <a href="#process" class="mobile-nav__link">Этапы работ</a>
+        <a href="#why-us" class="mobile-nav__link">Почему мы</a>
+        <a href="#materials" class="mobile-nav__link">Поставщики материалов</a>
+        <a href="#pricing" class="mobile-nav__link">Тарифы</a>
+        <a href="#calculator" class="mobile-nav__link">Калькулятор сметы</a>
+        <a href="#qa-cards" class="mobile-nav__link">База знаний заказчика</a>
+        <a href="#reviews" class="mobile-nav__link">Видеоотзывы клиентов</a>
+        <a href="#portfolio" class="mobile-nav__link">Реализованные объекты</a>
+        <a href="#faq" class="mobile-nav__link">Вопросы и ответы</a>
+        <button type="button" data-modal-target="call-modal" class="button button--primary button--full button--mobile-cta">
+          Вызвать замерщика
+        </button>
+      </div>
+    </nav>
+  </header>
+
+  <!-- ==========================================================================
+       MAIN CONTENT: Flat Semantic Sections Hierarchy
+       ========================================================================== -->
+  <main>
+
+    <!-- ========================================================================
+         2. HERO SECTION (Würth MODYF Reference Layout + Bottom 6-Tab Ribbon)
+         ======================================================================== -->
+    <section class="section section--hero" id="hero">
+      <div class="container">
+        
+        <div class="hero-main-row">
+          
+          <!-- Left Column: Headline & Action -->
+          <div class="hero-content">
+            <span class="badge">
+              <span class="badge-dot"></span>
+              E-E-A-T Стандарт 2026 · СРО №0482
+            </span>
+
+            <h1 class="hero-title">
+              Капитальный ремонт точно в срок с <span class="text-accent">фиксированной сметой</span>
+            </h1>
+
+            <p class="hero-subtitle">
+              Гарантия 5 лет по официальному договору. Смета зафиксирована и не вырастет в процессе работы ни на 1 рубль.
+            </p>
+
+            <div class="hero-cta">
+              <a href="#calculator" class="button button--primary">
+                Рассчитать смету за 2 минуты
+              </a>
+              <button type="button" data-modal-target="call-modal" class="button button--outline">
+                Вызвать замерщика
+              </button>
+            </div>
+          </div>
+
+          <!-- Right Column: Chief Engineer Hero Visual (Real High-Res Photography) -->
+          <div class="hero-visual">
+            <div class="hero-visual__box" style="position:relative;width:100%;height:440px;min-height:440px;overflow:hidden;background:#0F172A;border:1px solid #1F2E4D;display:block;">
+              <img src="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1000" 
+                   srcset="https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1000 1x, https://images.pexels.com/photos/1216589/pexels-photo-1216589.jpeg?auto=compress&cs=tinysrgb&w=1600 2x"
+                   onerror="this.onerror=null; this.src='https://images.unsplash.com/photo-1541888946425-d0fbb18086f6?auto=format&fit=crop&w=1000&q=80';"
+                   alt="Главный инженер технадзора Строй-Мастер на объекте" 
+                   width="540" 
+                   height="440" 
+                   loading="eager"
+                   fetchpriority="high"
+                   style="width:100%;height:100%;min-height:440px;object-fit:cover;object-position:center top;display:block;">
+              <div class="hero-visual__badge">ТЕХНАДЗОР 24/7</div>
+              <div class="hero-visual__caption">
+                <span>Инженерная бригада высшей квалификации</span>
+                <span class="badge-dot"></span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+
+      <!-- Bottom Hero Ribbon (6 Horizontal Interactive Metric Tabs - Würth Style) -->
+      <div class="hero-ribbon-bar">
+        <div class="container">
+          <div class="hero-ribbon-grid">
+            
+            <div class="hero-ribbon-item hero-ribbon-item--active">
+              <div class="hero-ribbon-item__icon">
+                <span class="svg-icon svg-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="hero-ribbon-item__text">14 лет на рынке B2B</div>
+            </div>
+
+            <div class="hero-ribbon-item">
+              <div class="hero-ribbon-item__icon">
+                <span class="svg-icon svg-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M9 12l2 2 4-4m5.618-4.016A11.955 11.955 0 0112 2.944a11.955 11.955 0 01-8.618 3.04A12.02 12.02 0 003 9c0 5.591 3.824 10.29 9 11.622 5.176-1.332 9-6.03 9-11.622 0-1.042-.133-2.052-.382-3.016z"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="hero-ribbon-item__text">Допуск СРО №0482</div>
+            </div>
+
+            <div class="hero-ribbon-item">
+              <div class="hero-ribbon-item__icon">
+                <span class="svg-icon svg-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M13 10V3L4 14h7v7l9-11h-7z"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="hero-ribbon-item__text">50 млн ₽ страхование</div>
+            </div>
+
+            <div class="hero-ribbon-item">
+              <div class="hero-ribbon-item__icon">
+                <span class="svg-icon svg-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M12 9v2m0 4h.01m-6.938 4h13.856c1.54 0 2.502-1.667 1.732-3L13.732 4c-.77-1.333-2.694-1.333-3.464 0L3.34 16c-.77 1.333.192 3 1.732 3z"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="hero-ribbon-item__text">0.1% в день штраф</div>
+            </div>
+
+            <div class="hero-ribbon-item">
+              <div class="hero-ribbon-item__icon">
+                <span class="svg-icon svg-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M7 7h.01M7 3h5c.512 0 1.024.195 1.414.586l7 7a2 2 0 010 2.828l-7 7a2 2 0 01-2.828 0l-7-7A1.994 1.994 0 013 12V7a4 4 0 014-4z"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="hero-ribbon-item__text">До 20% скидка на опт</div>
+            </div>
+
+            <div class="hero-ribbon-item">
+              <div class="hero-ribbon-item__icon">
+                <span class="svg-icon svg-icon--sm">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+              </div>
+              <div class="hero-ribbon-item__text">Гарантия 5 лет</div>
+            </div>
+
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         3. TRUST / PARTNERS SECTION
+         ======================================================================== -->
+    <section class="section section--trust" id="trust">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">Официальные партнеры</span>
+          <h2 class="section-title section-title--dark">Нам доверяют ведущие девелоперы и банки</h2>
+        </div>
+
+        <!-- Partner Logos Infinite Marquee Container -->
+        <div class="marquee-container">
+          <div class="marquee-track">
+            <span class="marquee-item">СБЕРБАНК</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ПИК ДЕВЕЛОПМЕНТ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ГК САМОЛЕТ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ВТБ НЕДВИЖИМОСТЬ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ДОНСТРОЙ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ПРОМСВЯЗЬБАНК</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ГК ФСК</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">БРУСНИКА</span>
+            <span class="marquee-divider">/</span>
+            <!-- Seamless Loop Duplicate -->
+            <span class="marquee-item">СБЕРБАНК</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ПИК ДЕВЕЛОПМЕНТ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ГК САМОЛЕТ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ВТБ НЕДВИЖИМОСТЬ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ДОНСТРОЙ</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ПРОМСВЯЗЬБАНК</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">ГК ФСК</span>
+            <span class="marquee-divider">/</span>
+            <span class="marquee-item">БРУСНИКА</span>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         4. PROCESS STEPS SECTION (6-Step Workflow Timeline)
+         ======================================================================== -->
+    <section class="section section--process" id="process">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">Прозрачный регламент</span>
+          <h2 class="section-title section-title--dark">
+            6 шагов от выезда замерщика до вручения ключей
+          </h2>
+          <p class="section-desc section-desc--dark section-desc--center">
+            Каждый этап контролируется главным инженером технадзора с ведением исполнительной документации.
+          </p>
+        </div>
+
+        <div class="process-grid">
+          
+          <!-- Step 1 -->
+          <div class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__num process-card__num--accent">01</span>
+              <span class="process-card__tag">Бесплатно</span>
+            </div>
+            <h3 class="process-card__title">Замер и подробная смета</h3>
+            <p class="process-card__desc">
+              Инженер выезжает на объект с лазерным 3D-сканером, выполняет обмер и составляет смета-расчет с фиксацией позиций.
+            </p>
+          </div>
+
+          <!-- Step 2 -->
+          <div class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__num">02</span>
+              <span class="process-card__tag">Договор СРО</span>
+            </div>
+            <h3 class="process-card__title">Подписание договора</h3>
+            <p class="process-card__desc">
+              Фиксируем точную стоимость, графики выполнения и финансовые штрафы за каждый день просрочки.
+            </p>
+          </div>
+
+          <!-- Step 3 -->
+          <div class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__num">03</span>
+              <span class="process-card__tag">Скидка 20%</span>
+            </div>
+            <h3 class="process-card__title">Закупка материалов</h3>
+            <p class="process-card__desc">
+              Завозим сухие смеси, кабельную продукцию и трубы напрямую с заводов Knauf, Rehau и Ceresit со складов.
+            </p>
+          </div>
+
+          <!-- Step 4 -->
+          <div class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__num">04</span>
+              <span class="process-card__tag">Черновой этап</span>
+            </div>
+            <h3 class="process-card__title">Черновые и инженерные работы</h3>
+            <p class="process-card__desc">
+              Возведение перегородок, полусухая стяжка пола, выравнивание стен по маякам, разводка электрики и сантехники.
+            </p>
+          </div>
+
+          <!-- Step 5 -->
+          <div class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__num">05</span>
+              <span class="process-card__tag">Чистовой этап</span>
+            </div>
+            <h3 class="process-card__title">Чистовая отделка</h3>
+            <p class="process-card__desc">
+              Укладка керамогранита, малярные работы, установка чистовой электрики, дверей и встроенного освещения.
+            </p>
+          </div>
+
+          <!-- Step 6 -->
+          <div class="process-card">
+            <div class="process-card__header">
+              <span class="process-card__num process-card__num--accent">06</span>
+              <span class="process-card__tag process-card__tag--emerald">КС-2 / КС-3</span>
+            </div>
+            <h3 class="process-card__title">Техприемка и клининг</h3>
+            <p class="process-card__desc">
+              Проводим клининг, подписываем акт приемки-передачи, передаем полный комплект исполнительной документации.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         5. WHY US / LASER PRECISION SHOWCASE (Фотография лазерной точности)
+         ======================================================================== -->
+    <section class="section section--why-us" id="why-us">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">Надежность и контроль</span>
+          <h2 class="section-title section-title--dark">
+            Почему 84% B2B-заказчиков выбирают «Строй-Мастер»
+          </h2>
+          <p class="section-desc section-desc--dark section-desc--center">
+            Мы полностью устранили классические риски строительной сферы благодаря строгой дисциплине и юридической ответственности.
+          </p>
+        </div>
+
+        <!-- 3 Feature Cards Grid -->
+        <div class="why-grid">
+          
+          <!-- Card 1 -->
+          <div class="why-card">
+            <div class="why-card__num">01</div>
+            <h3 class="why-card__title">Трезвые и дисциплинированные бригады</h3>
+            <p class="why-card__desc">
+              Только штатные специалисты с опытом от 7 лет. Каждый сотрудник проходит ежедневное алкотестирование перед сменой.
+            </p>
+            <ul class="why-card__list">
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Онлайн-видеонаблюдение 24/7
+              </li>
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Ежедневный фото/видео отчет в Telegram
+              </li>
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Соблюдение законов о тишине и ТБ
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="why-card">
+            <div class="why-card__num why-card__num--accent">02</div>
+            <h3 class="why-card__title">Оплата по факту выполнения каждого этапа</h3>
+            <p class="why-card__desc">
+              Никаких скрытых платежей и авансов за работу. Вы переводите деньги только после приемки выполненного этапа по КС-2.
+            </p>
+            <ul class="why-card__list">
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Поэтапная система расчетов
+              </li>
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Фиксация стоимости в договоре
+              </li>
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Приемка инженером технадзора
+              </li>
+            </ul>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="why-card">
+            <div class="why-card__num">03</div>
+            <h3 class="why-card__title">Оптовые цены на материалы (до 20%)</h3>
+            <p class="why-card__desc">
+              Прямые дилерские контракты с Knauf, Ceresit, Tarkett, Legrand. Закупаем строительные материалы по оптовым ценам.
+            </p>
+            <ul class="why-card__list">
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Собственный склад сухих смесей
+              </li>
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Сертификаты соответствия ГОСТ
+              </li>
+              <li class="why-card__item">
+                <span class="why-card__bullet"></span>
+                Бесплатная доставка и подъем
+              </li>
+            </ul>
+          </div>
+
+        </div>
+
+        <!-- Laser Precision Showcase Banner (With Real Photo) -->
+        <div class="showcase-banner">
+          <div class="image image--showcase">
+            <img src="https://images.unsplash.com/photo-1581092160607-ee22621dd758?q=80&w=1000&auto=format&fit=crop" alt="Лазерный контроль точности выравнивания до 1 мм" width="570" height="340" style="width:100%;height:100%;object-fit:cover;">
+          </div>
+          <div class="showcase-banner__content">
+            <span class="section-tag">Инженерный контроль</span>
+            <h3 class="section-title section-title--showcase">
+              Лазерная точность выравнивания с допуском до 1 мм
+            </h3>
+            <p class="section-desc section-desc--showcase">
+              Мы используем профессиональные немецкие лазерные нивелиры и трехмерные сканеры геометрии помещений. Каждая стяжка и перегородка проверяется электронными склерометрами с фиксацией в журнале технадзора.
+            </p>
+            
+            <div class="showcase-banner__stats">
+              <div class="showcase-stat">
+                <div class="showcase-stat__value">450+</div>
+                <div class="showcase-stat__label">Объектов сдано</div>
+              </div>
+              <div class="showcase-stat__divider"></div>
+              <div class="showcase-stat">
+                <div class="showcase-stat__value showcase-stat__value--amber">0</div>
+                <div class="showcase-stat__label">Срывов сроков</div>
+              </div>
+            </div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         6. MATERIALS / SUPPLIERS CATALOG
+         ======================================================================== -->
+    <section class="section section--materials" id="materials">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">Дилерская сеть</span>
+          <h2 class="section-title section-title--dark">
+            Прямые поставки со складов производителей со скидкой 20%
+          </h2>
+          <p class="section-desc section-desc--dark section-desc--center">
+            Мы не покупаем материалы на розничных рынках. Каждая партия поступает на ваш объект напрямую от заводов-изготовителей.
+          </p>
+        </div>
+
+        <div class="materials-grid">
+          <div class="material-card">
+            <div class="material-card__brand">KNAUF</div>
+            <div class="material-card__cat">Гипсокартон &amp; Смеси</div>
+          </div>
+          <div class="material-card">
+            <div class="material-card__brand">CERESIT</div>
+            <div class="material-card__cat">Клеи &amp; Гидроизоляция</div>
+          </div>
+          <div class="material-card">
+            <div class="material-card__brand">REHAU</div>
+            <div class="material-card__cat">Трубы &amp; Сантехника</div>
+          </div>
+          <div class="material-card">
+            <div class="material-card__brand">LEGRAND</div>
+            <div class="material-card__cat">Кабель &amp; Автоматы</div>
+          </div>
+          <div class="material-card">
+            <div class="material-card__brand">TARKETT</div>
+            <div class="material-card__cat">Напольные покрытия</div>
+          </div>
+          <div class="material-card">
+            <div class="material-card__brand">GROHE</div>
+            <div class="material-card__cat">Смесители &amp; Инсталляции</div>
+          </div>
+          <div class="material-card">
+            <div class="material-card__brand">SCHNEIDER</div>
+            <div class="material-card__cat">Электрооборудование</div>
+          </div>
+          <div class="material-card">
+            <div class="material-card__brand">ROCKWOOL</div>
+            <div class="material-card__cat">Звукоизоляция</div>
+          </div>
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         7. PRICING GRID
+         ======================================================================== -->
+    <section class="section section--pricing" id="pricing">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">Сетка стоимости</span>
+          <h2 class="section-title section-title--dark">Прозрачные тарифы за 1 м²</h2>
+          <p class="section-desc section-desc--dark section-desc--center">
+            Фиксированная цена прописывается в приложении к договору. Никаких дополнительных доплат в ходе работ.
+          </p>
+        </div>
+
+        <div class="pricing-grid">
+          
+          <!-- Tariff 1: Cosmetic -->
+          <div class="pricing-card">
+            <div class="pricing-card__tag">Тариф 01</div>
+            <h3 class="pricing-card__title">Косметический</h3>
+            <p class="pricing-card__desc">Быстрое обновление помещений и офисов без перепланировок</p>
+            
+            <div class="pricing-card__price-box">
+              <div class="pricing-card__price-label">Стоимость работ</div>
+              <div class="pricing-card__price-val">от 6 500 ₽ <span>/ м²</span></div>
+            </div>
+
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>Демонтаж старых отделочных покрытий</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>Шпаклевка и грунтовка стен под обои/покраску</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>Укладка ламината, линолеума или ковролина</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>Замена выключателей и розеток</span>
+              </li>
+            </ul>
+
+            <a href="#calculator" class="button button--secondary button--full">
+              Заказать косметический
+            </a>
+          </div>
+
+          <!-- Tariff 2: Capital (Featured) -->
+          <div class="pricing-card pricing-card--featured">
+            <div class="pricing-card__badge">ВЫБОР 75% B2B-ЗАКАЗЧИКОВ</div>
+
+            <div class="pricing-card__tag">Тариф 02 — ХИТ</div>
+            <h3 class="pricing-card__title">Капитальный</h3>
+            <p class="pricing-card__desc">Полный комплекс работ с инженерными сетями и черновой отделкой</p>
+            
+            <div class="pricing-card__price-box">
+              <div class="pricing-card__price-label">Стоимость работ</div>
+              <div class="pricing-card__price-val">от 12 000 ₽ <span>/ м²</span></div>
+            </div>
+
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span><strong>Перепланировка:</strong> возведение перегородок из пеноблока</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span><strong>Электрика под ключ:</strong> штробление, щит, кабельная разводка</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span><strong>Сантехника:</strong> разводка коллекторного узла Rehau/Far</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span><strong>Черновые работы:</strong> стяжка пола, выравнивание по маякам</span>
+              </li>
+            </ul>
+
+            <a href="#calculator" class="button button--primary button--full">
+              Рассчитать капитальный
+            </a>
+          </div>
+
+          <!-- Tariff 3: Premium -->
+          <div class="pricing-card">
+            <div class="pricing-card__tag">Тариф 03</div>
+            <h3 class="pricing-card__title">Премиум</h3>
+            <p class="pricing-card__desc">Авторский ремонт элитных объектов с индивидуальным дизайном</p>
+            
+            <div class="pricing-card__price-box">
+              <div class="pricing-card__price-label">Стоимость работ</div>
+              <div class="pricing-card__price-val">от 22 000 ₽ <span>/ м²</span></div>
+            </div>
+
+            <ul class="pricing-card__features">
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span><strong>Дизайн-проект:</strong> с полной 3D-визуализацией</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>Авторский надзор архитектора 24/7</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>Премиальная звукоизоляция по кругу</span>
+              </li>
+              <li class="pricing-card__feature-item">
+                <span class="svg-icon svg-icon--sm pricing-card__check">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <span>Монтаж «Умный Дом» и приточной вентиляции</span>
+              </li>
+            </ul>
+
+            <a href="#calculator" class="button button--secondary button--full">
+              Заказать премиум
+            </a>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         8. LEAD CAPTURE CALCULATOR FORM
+         ======================================================================== -->
+    <section class="section section--calculator" id="calculator">
+      <div class="container">
+        
+        <div class="calc-layout">
+          
+          <!-- Left Column: Info & Bonus Box -->
+          <div class="calc-info">
+            <span class="badge badge--calc">Онлайн-калькулятор</span>
+            <h2 class="section-title section-title--dark section-title--calc">
+              Рассчитайте точную смету за 2 минуты
+            </h2>
+            <p class="section-desc section-desc--dark section-desc--calc">
+              Выберите параметры вашего объекта. Калькулятор автоматически сформирует предварительный бюджет и нормативный срок выполнения работ.
+            </p>
+
+            <div class="calc-bonus-card">
+              <div class="calc-bonus-card__title">Бонус при расчете сегодня:</div>
+              <div class="calc-bonus-item">
+                <span class="svg-icon svg-icon--sm calc-bonus-item__mark">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <div><strong>Скидка 5% на стройматериалы</strong> от дилерских прайсов при заключении договора до конца недели.</div>
+              </div>
+              <div class="calc-bonus-item">
+                <span class="svg-icon svg-icon--sm calc-bonus-item__mark">
+                  <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+                    <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+                  </svg>
+                </span>
+                <div><strong>Бесплатный выезд инженера-замерщика</strong> с лазерным сканером в любую точку Москвы и МО.</div>
+              </div>
+            </div>
+          </div>
+
+          <!-- Right Column: Interactive Form -->
+          <div class="calc-form-card">
+            <form id="calculator-form">
+              
+              <!-- Step 1: Object Type -->
+              <div class="calc-field">
+                <label for="calc-object-type" class="calc-label">1. Тип объекта</label>
+                <select id="calc-object-type" class="calc-select">
+                  <option value="1.0">Квартира / Жилищный комплекс</option>
+                  <option value="1.15">Офис / Бизнес-центр</option>
+                  <option value="1.25">Коттедж / Таунхаус</option>
+                  <option value="1.35">Коммерческое помещение / Ритейл</option>
+                </select>
+              </div>
+
+              <!-- Step 2: Area Slider -->
+              <div class="calc-field">
+                <div class="calc-area-row">
+                  <label for="calc-area-input" class="calc-label calc-label--mb0">2. Площадь помещения (м²)</label>
+                  <div class="calc-area-num">
+                    <input type="number" id="calc-area-input" value="85" min="10" max="1000" class="calc-area-input-box">
+                    <span class="calc-area-unit">м²</span>
+                  </div>
+                </div>
+                <input type="range" id="calc-area-slider" min="10" max="500" value="85" class="calc-range">
+              </div>
+
+              <!-- Step 3: Renovation Type Radios -->
+              <div class="calc-field">
+                <label class="calc-label">3. Вид ремонта</label>
+                <div class="calc-radios">
+                  <label class="calc-radio-label">
+                    <input type="radio" name="calc-renovation-type" value="6500">
+                    <span>Косметический</span>
+                  </label>
+                  <label class="calc-radio-label">
+                    <input type="radio" name="calc-renovation-type" value="12000" checked>
+                    <span>Капитальный</span>
+                  </label>
+                  <label class="calc-radio-label">
+                    <input type="radio" name="calc-renovation-type" value="22000">
+                    <span>Премиум</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Step 4: Additional Options -->
+              <div class="calc-field">
+                <label class="calc-label">4. Дополнительные опции</label>
+                <div class="calc-checkbox-group">
+                  <label class="calc-checkbox-label">
+                    <input type="checkbox" id="calc-opt-design">
+                    <span>Разработка 3D Дизайн-проекта (+1 500 ₽/м²)</span>
+                  </label>
+                  <label class="calc-checkbox-label">
+                    <input type="checkbox" id="calc-opt-demolition">
+                    <span>Демонтажные работы старых конструкций (+800 ₽/м²)</span>
+                  </label>
+                  <label class="calc-checkbox-label">
+                    <input type="checkbox" id="calc-opt-engineering">
+                    <span>Замена сантехники и электрики под ключ (+2 500 ₽/м²)</span>
+                  </label>
+                </div>
+              </div>
+
+              <!-- Dynamic Result Calculation Box -->
+              <div class="calc-result-box">
+                <div>
+                  <div class="calc-result-sub">Предварительный расчет:</div>
+                  <div class="calc-result-total">
+                    <span id="calc-total-min">0 ₽</span> – <span id="calc-total-max">0 ₽</span>
+                  </div>
+                </div>
+                <div>
+                  <div class="calc-result-sub">Срок выполнения:</div>
+                  <div id="calc-duration" class="calc-result-days">0 рабочих дней</div>
+                </div>
+              </div>
+
+              <!-- Contact Inputs -->
+              <div class="calc-form-grid">
+                <div>
+                  <label class="calc-label">Ваше имя</label>
+                  <input type="text" placeholder="Александр" required class="calc-input">
+                </div>
+                <div>
+                  <label class="calc-label">Телефон для связи *</label>
+                  <input type="tel" placeholder="+7 (___) ___-__-__" required class="calc-input">
+                </div>
+              </div>
+
+              <!-- Submit Button -->
+              <button type="submit" class="button button--primary button--full">
+                Получить подробную смету в PDF
+              </button>
+              <div class="calc-privacy-note">
+                Нажимая кнопку, вы соглашаетесь на обработку персональных данных
+              </div>
+
+            </form>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         9. OPEN FAQ CARDS SECTION (3-Column Knowledge Base Grid)
+         ======================================================================== -->
+    <section class="section section--qa-cards" id="qa-cards">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">База знаний заказчика</span>
+          <h2 class="section-title section-title--dark">Ответы на главные вопросы в одном месте</h2>
+          <p class="section-desc section-desc--dark section-desc--center">
+            Все ключевые условия работы, юридические гарантии и регламенты контроля открыто и без скрытых сносок.
+          </p>
+        </div>
+
+        <div class="qa-grid">
+          
+          <!-- Card 1 -->
+          <div class="qa-card">
+            <div class="qa-card__header">
+              <span class="qa-card__tag">Смета и бюджет</span>
+              <span class="qa-card__num">01</span>
+            </div>
+            <h3 class="qa-card__question">Может ли стоимость вырасти в процессе выполнения ремонта?</h3>
+            <p class="qa-card__answer">
+              <strong>Исключено.</strong> Точная смета фиксируется в Приложении №1 к договору СРО. Если в ходе работ возникают непредвиденные затраты на черновые материалы или доработки по вине проектировщика, холдинг покрывает их за свой счет.
+            </p>
+          </div>
+
+          <!-- Card 2 -->
+          <div class="qa-card">
+            <div class="qa-card__header">
+              <span class="qa-card__tag">Сроки и график</span>
+              <span class="qa-card__num">02</span>
+            </div>
+            <h3 class="qa-card__question">Какая ответственность предусмотрена за срыв сроков сдачи?</h3>
+            <p class="qa-card__answer">
+              В договоре зафиксирован <strong>штраф 0.1% от суммы этапа за каждый день задержки</strong> по нашей вине. Компенсация рассчитывается автоматически и вычитается из финального акта приемки КС-2.
+            </p>
+          </div>
+
+          <!-- Card 3 -->
+          <div class="qa-card">
+            <div class="qa-card__header">
+              <span class="qa-card__tag">Контроль и надзор</span>
+              <span class="qa-card__num">03</span>
+            </div>
+            <h3 class="qa-card__question">Как контролировать ход работ без постоянных поездок на объект?</h3>
+            <p class="qa-card__answer">
+              В первый день устанавливаем <strong>HD-камеры 24/7</strong> с онлайн-доступом в приложении на смартфоне. Дополнительно прораб каждый вечер высылает фото/видео отчет о выполненных объемах в закрытый Telegram-чат.
+            </p>
+          </div>
+
+          <!-- Card 4 -->
+          <div class="qa-card">
+            <div class="qa-card__header">
+              <span class="qa-card__tag">Оплата и НДС</span>
+              <span class="qa-card__num">04</span>
+            </div>
+            <h3 class="qa-card__question">Работаете ли вы с юрлицами с НДС 20% и по безналичному расчету?</h3>
+            <p class="qa-card__answer">
+              <strong>Да, более 60% заказчиков — юрлица.</strong> Работаем по безналичному расчету с НДС 20% или УСН. Предоставляем полный комплект закрывающих документов по формам КС-2, КС-3 и электронный документооборот (Диадок).
+            </p>
+          </div>
+
+          <!-- Card 5 -->
+          <div class="qa-card">
+            <div class="qa-card__header">
+              <span class="qa-card__tag">Материалы и опт</span>
+              <span class="qa-card__num">05</span>
+            </div>
+            <h3 class="qa-card__question">Кто закупает материалы и как гарантируется их подлинность?</h3>
+            <p class="qa-card__answer">
+              Закупаем материалы напрямую у заводов-изготовителей (Knauf, Ceresit, Rehau, Legrand) <strong>с дилерской скидкой до 20%</strong>. Все партии сертифицированы ГОСТ. Доставка, разгрузка и подъем на этаж включены в смету.
+            </p>
+          </div>
+
+          <!-- Card 6 -->
+          <div class="qa-card">
+            <div class="qa-card__header">
+              <span class="qa-card__tag">Гарантия 5 лет</span>
+              <span class="qa-card__num">06</span>
+            </div>
+            <h3 class="qa-card__question">Что покрывает 5-летняя гарантия и как быстро выезжает мастер?</h3>
+            <p class="qa-card__answer">
+              Гарантия 5 лет действует на все инженерные сети (электрика, сантехника, вентиляция), стяжки и финишные покрытия. В случае любого гарантийного обращения аварийная бригада инженеров выезжает <strong>в течение 24 часов</strong>.
+            </p>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         10. VIDEO REVIEWS SECTION (Видеоотзывы с кнопкой Play)
+         ======================================================================== -->
+    <section class="section section--video-reviews" id="reviews">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">Видеоотзывы клиентов</span>
+          <h2 class="section-title section-title--dark">Живые видео-кейсы со сданных объектов</h2>
+          <p class="section-desc section-desc--dark section-desc--center">
+            Посмотрите, как проходил ремонт на реальных объектах Москвы и МО и что говорят заказчики о соблюдении сметы и сроков.
+          </p>
+        </div>
+
+        <div class="video-reviews-grid">
+          
+          <!-- Review 1: Office Renovation -->
+          <div class="video-card" data-modal-target="video-modal" data-video-title="Ремонт офиса IT-компании 450 м² (Михаил Воронов)">
+            <div class="video-card__thumb">
+              <img src="https://images.unsplash.com/photo-1497366811353-6870744d04b2?q=80&w=1000&auto=format&fit=crop" alt="Видеоотзыв: Ремонт офиса 450 м²" width="570" height="320" style="width:100%;height:100%;object-fit:cover;">
+              <div class="video-card__overlay">
+                <button type="button" class="video-play-btn" aria-label="Смотреть видеоотзыв">
+                  <span class="video-play-btn__pulse"></span>
+                  <span class="svg-icon video-play-btn__icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <span class="video-card__duration">02:45 мин</span>
+              <span class="video-card__badge">B2B Офис</span>
+            </div>
+            <div class="video-card__info">
+              <div class="video-card__author">
+                <div class="video-card__author-avatar">МВ</div>
+                <div>
+                  <h3 class="video-card__author-name">Михаил Воронов</h3>
+                  <p class="video-card__author-role">Генеральный директор IT-холдинга «CloudTech»</p>
+                </div>
+              </div>
+              <p class="video-card__quote">
+                «Сдали 450 м² офиса на 3 дня раньше срока по договору. Все акты КС-2 подписаны без замечаний технадзора.»
+              </p>
+              <div class="video-card__specs">
+                <span>Объект: 450 м²</span>
+                <span>Срок: 42 дня</span>
+                <span>Смета: Фиксированная</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 2: Penthouse Turnkey -->
+          <div class="video-card" data-modal-target="video-modal" data-video-title="Капитальный ремонт пентхауса 240 м² (Елена Смирнова)">
+            <div class="video-card__thumb">
+              <img src="https://images.unsplash.com/photo-1600566753376-12c8ab7fb75b?q=80&w=1000&auto=format&fit=crop" alt="Видеоотзыв: Ремонт пентхауса 240 м²" width="570" height="320" style="width:100%;height:100%;object-fit:cover;">
+              <div class="video-card__overlay">
+                <button type="button" class="video-play-btn" aria-label="Смотреть видеоотзыв">
+                  <span class="video-play-btn__pulse"></span>
+                  <span class="svg-icon video-play-btn__icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <span class="video-card__duration">03:12 мин</span>
+              <span class="video-card__badge">Пентхаус</span>
+            </div>
+            <div class="video-card__info">
+              <div class="video-card__author">
+                <div class="video-card__author-avatar">ЕС</div>
+                <div>
+                  <h3 class="video-card__author-name">Елена Смирнова</h3>
+                  <p class="video-card__author-role">Собственница пентхауса в ЖК «Сити Парк»</p>
+                </div>
+              </div>
+              <p class="video-card__quote">
+                «Никаких доплат в процессе! Отдельное спасибо за ежедневные фотоотчеты в Telegram и идеальную шумоизоляцию.»
+              </p>
+              <div class="video-card__specs">
+                <span>Объект: 240 м²</span>
+                <span>Срок: 75 дней</span>
+                <span>Гарантия: 5 лет</span>
+              </div>
+            </div>
+          </div>
+
+          <!-- Review 3: Commercial Laser Renovation -->
+          <div class="video-card" data-modal-target="video-modal" data-video-title="Отделка коммерческого пространства 520 м² (Артем Григорьев)">
+            <div class="video-card__thumb">
+              <img src="https://images.unsplash.com/photo-1513694203232-719a280e022f?q=80&w=1000&auto=format&fit=crop" alt="Видеоотзыв: Коммерческая отделка" width="570" height="320" style="width:100%;height:100%;object-fit:cover;">
+              <div class="video-card__overlay">
+                <button type="button" class="video-play-btn" aria-label="Смотреть видеоотзыв">
+                  <span class="video-play-btn__pulse"></span>
+                  <span class="svg-icon video-play-btn__icon">
+                    <svg viewBox="0 0 24 24" fill="currentColor">
+                      <path d="M8 5v14l11-7z"/>
+                    </svg>
+                  </span>
+                </button>
+              </div>
+              <span class="video-card__duration">01:58 мин</span>
+              <span class="video-card__badge">Ритейл / Шоурум</span>
+            </div>
+            <div class="video-card__info">
+              <div class="video-card__author">
+                <div class="video-card__author-avatar">АГ</div>
+                <div>
+                  <h3 class="video-card__author-name">Артем Григорьев</h3>
+                  <p class="video-card__author-role">Управляющий партнер девелоперской группы</p>
+                </div>
+              </div>
+              <p class="video-card__quote">
+                «Лазерная геометрия стен и перегородок с допуском до 1 мм. Закупали материалы напрямую с заводов по оптовым ценам.»
+              </p>
+              <div class="video-card__specs">
+                <span>Объект: 520 м²</span>
+                <span>Срок: 45 дней</span>
+                <span>Экономия: 18%</span>
+              </div>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         11. COMPLETED PROJECTS SHOWCASE (Реализованные проекты 2024-2026)
+         ======================================================================== -->
+    <section class="section section--portfolio" id="portfolio">
+      <div class="container">
+        
+        <div class="portfolio-header-row">
+          <div>
+            <span class="section-tag">Портфолио объектов</span>
+            <h2 class="section-title section-title--dark section-title--mb0">Реализованные проекты 2024–2026</h2>
+          </div>
+          <button type="button" data-modal-target="call-modal" class="button button--secondary">
+            Запросить просмотр живого объекта
+          </button>
+        </div>
+
+        <div class="portfolio-grid">
+          
+          <!-- Project 1: Luxury Penthouse -->
+          <div class="portfolio-card">
+            <div class="image image--portfolio">
+              <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?q=80&w=1000&auto=format&fit=crop" alt="Готовый ремонт пентхауса в ЖК Сити Парк" width="570" height="280" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="portfolio-card__meta">
+              <div class="portfolio-card__tag">ЖК «Сити Парк» (Пресненский район)</div>
+              <h4 class="portfolio-card__title">Капитальный ремонт пентхауса 240 м²</h4>
+              <p class="portfolio-card__desc">Срок реализации: 75 дней. Смета: 3 850 000 ₽. Сдано точно в день договора по КС-2.</p>
+            </div>
+          </div>
+          
+          <!-- Project 2: Corporate B2B Office -->
+          <div class="portfolio-card">
+            <div class="image image--portfolio">
+              <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?q=80&w=1000&auto=format&fit=crop" alt="Реконструкция офиса класса A Метрополис" width="570" height="280" style="width:100%;height:100%;object-fit:cover;">
+            </div>
+            <div class="portfolio-card__meta">
+              <div class="portfolio-card__tag">Бизнес-Центр «Метрополис»</div>
+              <h4 class="portfolio-card__title">Реконструкция офиса класса A 520 м²</h4>
+              <p class="portfolio-card__desc">Срок реализации: 45 дней. Поэтапная оплата по КС-2 без замедления графиков.</p>
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+    <!-- ========================================================================
+         12. FAQ ACCORDION SECTION
+         ======================================================================== -->
+    <section class="section section--faq" id="faq">
+      <div class="container">
+        
+        <div class="section-heading">
+          <span class="section-tag">Ответы на вопросы</span>
+          <h2 class="section-title section-title--dark">Часто задаваемые вопросы B2B-заказчиков</h2>
+        </div>
+
+        <div class="faq-list">
+          
+          <!-- FAQ 1 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-question__text">Что происходит, если в процессе ремонта всплывают скрытые работы?</span>
+              <span class="svg-icon faq-question__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer">
+              До выезда на объект мы проводим лазерное обследование. Если на этапе демонтажа выявляются скрытые особенности несущих конструкций, все доп. соглашения согласовываются с технадзором до их начала, без остановки основного графика.
+            </div>
+          </div>
+
+          <!-- FAQ 2 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-question__text">Как работает юридический штраф 0.1% за каждый день просрочки?</span>
+              <span class="svg-icon faq-question__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer">
+              Условие прописано в основном тексте договора СРО. За каждый календарный день задержки сдачи этапа по нашей вине сумма итогового расчета уменьшается на 0.1% от общей стоимости этапа.
+            </div>
+          </div>
+
+          <!-- FAQ 3 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-question__text">Работаете ли вы с юрлицами по безналичному расчету с НДС?</span>
+              <span class="svg-icon faq-question__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer">
+              Да, 60% наших клиентов — юридические лица. Мы выставляем счета с НДС 20% или УСН, предоставляем полный комплект закрывающих документов по формам КС-2, КС-3 и счет-фактурам.
+            </div>
+          </div>
+
+          <!-- FAQ 4 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-question__text">Кто контролирует качество и присутствие рабочих на объекте?</span>
+              <span class="svg-icon faq-question__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer">
+              За каждым объектом закрепляется прораб и инженер технадзора. На объекте устанавливается 24/7 HD-камера видеонаблюдения с трансляцией на ваш смартфон, а прораб направляет фото-отчеты в Telegram каждые сутки.
+            </div>
+          </div>
+
+          <!-- FAQ 5 -->
+          <div class="faq-item">
+            <div class="faq-question">
+              <span class="faq-question__text">Предоставляется ли скидка при объемах свыше 300 м²?</span>
+              <span class="svg-icon faq-question__icon">
+                <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+                  <path stroke-linecap="round" stroke-linejoin="round" d="M19 9l-7 7-7-7"/>
+                </svg>
+              </span>
+            </div>
+            <div class="faq-answer">
+              При площадях от 300 м² действует оптовый коэффициент на стоимость работ и прямая дилерская скидка до 20% на весь объем черновых материалов.
+            </div>
+          </div>
+
+        </div>
+
+      </div>
+    </section>
+
+  </main>
+
+  <!-- ==========================================================================
+       13. FOOTER (Deep Navy E-E-A-T Compliance)
+       ========================================================================== -->
+  <footer class="footer">
+    <div class="container">
+      
+      <div class="footer__main">
+        
+        <!-- Col 1: Brand & Legal Credentials -->
+        <div>
+          <a href="#" class="brand-logo brand-logo--footer">
+            <span class="brand-logo__mark">СМ</span>
+            <span class="brand-logo__info">
+              <span class="brand-logo__name">СТРОЙ-МАСТЕР</span>
+              <span class="brand-logo__sub">Строительный холдинг</span>
+            </span>
+          </a>
+          <p class="footer__brand-text">
+            Строительно-инжиниринговый холдинг. Капитальный ремонт и отделка недвижимости под ключ с 2012 года.
+          </p>
+          <div class="footer__legal-ids">
+            <div>ООО «СТРОЙ-МАСТЕР Б2Б»</div>
+            <div>ОГРН: 1187746012345 | ИНН: 7701234567</div>
+            <div>Член СРО «Альянс Строителей» №0482.01</div>
+          </div>
+        </div>
+
+        <!-- Col 2: Navigation -->
+        <div>
+          <div class="footer__title">Разделы</div>
+          <div class="footer__links">
+            <a href="#process" class="footer__link">Этапы работ</a>
+            <a href="#why-us" class="footer__link">Стандарты качества</a>
+            <a href="#materials" class="footer__link">Поставщики материалов</a>
+            <a href="#pricing" class="footer__link">Сетка тарифов</a>
+            <a href="#calculator" class="footer__link">Калькулятор сметы</a>
+            <a href="#qa-cards" class="footer__link">База знаний инженеров</a>
+            <a href="#reviews" class="footer__link">Видеоотзывы клиентов</a>
+            <a href="#portfolio" class="footer__link">Реализованные объекты</a>
+          </div>
+        </div>
+
+        <!-- Col 3: Contacts -->
+        <div>
+          <div class="footer__title">Контакты</div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">Головной офис:</span>
+            <div class="footer__contact-val">123317, Москва, Пресненская наб., 12 (Башня «Федерация-Восток», 34 этаж)</div>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">Телефон:</span>
+            <div class="footer__contact-val">
+              <a href="tel:+74951234567">+7 (495) 123-45-67</a>
+            </div>
+          </div>
+          <div class="footer__contact-item">
+            <span class="footer__contact-label">E-mail для смет:</span>
+            <div class="footer__contact-val">
+              <a href="mailto:info@stroy-master-b2b.ru">info@stroy-master-b2b.ru</a>
+            </div>
+          </div>
+        </div>
+
+        <!-- Col 4: Guarantee Notice -->
+        <div>
+          <div class="footer__compliance-card">
+            <div class="footer__compliance-title">Юридическая чистота</div>
+            <p class="footer__compliance-text">
+              Все работы производятся в строгом соответствии с СНиП, СП и ГОСТ РФ. Финансовая ответственность застрахована на 50 000 000 ₽.
+            </p>
+            <span class="badge badge--accent">
+              E-E-A-T Verified 2026
+            </span>
+          </div>
+        </div>
+
+      </div>
+
+      <!-- Bottom Copyright Bar -->
+      <div class="footer__bottom">
+        <div>© 2012–2026 ООО «Строй-Мастер». Все права защищены.</div>
+        <div class="footer__bottom-links">
+          <a href="#">Политика конфиденциальности</a>
+          <a href="#">Согласие на обработку данных</a>
+        </div>
+      </div>
+
+    </div>
+  </footer>
+
+  <!-- ==========================================================================
+       14. MODAL: Call Engineer Form
+       ========================================================================== -->
+  <div id="call-modal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="call-modal-title">
+    <div class="modal-card">
+      <button type="button" data-modal-close class="button modal-close" aria-label="Закрыть">
+        <span class="svg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </span>
+      </button>
+      <span class="section-tag">Вызов специалиста</span>
+      <h3 id="call-modal-title" class="section-title section-title--dark section-title--modal">Вызвать инженера-замерщика</h3>
+      <p class="section-desc section-desc--dark section-desc--modal">
+        Замерщик приедет в удобное время с лазерным оборудованием и составит точную смету на месте.
+      </p>
+
+      <form class="calc-field calc-field--mb0">
+        <div class="form-group">
+          <label class="calc-label">Ваше имя</label>
+          <input type="text" required placeholder="Иван Петров" class="calc-input">
+        </div>
+        <div class="form-group">
+          <label class="calc-label">Телефон для связи *</label>
+          <input type="tel" required placeholder="+7 (___) ___-__-__" class="calc-input">
+        </div>
+        <div class="form-group form-group--lg">
+          <label class="calc-label">Адрес объекта (необязательно)</label>
+          <input type="text" placeholder="г. Москва, ул. Ленина, д. 10" class="calc-input">
+        </div>
+        <button type="submit" class="button button--primary button--full">
+          Подтвердить вызов замерщика
+        </button>
+      </form>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       15. MODAL: Success Confirmation
+       ========================================================================== -->
+  <div id="success-modal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="success-modal-title">
+    <div class="modal-card modal-card--center">
+      <button type="button" data-modal-close class="button modal-close" aria-label="Закрыть">
+        <span class="svg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </span>
+      </button>
+      <div class="modal-success-icon-box">
+        <span class="svg-icon svg-icon--lg modal-success-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M5 13l4 4L19 7"/>
+          </svg>
+        </span>
+      </div>
+      <h3 id="success-modal-title" class="section-title section-title--dark section-title--modal">Заявка успешно принята!</h3>
+      <p class="section-desc section-desc--dark section-desc--success">
+        Наш главный инженер-технадзор уже изучает параметры вашего объекта. Мы свяжемся с вами в течение 15 минут для уточнения удобного времени.
+      </p>
+      <button type="button" data-modal-close class="button button--secondary button--full">
+        Закрыть окно
+      </button>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       16. MODAL: Video Player Modal
+       ========================================================================== -->
+  <div id="video-modal" class="modal-container" role="dialog" aria-modal="true" aria-labelledby="video-modal-title">
+    <div class="modal-card modal-card--video">
+      <button type="button" data-modal-close class="button modal-close" aria-label="Закрыть">
+        <span class="svg-icon">
+          <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+            <path stroke-linecap="round" stroke-linejoin="round" d="M6 18L18 6M6 6l12 12"/>
+          </svg>
+        </span>
+      </button>
+      <h3 id="video-modal-title" class="section-title section-title--dark section-title--modal">Видеоотзыв заказчика</h3>
+      <div class="video-modal-player">
+        <div class="video-sim-screen">
+          <div class="video-sim-badge">HD 1080p · Сдано точно в срок</div>
+          <div class="video-sim-controls">
+            <button type="button" class="video-sim-play-pause">▶</button>
+            <div class="video-sim-bar"><div class="video-sim-progress"></div></div>
+            <span class="video-sim-time">01:14 / 02:45</span>
+          </div>
+        </div>
+      </div>
+      <p class="section-desc section-desc--dark section-desc--center" style="margin-top: 14px;">
+        Запись видеоотзыва на объекте заказчика после официального подписания акта сдачи-приемки КС-2.
+      </p>
+    </div>
+  </div>
+
+  <!-- ==========================================================================
+       17. BACK TO TOP BUTTON (Кнопка «Наверх»)
+       ========================================================================== -->
+  <button type="button" id="back-to-top" class="back-to-top" aria-label="Наверх" title="Наверх">
+    <span class="svg-icon back-to-top__icon">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2.5">
+        <path stroke-linecap="round" stroke-linejoin="round" d="M5 15l7-7 7 7"/>
+      </svg>
+    </span>
+    <span class="back-to-top__text">Наверх</span>
+  </button>
+
+  <!-- JavaScript -->
+  <script src="js/app.js"></script>
+</body>
+</html>
