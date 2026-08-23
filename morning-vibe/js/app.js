@@ -1,22 +1,33 @@
-// Morning Vibe — мобильное меню
+// Morning Vibe — мобильное меню и форма бронирования
 
 document.addEventListener('DOMContentLoaded', () => {
   const burger = document.getElementById('burger');
-  const nav = document.getElementById('nav');
+  const mobileNav = document.getElementById('mobileNav');
 
-  if (burger && nav) {
+  if (burger && mobileNav) {
     burger.addEventListener('click', () => {
-      const isOpen = nav.classList.toggle('nav--open');
+      const isOpen = mobileNav.classList.toggle('is-open');
       burger.setAttribute('aria-expanded', String(isOpen));
       burger.classList.toggle('is-active', isOpen);
     });
 
-    nav.querySelectorAll('a').forEach((link) => {
+    mobileNav.querySelectorAll('a').forEach((link) => {
       link.addEventListener('click', () => {
-        nav.classList.remove('nav--open');
+        mobileNav.classList.remove('is-open');
         burger.setAttribute('aria-expanded', 'false');
         burger.classList.remove('is-active');
       });
+    });
+  }
+
+  const form = document.getElementById('bookingForm');
+  const success = document.getElementById('bookingSuccess');
+
+  if (form && success) {
+    form.addEventListener('submit', (event) => {
+      event.preventDefault();
+      success.classList.add('is-visible');
+      form.reset();
     });
   }
 });
