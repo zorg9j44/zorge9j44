@@ -1,0 +1,315 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Morning Vibe — уютная кофейня в центре города</title>
+<meta name="description" content="Morning Vibe — кофейня в самом центре города. Свежая обжарка, авторская выпечка и тёплая атмосфера каждый день с 8 утра.">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'%3E%3Ctext y='.9em' font-size='90'%3E☕%3C/text%3E%3C/svg%3E">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500&family=Manrope:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="css/styles.css">
+</head>
+<body>
+
+<!-- ========== HEADER ========== -->
+<header class="header" id="top">
+  <div class="container header__row">
+    <a href="#top" class="brand">
+      <span class="brand__mark">☕</span>
+      <span class="brand__text">Morning&nbsp;Vibe</span>
+    </a>
+
+    <nav class="nav" id="nav">
+      <a href="#about">О кофейне</a>
+      <a href="#menu">Меню</a>
+      <a href="#atmosphere">Атмосфера</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+
+    <div class="header__actions">
+      <a href="#contacts" class="btn btn--ghost header__hours">Открыты с 8:00</a>
+      <a href="#menu" class="btn btn--primary">Меню</a>
+      <button class="burger" id="burger" aria-label="Открыть меню" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- ========== HERO ========== -->
+<section class="hero">
+  <div class="container hero__grid">
+    <div class="hero__content">
+      <p class="eyebrow">☕ Кофейня в самом сердце города</p>
+      <h1 class="hero__title">Доброе утро<br>начинается с <span>Morning&nbsp;Vibe</span></h1>
+      <p class="hero__subtitle">Уютное место в центре, где ароматный кофе, свежая выпечка и тёплые разговоры
+        встречают вас каждый день с 8 утра. Заходите на пять минут — останетесь на час.</p>
+
+      <div class="hero__cta">
+        <a href="#menu" class="btn btn--primary btn--lg">Посмотреть меню</a>
+        <a href="#contacts" class="btn btn--outline btn--lg">Как нас найти →</a>
+      </div>
+
+      <div class="hero__stats">
+        <div class="hero__stat"><strong>4.9&nbsp;★</strong><span>рейтинг гостей</span></div>
+        <div class="hero__stat"><strong>500+</strong><span>чашек в день</span></div>
+        <div class="hero__stat"><strong>3&nbsp;мин</strong><span>от метро</span></div>
+      </div>
+    </div>
+
+    <div class="hero__media">
+      <img class="hero__img hero__img--main"
+           src="https://images.unsplash.com/photo-1495474472287-4d71bcdd2085?auto=format&fit=crop&w=900&q=80"
+           alt="Бариста наливает капучино с латте-артом в Morning Vibe" loading="eager">
+      <img class="hero__img hero__img--float"
+           src="https://images.unsplash.com/photo-1495856458515-0637185db551?auto=format&fit=crop&w=500&q=80"
+           alt="Латте-арт в форме сердца" loading="lazy">
+      <div class="hero__badge">
+        <span class="hero__badge-emoji">🌱</span>
+        <div>
+          <strong>Своя обжарка</strong>
+          <p>раз в неделю, малыми партиями</p>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ========== USP STRIP ========== -->
+<section class="usp">
+  <div class="container usp__grid">
+    <div class="usp__item">
+      <span class="usp__icon">🌿</span>
+      <h3>Зёрна свежей обжарки</h3>
+      <p>Обжариваем сами каждую неделю — кофе никогда не залёживается на полке.</p>
+    </div>
+    <div class="usp__item">
+      <span class="usp__icon">🥐</span>
+      <h3>Выпечка с самого утра</h3>
+      <p>Круассаны, чизкейки и десерты — из своей пекарни, с пылу с жару.</p>
+    </div>
+    <div class="usp__item">
+      <span class="usp__icon">📍</span>
+      <h3>В самом центре</h3>
+      <p>Три минуты пешком от метро — легко зайти по пути и удобно назначить встречу.</p>
+    </div>
+    <div class="usp__item">
+      <span class="usp__icon">💻</span>
+      <h3>Wi-Fi и розетки</h3>
+      <p>Есть где поработать с ноутбуком или спокойно поболтать с друзьями.</p>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ABOUT ========== -->
+<section class="about" id="about">
+  <div class="container about__grid">
+    <div class="about__media">
+      <img src="https://images.unsplash.com/photo-1517705008128-361805f42e86?auto=format&fit=crop&w=900&q=80"
+           alt="Уютный интерьер кофейни Morning Vibe" loading="lazy">
+    </div>
+    <div class="about__content">
+      <p class="eyebrow">Наша история</p>
+      <h2>Место, где пахнет утром</h2>
+      <p class="about__lead">Morning Vibe появилась из простой идеи: в центре города должно быть место,
+        куда хочется зайти не спеша — даже если у вас всего десять минут до встречи.</p>
+      <p>Мы сами обжариваем зерно, выпекаем десерты по утрам и помним, кто и как пьёт свой кофе. Никакой суеты
+        сетевых кофеен — только тёплое дерево, мягкий свет и звук кофемашины вместо будильника.</p>
+      <ul class="about__list">
+        <li><span>☀️</span> Открыты каждый день с 8:00 до 22:00</li>
+        <li><span>🫘</span> Спешалти-зерно от локальных обжарщиков</li>
+        <li><span>🤍</span> Дружелюбные бариста, которые помнят ваш заказ</li>
+      </ul>
+    </div>
+  </div>
+</section>
+
+<!-- ========== MENU ========== -->
+<section class="menu" id="menu">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Меню</p>
+      <h2>От того, что сложно отказаться</h2>
+      <p class="section-head__sub">Классика для тех, кто торопится, и авторские напитки для тех, кто хочет
+        задержаться подольше.</p>
+    </div>
+
+    <div class="menu__grid">
+      <article class="menu__card">
+        <img src="https://images.unsplash.com/photo-1428515613728-6b4607e44363?auto=format&fit=crop&w=600&q=80" alt="Флэт Уайт" loading="lazy">
+        <div class="menu__card-body">
+          <div class="menu__card-top"><h3>Флэт Уайт</h3><span class="price">250 ₽</span></div>
+          <p>Двойной эспрессо и бархатное молоко без лишней пены.</p>
+        </div>
+      </article>
+
+      <article class="menu__card">
+        <img src="https://images.unsplash.com/photo-1534778101976-62847782c213?auto=format&fit=crop&w=600&q=80" alt="Капучино с корицей" loading="lazy">
+        <div class="menu__card-body">
+          <div class="menu__card-top"><h3>Капучино с корицей</h3><span class="price">270 ₽</span></div>
+          <p>Наш бестселлер: нежная пенка и щепотка тёплой корицы.</p>
+        </div>
+      </article>
+
+      <article class="menu__card">
+        <img src="https://images.unsplash.com/photo-1461023058943-07fcbe16d735?auto=format&fit=crop&w=600&q=80" alt="Раф на кокосовом молоке" loading="lazy">
+        <div class="menu__card-body">
+          <div class="menu__card-top"><h3>Раф на кокосе</h3><span class="price">320 ₽</span></div>
+          <p>Сливочный раф на кокосовом молоке с ванильным сиропом.</p>
+        </div>
+      </article>
+
+      <article class="menu__card">
+        <img src="https://images.unsplash.com/photo-1555507036-ab1f4038808a?auto=format&fit=crop&w=600&q=80" alt="Круассан с миндалём" loading="lazy">
+        <div class="menu__card-body">
+          <div class="menu__card-top"><h3>Круассан с миндалём</h3><span class="price">220 ₽</span></div>
+          <p>Хрустящее слоёное тесто и миндальная начинка — прямо из печи.</p>
+        </div>
+      </article>
+
+      <article class="menu__card">
+        <img src="https://images.unsplash.com/photo-1533134242443-d4fd215305ad?auto=format&fit=crop&w=600&q=80" alt="Чизкейк Нью-Йорк" loading="lazy">
+        <div class="menu__card-body">
+          <div class="menu__card-top"><h3>Чизкейк «Нью-Йорк»</h3><span class="price">280 ₽</span></div>
+          <p>Классический рецепт: нежный, плотный, с песочной основой.</p>
+        </div>
+      </article>
+
+      <article class="menu__card">
+        <img src="https://images.unsplash.com/photo-1541167760496-1628856ab772?auto=format&fit=crop&w=600&q=80" alt="Авокадо-тост" loading="lazy">
+        <div class="menu__card-body">
+          <div class="menu__card-top"><h3>Авокадо-тост</h3><span class="price">390 ₽</span></div>
+          <p>Цельнозерновой хлеб, авокадо, яйцо-пашот и лёгкая острота.</p>
+        </div>
+      </article>
+    </div>
+
+    <div class="menu__footer">
+      <p>Это лишь часть меню — полный список ждёт вас за стойкой.</p>
+      <a href="#contacts" class="btn btn--outline">Заглянуть в гости</a>
+    </div>
+  </div>
+</section>
+
+<!-- ========== ATMOSPHERE / GALLERY ========== -->
+<section class="atmosphere" id="atmosphere">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Атмосфера</p>
+      <h2>Свет, дерево и запах свежего кофе</h2>
+      <p class="section-head__sub">Загляните внутрь — так выглядит утро в Morning Vibe.</p>
+    </div>
+  </div>
+
+  <div class="gallery">
+    <div class="gallery__item gallery__item--tall">
+      <img src="https://images.unsplash.com/photo-1509042239860-f550ce710b93?auto=format&fit=crop&w=800&q=80" alt="Интерьер кофейни" loading="lazy">
+    </div>
+    <div class="gallery__item">
+      <img src="https://images.unsplash.com/photo-1442512595331-e89e73853f31?auto=format&fit=crop&w=800&q=80" alt="Чашка кофе крупным планом" loading="lazy">
+    </div>
+    <div class="gallery__item">
+      <img src="https://images.unsplash.com/photo-1481833761820-0509d3217039?auto=format&fit=crop&w=800&q=80" alt="Гость работает с ноутбуком в кофейне" loading="lazy">
+    </div>
+    <div class="gallery__item">
+      <img src="https://images.unsplash.com/photo-1521305916504-4a1121188589?auto=format&fit=crop&w=800&q=80" alt="Свежая выпечка на витрине" loading="lazy">
+    </div>
+    <div class="gallery__item gallery__item--tall">
+      <img src="https://images.unsplash.com/photo-1453614512568-c4024d13c247?auto=format&fit=crop&w=800&q=80" alt="Столик у окна в кофейне" loading="lazy">
+    </div>
+  </div>
+</section>
+
+<!-- ========== REVIEWS ========== -->
+<section class="reviews" id="reviews">
+  <div class="container">
+    <div class="section-head">
+      <p class="eyebrow">Отзывы</p>
+      <h2>Нам верят на слово — а лучше зайти и проверить</h2>
+    </div>
+
+    <div class="reviews__grid">
+      <article class="review">
+        <div class="review__stars">★★★★★</div>
+        <p>«Прихожу сюда почти каждое утро по пути на работу. Раф на кокосе — просто топ, а бариста
+          всегда узнают в лицо».</p>
+        <div class="review__author"><span class="avatar">А</span><div><strong>Анна К.</strong><small>Постоянная гостья</small></div></div>
+      </article>
+      <article class="review">
+        <div class="review__stars">★★★★★</div>
+        <p>«Идеальное место для встреч: тихо, красиво, вкусно кормят. Провёл здесь три часа с ноутбуком —
+          никто не торопил».</p>
+        <div class="review__author"><span class="avatar">Д</span><div><strong>Дмитрий С.</strong><small>Фрилансер</small></div></div>
+      </article>
+      <article class="review">
+        <div class="review__stars">★★★★★</div>
+        <p>«Обожаю их чизкейк и атмосферу — будто маленький уголок Скандинавии в центре города. Рекомендую
+          всем друзьям».</p>
+        <div class="review__author"><span class="avatar">М</span><div><strong>Мария П.</strong><small>Дизайнер</small></div></div>
+      </article>
+    </div>
+  </div>
+</section>
+
+<!-- ========== CTA BANNER ========== -->
+<section class="cta-banner">
+  <div class="container cta-banner__inner">
+    <h2>Ждём вас за чашкой кофе</h2>
+    <p>Заходите на утренний эспрессо или на вечерний разговор за десертом — мы открыты каждый день.</p>
+    <a href="#contacts" class="btn btn--light btn--lg">Построить маршрут</a>
+  </div>
+</section>
+
+<!-- ========== CONTACTS ========== -->
+<section class="contacts" id="contacts">
+  <div class="container contacts__grid">
+    <div class="contacts__info">
+      <p class="eyebrow">Мы вас ждём</p>
+      <h2>Найти Morning Vibe легко</h2>
+
+      <div class="contact-row"><span>📍</span><div><strong>Адрес</strong><p>Центр города, ул. Кузнецкий&nbsp;Мост, 15</p></div></div>
+      <div class="contact-row"><span>🕒</span><div><strong>Часы работы</strong><p>Пн–Вс: 8:00 – 22:00, без выходных</p></div></div>
+      <div class="contact-row"><span>📞</span><div><strong>Телефон</strong><p><a href="tel:+70000000000">+7 (000) 000-00-00</a></p></div></div>
+      <div class="contact-row"><span>✉️</span><div><strong>Почта</strong><p><a href="mailto:hello@morningvibe.coffee">hello@morningvibe.coffee</a></p></div></div>
+
+      <div class="socials">
+        <a href="#" aria-label="Instagram">Instagram</a>
+        <a href="#" aria-label="Telegram">Telegram</a>
+        <a href="#" aria-label="VK">VK</a>
+      </div>
+    </div>
+
+    <div class="contacts__map">
+      <iframe
+        title="Карта расположения Morning Vibe"
+        src="https://www.openstreetmap.org/export/embed.html?bbox=37.618%2C55.757%2C37.630%2C55.763&layer=mapnik&marker=55.760%2C37.624"
+        loading="lazy"></iframe>
+    </div>
+  </div>
+</section>
+
+<!-- ========== FOOTER ========== -->
+<footer class="footer">
+  <div class="container footer__grid">
+    <a href="#top" class="brand brand--footer">
+      <span class="brand__mark">☕</span>
+      <span class="brand__text">Morning&nbsp;Vibe</span>
+    </a>
+    <p class="footer__tagline">Уютная кофейня в центре города. Свежий кофе, тёплая атмосфера, каждое утро.</p>
+    <nav class="footer__nav">
+      <a href="#about">О кофейне</a>
+      <a href="#menu">Меню</a>
+      <a href="#atmosphere">Атмосфера</a>
+      <a href="#reviews">Отзывы</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <p class="footer__copy">© 2026 Morning Vibe. Сделано с любовью и щепоткой корицы.</p>
+  </div>
+</footer>
+
+<script src="js/app.js"></script>
+</body>
+</html>
