@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Apex Development — Новая высота жизни</title>
+<meta name="description" content="Apex Development — жилые комплексы бизнес- и премиум-класса. Сдача точно в срок, эскроу-счета, локации у метро и парков.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;0,700;1,600&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --navy-950:#050d1f;
+    --navy-900:#0a1830;
+    --navy-800:#0d2144;
+    --navy-700:#123063;
+    --navy-600:#1a4189;
+    --blue-tint:#2a5cb8;
+    --orange-500:#ff6a1a;
+    --orange-400:#ff8a3d;
+    --orange-600:#e2540a;
+    --cream:#f6f4ef;
+    --paper:#fbfaf7;
+    --ink:#0c1424;
+    --ink-soft:#4a5568;
+    --line:#e6e2d8;
+    --white:#ffffff;
+    --shadow-lg:0 30px 60px -20px rgba(5,13,31,.35);
+    --shadow-md:0 16px 32px -12px rgba(5,13,31,.25);
+    --radius:18px;
+    --maxw:1240px;
+  }
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    font-family:'Manrope',-apple-system,BlinkMacSystemFont,sans-serif;
+    color:var(--ink);
+    background:var(--paper);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    overflow-x:hidden;
+  }
+  h1,h2,h3,h4{font-family:'Playfair Display',Georgia,serif;font-weight:700;line-height:1.12;letter-spacing:-.01em;}
+  img{max-width:100%;display:block;}
+  a{color:inherit;text-decoration:none;}
+  ul{list-style:none;}
+  .wrap{max-width:var(--maxw);margin:0 auto;padding:0 32px;}
+  section{position:relative;}
+  .eyebrow{
+    display:inline-flex;align-items:center;gap:8px;
+    font-size:13px;font-weight:700;letter-spacing:.14em;text-transform:uppercase;
+    color:var(--orange-500);
+  }
+  .eyebrow::before{content:"";width:26px;height:2px;background:var(--orange-500);display:inline-block;border-radius:2px;}
+  .btn{
+    display:inline-flex;align-items:center;justify-content:center;gap:10px;
+    padding:16px 30px;border-radius:100px;font-weight:700;font-size:15px;
+    cursor:pointer;border:none;transition:transform .25s ease,box-shadow .25s ease,background .25s ease;
+    white-space:nowrap;
+  }
+  .btn-primary{
+    background:linear-gradient(135deg,var(--orange-400),var(--orange-500));
+    color:#fff;box-shadow:0 14px 30px -10px rgba(255,106,26,.55);
+  }
+  .btn-primary:hover{transform:translateY(-2px);box-shadow:0 18px 36px -8px rgba(255,106,26,.65);}
+  .btn-ghost{
+    background:transparent;color:#fff;border:1.5px solid rgba(255,255,255,.45);
+  }
+  .btn-ghost:hover{background:rgba(255,255,255,.12);border-color:#fff;}
+  .btn-dark{background:var(--navy-800);color:#fff;}
+  .btn-dark:hover{background:var(--navy-700);transform:translateY(-2px);}
+  .btn-block{width:100%;}
+
+  /* ---------- HEADER ---------- */
+  header{
+    position:fixed;top:0;left:0;right:0;z-index:100;
+    padding:22px 0;transition:padding .3s ease,background .3s ease,box-shadow .3s ease;
+  }
+  header.scrolled{
+    padding:12px 0;background:rgba(5,13,31,.92);backdrop-filter:blur(10px);
+    box-shadow:0 8px 24px rgba(0,0,0,.25);
+  }
+  header .wrap{display:flex;align-items:center;justify-content:space-between;gap:24px;}
+  .logo{display:flex;align-items:center;gap:10px;font-family:'Playfair Display',serif;font-weight:700;font-size:22px;color:#fff;}
+  .logo .mark{
+    width:38px;height:38px;border-radius:10px;
+    background:linear-gradient(135deg,var(--orange-400),var(--orange-600));
+    display:flex;align-items:center;justify-content:center;color:#fff;font-size:18px;font-weight:800;font-family:'Manrope',sans-serif;
+    box-shadow:0 8px 18px -6px rgba(255,106,26,.6);
+  }
+  .logo small{display:block;font-family:'Manrope',sans-serif;font-weight:500;font-size:10.5px;letter-spacing:.18em;color:rgba(255,255,255,.55);text-transform:uppercase;margin-top:2px;}
+  nav.main-nav{display:flex;align-items:center;gap:36px;}
+  nav.main-nav a{color:rgba(255,255,255,.82);font-size:14.5px;font-weight:600;transition:color .2s;position:relative;}
+  nav.main-nav a:hover{color:#fff;}
+  .header-actions{display:flex;align-items:center;gap:18px;}
+  .phone-link{color:#fff;font-weight:700;font-size:15px;display:flex;flex-direction:column;align-items:flex-end;line-height:1.25;}
+  .phone-link span{font-size:11px;font-weight:500;color:rgba(255,255,255,.55);}
+  .burger{display:none;width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.1);border:none;color:#fff;font-size:20px;cursor:pointer;}
+
+  /* ---------- HERO ---------- */
+  .hero{
+    min-height:100vh;display:flex;align-items:flex-end;
+    background:
+      linear-gradient(180deg,rgba(5,11,26,.55) 0%,rgba(6,13,30,.55) 40%,rgba(5,10,23,.96) 100%),
+      url('https://images.unsplash.com/photo-1545324418-cc1a3fa10c00?auto=format&fit=crop&w=2000&q=80') center/cover no-repeat;
+    padding:170px 0 90px;
+  }
+  .hero .wrap{display:grid;grid-template-columns:1.25fr .75fr;gap:60px;align-items:end;}
+  .hero-content h1{color:#fff;font-size:clamp(38px,5.4vw,68px);margin:22px 0 22px;max-width:16ch;}
+  .hero-content h1 em{color:var(--orange-400);font-style:normal;}
+  .hero-content p{color:rgba(255,255,255,.78);font-size:18px;max-width:46ch;margin-bottom:36px;}
+  .hero-cta{display:flex;gap:16px;flex-wrap:wrap;margin-bottom:52px;}
+  .hero-tags{display:flex;gap:14px;flex-wrap:wrap;}
+  .hero-tags span{
+    padding:9px 16px;border-radius:100px;background:rgba(255,255,255,.08);
+    border:1px solid rgba(255,255,255,.18);color:#fff;font-size:13px;font-weight:600;
+    backdrop-filter:blur(6px);
+  }
+  .hero-card{
+    background:rgba(10,20,40,.55);border:1px solid rgba(255,255,255,.16);
+    border-radius:var(--radius);padding:30px;backdrop-filter:blur(14px);
+    box-shadow:var(--shadow-lg);
+  }
+  .hero-card h3{color:#fff;font-size:19px;margin-bottom:6px;font-weight:700;}
+  .hero-card p.small{color:rgba(255,255,255,.65);font-size:13.5px;margin-bottom:22px;}
+  .hero-metric-row{display:flex;justify-content:space-between;padding:14px 0;border-top:1px solid rgba(255,255,255,.12);}
+  .hero-metric-row:first-of-type{border-top:none;}
+  .hero-metric-row .label{color:rgba(255,255,255,.62);font-size:13.5px;}
+  .hero-metric-row .val{color:#fff;font-weight:700;font-size:15px;}
+  .hero-metric-row .val.accent{color:var(--orange-400);}
+
+  .scroll-cue{
+    position:absolute;right:32px;bottom:26px;display:flex;flex-direction:column;align-items:center;gap:10px;
+    color:rgba(255,255,255,.55);font-size:11px;letter-spacing:.18em;text-transform:uppercase;
+  }
+  .scroll-cue .line{width:1px;height:46px;background:linear-gradient(180deg,rgba(255,255,255,.7),transparent);}
+
+  /* ---------- STATS ---------- */
+  .stats{
+    background:linear-gradient(135deg,var(--navy-900),var(--navy-800) 60%,var(--navy-700));
+    padding:64px 0;
+  }
+  .stats .wrap{display:grid;grid-template-columns:repeat(4,1fr);gap:32px;}
+  .stat-item{text-align:left;border-left:2px solid rgba(255,106,26,.5);padding-left:20px;}
+  .stat-item .num{font-family:'Playfair Display',serif;font-size:clamp(30px,3.4vw,44px);color:#fff;font-weight:700;}
+  .stat-item .num span{color:var(--orange-400);}
+  .stat-item .desc{color:rgba(255,255,255,.62);font-size:14px;margin-top:6px;}
+
+  /* ---------- SECTION HEADS ---------- */
+  .sec-head{max-width:640px;margin-bottom:56px;}
+  .sec-head.center{margin-left:auto;margin-right:auto;text-align:center;}
+  .sec-head h2{font-size:clamp(30px,4vw,44px);margin-top:16px;color:var(--navy-900);}
+  .sec-head p{color:var(--ink-soft);font-size:16.5px;margin-top:16px;}
+
+  /* ---------- ADVANTAGES ---------- */
+  .advantages{padding:120px 0 100px;background:var(--paper);}
+  .adv-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .adv-card{
+    background:var(--white);border:1px solid var(--line);border-radius:var(--radius);
+    padding:34px 30px;transition:transform .3s ease,box-shadow .3s ease,border-color .3s ease;
+  }
+  .adv-card:hover{transform:translateY(-6px);box-shadow:var(--shadow-md);border-color:transparent;}
+  .adv-icon{
+    width:52px;height:52px;border-radius:14px;display:flex;align-items:center;justify-content:center;
+    background:linear-gradient(135deg,var(--navy-800),var(--navy-600));color:var(--orange-400);
+    font-size:22px;margin-bottom:20px;
+  }
+  .adv-card h3{font-family:'Manrope',sans-serif;font-size:18.5px;font-weight:700;color:var(--navy-900);margin-bottom:10px;}
+  .adv-card p{color:var(--ink-soft);font-size:14.8px;}
+
+  /* ---------- CATALOG ---------- */
+  .catalog{padding:100px 0;background:var(--navy-950);}
+  .catalog .sec-head h2, .catalog .eyebrow{color:#fff;}
+  .catalog .sec-head p{color:rgba(255,255,255,.62);}
+  .catalog-toolbar{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:44px;gap:24px;flex-wrap:wrap;}
+  .filter-pills{display:flex;gap:10px;flex-wrap:wrap;}
+  .filter-pills button{
+    padding:10px 18px;border-radius:100px;background:rgba(255,255,255,.06);color:rgba(255,255,255,.75);
+    border:1px solid rgba(255,255,255,.14);font-size:13.5px;font-weight:600;cursor:pointer;transition:.25s;
+  }
+  .filter-pills button.active,.filter-pills button:hover{background:var(--orange-500);color:#fff;border-color:var(--orange-500);}
+
+  .prop-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:26px;}
+  .prop-card{
+    background:var(--navy-900);border-radius:var(--radius);overflow:hidden;border:1px solid rgba(255,255,255,.08);
+    transition:transform .35s ease,box-shadow .35s ease;
+  }
+  .prop-card:hover{transform:translateY(-8px);box-shadow:0 30px 60px -20px rgba(0,0,0,.6);}
+  .prop-media{position:relative;height:230px;overflow:hidden;}
+  .prop-media img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease;}
+  .prop-card:hover .prop-media img{transform:scale(1.08);}
+  .prop-badge{
+    position:absolute;top:16px;left:16px;background:var(--orange-500);color:#fff;
+    font-size:11.5px;font-weight:700;padding:6px 12px;border-radius:100px;letter-spacing:.03em;
+  }
+  .prop-status{
+    position:absolute;top:16px;right:16px;background:rgba(5,13,31,.7);backdrop-filter:blur(6px);
+    color:#fff;font-size:11.5px;font-weight:600;padding:6px 12px;border-radius:100px;border:1px solid rgba(255,255,255,.2);
+  }
+  .prop-body{padding:24px 24px 26px;}
+  .prop-body h3{font-family:'Manrope',sans-serif;color:#fff;font-size:19px;font-weight:700;margin-bottom:4px;}
+  .prop-loc{color:rgba(255,255,255,.55);font-size:13.5px;margin-bottom:16px;display:flex;align-items:center;gap:6px;}
+  .prop-specs{display:flex;gap:18px;margin-bottom:18px;flex-wrap:wrap;}
+  .prop-specs div{color:rgba(255,255,255,.75);font-size:12.5px;}
+  .prop-specs b{display:block;color:#fff;font-size:14.5px;font-weight:700;}
+  .prop-footer{display:flex;align-items:center;justify-content:space-between;padding-top:18px;border-top:1px solid rgba(255,255,255,.1);}
+  .prop-price .label{color:rgba(255,255,255,.5);font-size:11.5px;}
+  .prop-price .value{color:var(--orange-400);font-weight:800;font-size:19px;font-family:'Playfair Display',serif;}
+  .prop-link{color:#fff;font-size:13.5px;font-weight:700;display:flex;align-items:center;gap:6px;}
+  .prop-link:hover{color:var(--orange-400);}
+
+  .catalog-cta{text-align:center;margin-top:52px;}
+
+  /* ---------- PROCESS ---------- */
+  .process{padding:110px 0;background:var(--cream);}
+  .process-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+  .process-grid::before{
+    content:"";position:absolute;top:26px;left:6%;right:6%;height:2px;
+    background:repeating-linear-gradient(90deg,var(--line) 0 10px,transparent 10px 18px);
+  }
+  .process-step{position:relative;padding:0 20px;text-align:left;}
+  .process-step .n{
+    width:54px;height:54px;border-radius:50%;background:var(--navy-900);color:var(--orange-400);
+    display:flex;align-items:center;justify-content:center;font-family:'Playfair Display',serif;
+    font-weight:700;font-size:20px;margin-bottom:22px;position:relative;z-index:2;
+    box-shadow:0 10px 22px -8px rgba(10,24,48,.4);
+  }
+  .process-step h4{font-family:'Manrope',sans-serif;font-size:17px;font-weight:700;color:var(--navy-900);margin-bottom:8px;}
+  .process-step p{color:var(--ink-soft);font-size:14.3px;}
+
+  /* ---------- BOOKING ---------- */
+  .booking{
+    padding:110px 0;position:relative;
+    background:
+      linear-gradient(120deg,rgba(6,14,31,.93),rgba(10,24,52,.9)),
+      url('https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=2000&q=80') center/cover;
+  }
+  .booking .wrap{display:grid;grid-template-columns:1fr 1fr;gap:60px;align-items:center;}
+  .booking-copy .eyebrow{color:var(--orange-400);}
+  .booking-copy h2{color:#fff;font-size:clamp(30px,3.8vw,42px);margin:18px 0 20px;max-width:14ch;}
+  .booking-copy p{color:rgba(255,255,255,.72);font-size:16.5px;margin-bottom:32px;max-width:44ch;}
+  .booking-points{display:flex;flex-direction:column;gap:16px;}
+  .booking-points li{display:flex;gap:14px;color:rgba(255,255,255,.85);font-size:14.8px;align-items:flex-start;}
+  .booking-points .check{
+    width:24px;height:24px;border-radius:50%;background:rgba(255,106,26,.18);color:var(--orange-400);
+    display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:13px;font-weight:800;margin-top:1px;
+  }
+
+  .booking-form{
+    background:var(--white);border-radius:22px;padding:38px;box-shadow:var(--shadow-lg);
+  }
+  .booking-form h3{font-family:'Manrope',sans-serif;color:var(--navy-900);font-size:21px;font-weight:800;margin-bottom:6px;}
+  .booking-form p.hint{color:var(--ink-soft);font-size:13.6px;margin-bottom:26px;}
+  .field{margin-bottom:16px;}
+  .field label{display:block;font-size:12.5px;font-weight:700;color:var(--navy-800);margin-bottom:7px;text-transform:uppercase;letter-spacing:.04em;}
+  .field input,.field select,.field textarea{
+    width:100%;padding:14px 16px;border-radius:12px;border:1.5px solid var(--line);
+    font-family:'Manrope',sans-serif;font-size:14.5px;color:var(--ink);background:var(--paper);
+    transition:border-color .2s,box-shadow .2s;
+  }
+  .field input:focus,.field select:focus,.field textarea:focus{
+    outline:none;border-color:var(--orange-500);box-shadow:0 0 0 4px rgba(255,106,26,.14);
+  }
+  .field-row{display:grid;grid-template-columns:1fr 1fr;gap:14px;}
+  .consent{display:flex;gap:10px;align-items:flex-start;margin:18px 0 20px;}
+  .consent input{margin-top:3px;width:16px;height:16px;accent-color:var(--orange-500);flex-shrink:0;}
+  .consent span{font-size:12.3px;color:var(--ink-soft);line-height:1.5;}
+  .consent a{color:var(--navy-700);text-decoration:underline;}
+  .form-note{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:16px;color:var(--ink-soft);font-size:12.5px;}
+
+  /* ---------- FAQ ---------- */
+  .faq{padding:100px 0;background:var(--paper);}
+  .faq-list{display:flex;flex-direction:column;gap:14px;max-width:820px;margin:0 auto;}
+  .faq-item{border:1px solid var(--line);border-radius:14px;padding:22px 26px;background:var(--white);cursor:pointer;}
+  .faq-q{display:flex;justify-content:space-between;align-items:center;font-weight:700;font-size:15.5px;color:var(--navy-900);gap:20px;}
+  .faq-q .plus{width:26px;height:26px;border-radius:50%;background:var(--cream);color:var(--navy-800);display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s;font-size:16px;}
+  .faq-item.open .plus{transform:rotate(45deg);background:var(--orange-500);color:#fff;}
+  .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--ink-soft);font-size:14.3px;line-height:1.65;}
+  .faq-item.open .faq-a{max-height:200px;margin-top:14px;}
+
+  /* ---------- FOOTER ---------- */
+  footer{background:var(--navy-950);color:rgba(255,255,255,.6);padding:76px 0 0;}
+  .footer-top{display:grid;grid-template-columns:1.4fr 1fr 1fr 1.2fr;gap:40px;padding-bottom:56px;border-bottom:1px solid rgba(255,255,255,.08);}
+  .footer-brand p{font-size:14px;margin:18px 0 22px;max-width:34ch;color:rgba(255,255,255,.5);}
+  .social-row{display:flex;gap:10px;}
+  .social-row a{width:38px;height:38px;border-radius:10px;background:rgba(255,255,255,.06);display:flex;align-items:center;justify-content:center;font-size:14px;transition:.25s;}
+  .social-row a:hover{background:var(--orange-500);color:#fff;}
+  footer h5{color:#fff;font-family:'Manrope',sans-serif;font-size:13.5px;text-transform:uppercase;letter-spacing:.08em;margin-bottom:20px;}
+  footer ul li{margin-bottom:12px;font-size:14.3px;}
+  footer ul li a:hover{color:#fff;}
+  .foot-contact li{display:flex;gap:10px;margin-bottom:14px;font-size:14px;}
+  .bottom-bar{display:flex;justify-content:space-between;align-items:center;padding:26px 0;font-size:12.8px;color:rgba(255,255,255,.4);flex-wrap:wrap;gap:10px;}
+  .bottom-bar a{color:rgba(255,255,255,.4);}
+  .bottom-bar a:hover{color:#fff;}
+
+  /* ---------- RESPONSIVE ---------- */
+  @media (max-width:1080px){
+    .hero .wrap{grid-template-columns:1fr;}
+    .hero-card{max-width:460px;}
+    .stats .wrap{grid-template-columns:repeat(2,1fr);row-gap:36px;}
+    .adv-grid{grid-template-columns:repeat(2,1fr);}
+    .prop-grid{grid-template-columns:repeat(2,1fr);}
+    .process-grid{grid-template-columns:repeat(2,1fr);row-gap:44px;}
+    .process-grid::before{display:none;}
+    .booking .wrap{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr 1fr;}
+  }
+  @media (max-width:760px){
+    .wrap{padding:0 20px;}
+    nav.main-nav,.phone-link{display:none;}
+    .burger{display:block;}
+    .hero{padding:150px 0 60px;min-height:auto;}
+    .hero-cta{flex-direction:column;align-items:stretch;}
+    .hero-cta .btn{width:100%;}
+    .stats .wrap{grid-template-columns:1fr;}
+    .adv-grid{grid-template-columns:1fr;}
+    .prop-grid{grid-template-columns:1fr;}
+    .process-grid{grid-template-columns:1fr;}
+    .field-row{grid-template-columns:1fr;}
+    .footer-top{grid-template-columns:1fr;}
+    .catalog-toolbar{flex-direction:column;align-items:flex-start;}
+    .booking-form{padding:26px;}
+    .scroll-cue{display:none;}
+  }
+
+  /* mobile nav drawer */
+  .mobile-nav{
+    position:fixed;inset:0;background:var(--navy-950);z-index:200;
+    display:flex;flex-direction:column;padding:26px 26px 40px;
+    transform:translateX(100%);transition:transform .35s ease;
+  }
+  .mobile-nav.open{transform:translateX(0);}
+  .mobile-nav .top{display:flex;justify-content:space-between;align-items:center;margin-bottom:50px;}
+  .mobile-nav a{color:#fff;font-size:22px;font-family:'Playfair Display',serif;padding:16px 0;border-bottom:1px solid rgba(255,255,255,.1);}
+  .mobile-nav .close-btn{width:44px;height:44px;border-radius:10px;background:rgba(255,255,255,.08);border:none;color:#fff;font-size:20px;}
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header id="siteHeader">
+  <div class="wrap">
+    <a href="#top" class="logo"><span class="mark">A</span><span>APEX<small>Development</small></span></a>
+    <nav class="main-nav">
+      <a href="#advantages">Преимущества</a>
+      <a href="#catalog">Объекты</a>
+      <a href="#process">Как купить</a>
+      <a href="#faq">Вопросы</a>
+      <a href="#booking">Контакты</a>
+    </nav>
+    <div class="header-actions">
+      <a href="tel:+74951234455" class="phone-link">+7 (495) 123-44-55<span>Показ ежедневно, 9:00–21:00</span></a>
+      <a href="#booking" class="btn btn-primary">Записаться на показ</a>
+      <button class="burger" id="burgerBtn">☰</button>
+    </div>
+  </div>
+</header>
+
+<div class="mobile-nav" id="mobileNav">
+  <div class="top">
+    <a href="#top" class="logo"><span class="mark">A</span><span>APEX</span></a>
+    <button class="close-btn" id="closeNav">✕</button>
+  </div>
+  <a href="#advantages">Преимущества</a>
+  <a href="#catalog">Объекты</a>
+  <a href="#process">Как купить</a>
+  <a href="#faq">Вопросы</a>
+  <a href="#booking">Контакты</a>
+  <a href="#booking" class="btn btn-primary" style="margin-top:30px;border-bottom:none;justify-content:center;">Записаться на показ</a>
+</div>
+
+<!-- ================= HERO ================= -->
+<section class="hero" id="top">
+  <div class="wrap">
+    <div class="hero-content">
+      <span class="eyebrow" style="color:var(--orange-400)">Apex Development · с 2013 года</span>
+      <h1>Новая высота жизни <em>в сердце города</em></h1>
+      <p>Строим жилые комплексы бизнес- и премиум-класса, где продумана каждая деталь: от архитектуры и панорамных окон до собственного сервиса эксплуатации.</p>
+      <div class="hero-cta">
+        <a href="#catalog" class="btn btn-primary">Смотреть каталог объектов</a>
+        <a href="#booking" class="btn btn-ghost">Получить консультацию</a>
+      </div>
+      <div class="hero-tags">
+        <span>🏗 24 сданных ЖК</span>
+        <span>🛡 Эскроу-счета · 214-ФЗ</span>
+        <span>📍 Локации у метро и парков</span>
+      </div>
+    </div>
+    <div class="hero-card">
+      <h3>ЖК «Apex Sky»</h3>
+      <p class="small">Флагманский проект — сдача IV кв. 2026</p>
+      <div class="hero-metric-row"><span class="label">Квартиры от</span><span class="val accent">6,4 млн ₽</span></div>
+      <div class="hero-metric-row"><span class="label">Класс</span><span class="val">Бизнес</span></div>
+      <div class="hero-metric-row"><span class="label">Готовность стройки</span><span class="val">73%</span></div>
+      <div class="hero-metric-row"><span class="label">До метро</span><span class="val">6 минут пешком</span></div>
+      <a href="#booking" class="btn btn-primary btn-block" style="margin-top:22px;">Забронировать квартиру</a>
+    </div>
+  </div>
+  <div class="scroll-cue"><span>Листайте</span><span class="line"></span></div>
+</section>
+
+<!-- ================= STATS ================= -->
+<section class="stats">
+  <div class="wrap">
+    <div class="stat-item">
+      <div class="num"><span>12</span> лет</div>
+      <div class="desc">успешной работы на рынке недвижимости</div>
+    </div>
+    <div class="stat-item">
+      <div class="num"><span>24</span> ЖК</div>
+      <div class="desc">построено и передано собственникам</div>
+    </div>
+    <div class="stat-item">
+      <div class="num"><span>5 800+</span></div>
+      <div class="desc">семей уже живут в домах Apex</div>
+    </div>
+    <div class="stat-item">
+      <div class="num"><span>98%</span></div>
+      <div class="desc">объектов сдано точно в заявленный срок</div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= ADVANTAGES ================= -->
+<section class="advantages" id="advantages">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Почему Apex</span>
+      <h2>Надёжность, которую видно в цифрах</h2>
+      <p>Мы строим не просто квадратные метры — мы создаём среду, в которой хочется жить годами. Вот на чём держится это доверие.</p>
+    </div>
+    <div class="adv-grid">
+      <div class="adv-card">
+        <div class="adv-icon">🛡</div>
+        <h3>Финансовая защита сделки</h3>
+        <p>Работаем строго по 214-ФЗ через эскроу-счета — деньги дольщиков хранятся в банке и переходят застройщику только после ввода дома в эксплуатацию.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">📍</div>
+        <h3>Локации с ростом стоимости</h3>
+        <p>Выбираем участки у метро, парков и деловых кластеров — квартиры Apex дорожают в среднем на 18% быстрее рынка за первые два года.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">✏️</div>
+        <h3>Архитектура европейского уровня</h3>
+        <p>Проекты создаются с ведущими архбюро: панорамное остекление, продуманные планировки, закрытые дворы без машин.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">🏢</div>
+        <h3>Собственная эксплуатация</h3>
+        <p>После сдачи дом обслуживает наша управляющая компания — консьерж-сервис, клининг, содержание территории без потери качества.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">💳</div>
+        <h3>Гибкие условия покупки</h3>
+        <p>Ипотека от 5,9%, рассрочка от застройщика до 3 лет и программа trade-in — поможем обменять старую квартиру на новую.</p>
+      </div>
+      <div class="adv-card">
+        <div class="adv-icon">⏱</div>
+        <h3>Срок — это обязательство</h3>
+        <p>98% домов Apex сдаются в заявленную дату или раньше. Прогресс каждой стройки виден онлайн в личном кабинете покупателя.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= CATALOG ================= -->
+<section class="catalog" id="catalog">
+  <div class="wrap">
+    <div class="catalog-toolbar">
+      <div class="sec-head" style="margin-bottom:0;">
+        <span class="eyebrow">Каталог объектов</span>
+        <h2>Найдите свой Apex</h2>
+        <p>Жилые комплексы у метро и парков, с закрытыми дворами, панорамными видами и продуманной инфраструктурой.</p>
+      </div>
+      <div class="filter-pills">
+        <button class="active">Все объекты</button>
+        <button>Сдача в 2026</button>
+        <button>У метро</button>
+        <button>Премиум</button>
+      </div>
+    </div>
+
+    <div class="prop-grid">
+
+      <div class="prop-card">
+        <div class="prop-media">
+          <span class="prop-badge">Бизнес-класс</span>
+          <span class="prop-status">Стройка · 73%</span>
+          <img src="https://images.unsplash.com/photo-1613977257363-707ba9348227?auto=format&fit=crop&w=900&q=80" alt="ЖК Apex Sky — современный жилой комплекс">
+        </div>
+        <div class="prop-body">
+          <h3>ЖК «Apex Sky»</h3>
+          <div class="prop-loc">📍 Центральный район, 6 мин до метро</div>
+          <div class="prop-specs">
+            <div><b>1–4</b>комнат</div>
+            <div><b>34–128 м²</b>площадь</div>
+            <div><b>IV кв. 2026</b>сдача</div>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price"><div class="label">Цена от</div><div class="value">6,4 млн ₽</div></div>
+            <a href="#booking" class="prop-link">Подробнее →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-card">
+        <div class="prop-media">
+          <span class="prop-badge">Комфорт+</span>
+          <span class="prop-status">Стройка · 45%</span>
+          <img src="https://images.unsplash.com/photo-1560518883-ce09059eeffa?auto=format&fit=crop&w=900&q=80" alt="ЖК Apex Garden — жилой комплекс у парка">
+        </div>
+        <div class="prop-body">
+          <h3>ЖК «Apex Garden»</h3>
+          <div class="prop-loc">📍 Парковый район, вдоль набережной</div>
+          <div class="prop-specs">
+            <div><b>1–3</b>комнат</div>
+            <div><b>28–95 м²</b>площадь</div>
+            <div><b>II кв. 2027</b>сдача</div>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price"><div class="label">Цена от</div><div class="value">4,9 млн ₽</div></div>
+            <a href="#booking" class="prop-link">Подробнее →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-card">
+        <div class="prop-media">
+          <span class="prop-badge">Премиум</span>
+          <span class="prop-status">Сдан</span>
+          <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?auto=format&fit=crop&w=900&q=80" alt="ЖК Apex Riverside — премиальный жилой комплекс у реки">
+        </div>
+        <div class="prop-body">
+          <h3>ЖК «Apex Riverside»</h3>
+          <div class="prop-loc">📍 Набережная, панорамный вид на реку</div>
+          <div class="prop-specs">
+            <div><b>2–5</b>комнат</div>
+            <div><b>62–184 м²</b>площадь</div>
+            <div><b>Ключи сразу</b>сдача</div>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price"><div class="label">Цена от</div><div class="value">11,2 млн ₽</div></div>
+            <a href="#booking" class="prop-link">Подробнее →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-card">
+        <div class="prop-media">
+          <span class="prop-badge">Бизнес-класс</span>
+          <span class="prop-status">Старт продаж</span>
+          <img src="https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=900&q=80" alt="ЖК Apex Prime — новый жилой квартал">
+        </div>
+        <div class="prop-body">
+          <h3>ЖК «Apex Prime»</h3>
+          <div class="prop-loc">📍 Деловой квартал, 3 мин до метро</div>
+          <div class="prop-specs">
+            <div><b>Студии–3</b>комнат</div>
+            <div><b>24–110 м²</b>площадь</div>
+            <div><b>III кв. 2028</b>сдача</div>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price"><div class="label">Цена от</div><div class="value">5,6 млн ₽</div></div>
+            <a href="#booking" class="prop-link">Подробнее →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-card">
+        <div class="prop-media">
+          <span class="prop-badge">Комфорт</span>
+          <span class="prop-status">Стройка · 90%</span>
+          <img src="https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=900&q=80" alt="ЖК Apex Quarter — жилой квартал с закрытым двором">
+        </div>
+        <div class="prop-body">
+          <h3>ЖК «Apex Quarter»</h3>
+          <div class="prop-loc">📍 Северный округ, рядом со школой и садом</div>
+          <div class="prop-specs">
+            <div><b>1–4</b>комнат</div>
+            <div><b>31–102 м²</b>площадь</div>
+            <div><b>I кв. 2026</b>сдача</div>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price"><div class="label">Цена от</div><div class="value">5,1 млн ₽</div></div>
+            <a href="#booking" class="prop-link">Подробнее →</a>
+          </div>
+        </div>
+      </div>
+
+      <div class="prop-card">
+        <div class="prop-media">
+          <span class="prop-badge">Премиум</span>
+          <span class="prop-status">Стройка · 30%</span>
+          <img src="https://images.unsplash.com/photo-1571055107559-3e67626fa8be?auto=format&fit=crop&w=900&q=80" alt="ЖК Apex Horizon — премиальная высотная застройка">
+        </div>
+        <div class="prop-body">
+          <h3>ЖК «Apex Horizon»</h3>
+          <div class="prop-loc">📍 Верхний город, панорамные видовые этажи</div>
+          <div class="prop-specs">
+            <div><b>2–5</b>комнат</div>
+            <div><b>58–210 м²</b>площадь</div>
+            <div><b>IV кв. 2027</b>сдача</div>
+          </div>
+          <div class="prop-footer">
+            <div class="prop-price"><div class="label">Цена от</div><div class="value">14,8 млн ₽</div></div>
+            <a href="#booking" class="prop-link">Подробнее →</a>
+          </div>
+        </div>
+      </div>
+
+    </div>
+
+    <div class="catalog-cta">
+      <a href="#booking" class="btn btn-primary">Показать все 24 объекта</a>
+    </div>
+  </div>
+</section>
+
+<!-- ================= PROCESS ================= -->
+<section class="process" id="process">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Путь покупателя</span>
+      <h2>Купить квартиру просто и прозрачно</h2>
+      <p>От первого звонка до вручения ключей — сопровождаем на каждом шаге и берём документооборот на себя.</p>
+    </div>
+    <div class="process-grid">
+      <div class="process-step">
+        <div class="n">01</div>
+        <h4>Подбор и показ</h4>
+        <p>Менеджер уточняет бюджет и пожелания, подбирает 3–5 подходящих квартир и организует показ офлайн или онлайн.</p>
+      </div>
+      <div class="process-step">
+        <div class="n">02</div>
+        <h4>Бронирование</h4>
+        <p>Фиксируем цену и планировку — квартира резервируется за вами на 5 дней без штрафов и переплат.</p>
+      </div>
+      <div class="process-step">
+        <div class="n">03</div>
+        <h4>Оформление сделки</h4>
+        <p>Готовим договор, регистрируем ДДУ в Росреестре, помогаем с одобрением ипотеки за 1–3 дня.</p>
+      </div>
+      <div class="process-step">
+        <div class="n">04</div>
+        <h4>Ключи и въезд</h4>
+        <p>Принимаете квартиру по смарт-акту, получаете ключи и доступ в личный кабинет собственника Apex.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= BOOKING FORM ================= -->
+<section class="booking" id="booking">
+  <div class="wrap">
+    <div class="booking-copy">
+      <span class="eyebrow">Бронирование</span>
+      <h2>Забронируйте квартиру мечты сегодня</h2>
+      <p>Оставьте заявку — подберём варианты под ваш бюджет, зафиксируем цену и запишем на просмотр в удобное время.</p>
+      <ul class="booking-points">
+        <li><span class="check">✓</span> Перезвоним в течение 15 минут в рабочее время</li>
+        <li><span class="check">✓</span> Бесплатная консультация по ипотеке и рассрочке</li>
+        <li><span class="check">✓</span> Бронь квартиры и цены на 5 дней без доплат</li>
+        <li><span class="check">✓</span> Никакого спама — только по вашему запросу</li>
+      </ul>
+    </div>
+
+    <form class="booking-form" id="bookingForm">
+      <h3>Записаться на просмотр</h3>
+      <p class="hint">Заполнение формы занимает меньше минуты</p>
+
+      <div class="field-row">
+        <div class="field">
+          <label for="name">Имя</label>
+          <input id="name" name="name" type="text" placeholder="Как к вам обращаться" required>
+        </div>
+        <div class="field">
+          <label for="phone">Телефон</label>
+          <input id="phone" name="phone" type="tel" placeholder="+7 (___) ___-__-__" required>
+        </div>
+      </div>
+
+      <div class="field">
+        <label for="complex">Интересующий ЖК</label>
+        <select id="complex" name="complex">
+          <option>Apex Sky</option>
+          <option>Apex Garden</option>
+          <option>Apex Riverside</option>
+          <option>Apex Prime</option>
+          <option>Apex Quarter</option>
+          <option>Apex Horizon</option>
+          <option>Ещё не выбрал(а) — нужна консультация</option>
+        </select>
+      </div>
+
+      <div class="field">
+        <label for="budget">Бюджет покупки</label>
+        <select id="budget" name="budget">
+          <option>до 6 млн ₽</option>
+          <option>6–10 млн ₽</option>
+          <option>10–15 млн ₽</option>
+          <option>от 15 млн ₽</option>
+        </select>
+      </div>
+
+      <label class="consent">
+        <input type="checkbox" required>
+        <span>Согласен(на) с <a href="#">политикой обработки персональных данных</a> и получением информации о ходе брони</span>
+      </label>
+
+      <button type="submit" class="btn btn-primary btn-block">Отправить заявку</button>
+      <div class="form-note">🔒 Ваши данные защищены и не передаются третьим лицам</div>
+    </form>
+  </div>
+</section>
+
+<!-- ================= FAQ ================= -->
+<section class="faq" id="faq">
+  <div class="wrap">
+    <div class="sec-head center">
+      <span class="eyebrow">Частые вопросы</span>
+      <h2>Отвечаем честно и по делу</h2>
+    </div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q"><span>Как защищены деньги дольщиков?</span><span class="plus">+</span></div>
+        <div class="faq-a">Все сделки проходят через эскроу-счета по 214-ФЗ: деньги хранятся в уполномоченном банке и поступают застройщику только после ввода дома в эксплуатацию.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Можно ли купить в ипотеку или рассрочку?</span><span class="plus">+</span></div>
+        <div class="faq-a">Да, работаем с 12 банками-партнёрами — ипотека от 5,9% годовых, а также собственная рассрочка от Apex Development до 3 лет без переплат.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Что делать, если у меня есть квартира для обмена?</span><span class="plus">+</span></div>
+        <div class="faq-a">Работает программа trade-in: оцениваем вашу квартиру, засчитываем стоимость в оплату новой и берём на себя всё оформление сделки.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q"><span>Можно ли посмотреть ход строительства онлайн?</span><span class="plus">+</span></div>
+        <div class="faq-a">Да, в личном кабинете покупателя доступны фотоотчёты со стройки, график работ и видеотрансляция с площадки в режиме реального времени.</div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= FOOTER ================= -->
+<footer id="contacts">
+  <div class="wrap">
+    <div class="footer-top">
+      <div class="footer-brand">
+        <a href="#top" class="logo"><span class="mark">A</span><span>APEX<small>Development</small></span></a>
+        <p>Девелоперская компания полного цикла: от покупки земли и проектирования до сдачи ключей и последующей эксплуатации дома.</p>
+        <div class="social-row">
+          <a href="#" aria-label="Telegram">✈</a>
+          <a href="#" aria-label="VK">VK</a>
+          <a href="#" aria-label="WhatsApp">☎</a>
+        </div>
+      </div>
+      <div>
+        <h5>Компания</h5>
+        <ul>
+          <li><a href="#advantages">О компании</a></li>
+          <li><a href="#catalog">Объекты</a></li>
+          <li><a href="#process">Как купить</a></li>
+          <li><a href="#">Вакансии</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Покупателям</h5>
+        <ul>
+          <li><a href="#">Ипотека</a></li>
+          <li><a href="#">Рассрочка</a></li>
+          <li><a href="#">Trade-in</a></li>
+          <li><a href="#faq">Вопросы</a></li>
+        </ul>
+      </div>
+      <div>
+        <h5>Контакты</h5>
+        <ul class="foot-contact">
+          <li>📍 г. Москва, Пресненская наб., 12, офис продаж</li>
+          <li>📞 <a href="tel:+74951234455">+7 (495) 123-44-55</a></li>
+          <li>✉️ <a href="mailto:sales@apex-development.ru">sales@apex-development.ru</a></li>
+          <li>🕒 Ежедневно, 9:00–21:00</li>
+        </ul>
+      </div>
+    </div>
+    <div class="bottom-bar">
+      <span>© 2026 Apex Development. Все права защищены.</span>
+      <span><a href="#">Политика конфиденциальности</a> · <a href="#">Договор оферты</a></span>
+    </div>
+  </div>
+</footer>
+
+<script>
+  // header shrink on scroll
+  const header = document.getElementById('siteHeader');
+  window.addEventListener('scroll', () => {
+    header.classList.toggle('scrolled', window.scrollY > 40);
+  });
+
+  // mobile nav
+  const burger = document.getElementById('burgerBtn');
+  const mobileNav = document.getElementById('mobileNav');
+  const closeNav = document.getElementById('closeNav');
+  burger.addEventListener('click', () => mobileNav.classList.add('open'));
+  closeNav.addEventListener('click', () => mobileNav.classList.remove('open'));
+  mobileNav.querySelectorAll('a').forEach(a => a.addEventListener('click', () => mobileNav.classList.remove('open')));
+
+  // catalog filter pills (visual state only)
+  document.querySelectorAll('.filter-pills button').forEach(btn => {
+    btn.addEventListener('click', () => {
+      document.querySelectorAll('.filter-pills button').forEach(b => b.classList.remove('active'));
+      btn.classList.add('active');
+    });
+  });
+
+  // faq accordion
+  document.querySelectorAll('.faq-item').forEach(item => {
+    item.addEventListener('click', () => {
+      const isOpen = item.classList.contains('open');
+      document.querySelectorAll('.faq-item').forEach(i => i.classList.remove('open'));
+      if (!isOpen) item.classList.add('open');
+    });
+  });
+
+  // booking form
+  document.getElementById('bookingForm').addEventListener('submit', function (e) {
+    e.preventDefault();
+    const btn = this.querySelector('button[type="submit"]');
+    const original = btn.textContent;
+    btn.textContent = 'Заявка отправлена ✓';
+    btn.style.background = '#1fae5c';
+    setTimeout(() => {
+      btn.textContent = original;
+      btn.style.background = '';
+      this.reset();
+    }, 2600);
+  });
+</script>
+</body>
+</html>
