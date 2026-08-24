@@ -7,7 +7,7 @@
 <meta name="description" content="Apex Development — жилые комплексы бизнес- и премиум-класса. Эскроу-счета, сдача точно в срок, локации у метро и парков.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@100..900&family=Hanken+Grotesk:wght@100..900&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@200..800&family=Fraunces:opsz,wght@9..144,300..700&display=swap" rel="stylesheet">
 <style>
   :root{
     /* ---- Mercury token system, adapted for Apex Development ---- */
@@ -18,12 +18,12 @@
     --color-mist-border:#e2e3ed;
     --color-ash-text:#c3c3cc;
     --color-ivory-text:#ededf3;
-    --color-cobalt:#5266eb;
-    --color-cobalt-hover:#465adb;
+    --color-accent:#ff6a1f;
+    --color-accent-hover:#e2560f;
     --color-pure-white:#ffffff;
 
-    --font-arcadia:'Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
-    --font-arcadia-display:'Hanken Grotesk','Inter',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --font-arcadia:'Plus Jakarta Sans',ui-sans-serif,system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;
+    --font-arcadia-display:'Fraunces','Plus Jakarta Sans',ui-serif,Georgia,serif;
 
     --text-caption:12px;   --lh-caption:1;     --ls-caption:.12px;
     --text-body-sm:14px;   --lh-body-sm:1;     --ls-body-sm:.07px;
@@ -64,7 +64,7 @@
   a{color:inherit;text-decoration:none;}
   ul{list-style:none;}
   button,input,select,textarea{font-family:inherit;}
-  :focus-visible{outline:2px solid var(--color-cobalt);outline-offset:3px;}
+  :focus-visible{outline:2px solid var(--color-accent);outline-offset:3px;}
 
   h1,h2,h3,h4{font-family:var(--font-arcadia-display);color:var(--color-ivory-text);text-wrap:balance;}
   .wrap{max-width:var(--page-max-width);margin:0 auto;padding:0 var(--sp-32);}
@@ -75,7 +75,7 @@
     font-size:var(--text-body-sm);font-weight:480;letter-spacing:.12em;text-transform:uppercase;
     color:var(--color-ash-text);
   }
-  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--color-cobalt);display:inline-block;}
+  .eyebrow .dot{width:6px;height:6px;border-radius:50%;background:var(--color-accent);display:inline-block;}
 
   /* ---------------- buttons ---------------- */
   .btn{
@@ -85,8 +85,8 @@
     border:1px solid transparent;
   }
   .btn svg{width:16px;height:16px;flex-shrink:0;}
-  .btn-primary{background:var(--color-cobalt);color:var(--color-pure-white);}
-  .btn-primary:hover{background:var(--color-cobalt-hover);}
+  .btn-primary{background:var(--color-accent);color:var(--color-pure-white);}
+  .btn-primary:hover{background:var(--color-accent-hover);}
   .btn-ghost{background:transparent;border-color:var(--color-ivory-text);color:var(--color-ivory-text);}
   .btn-ghost:hover{background:var(--color-obsidian-button);}
   .btn-block{width:100%;}
@@ -112,7 +112,7 @@
   header .wrap{display:flex;align-items:center;justify-content:space-between;gap:var(--sp-24);}
   .logo{display:flex;align-items:center;gap:10px;}
   .logo .mark{width:30px;height:30px;border-radius:50%;border:1.5px solid var(--color-ivory-text);position:relative;flex-shrink:0;}
-  .logo .mark::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1.5px solid var(--color-cobalt);}
+  .logo .mark::before{content:"";position:absolute;inset:7px;border-radius:50%;border:1.5px solid var(--color-accent);}
   .logo .word{font-family:var(--font-arcadia-display);font-weight:480;font-size:19px;letter-spacing:.02em;color:var(--color-ivory-text);}
 
   nav.main-nav{display:flex;align-items:center;gap:var(--sp-8);}
@@ -132,7 +132,7 @@
   .hero{
     min-height:100vh;display:flex;align-items:flex-end;padding:calc(var(--sp-128) + 40px) 0 var(--sp-72);
     background:
-      linear-gradient(180deg,rgba(15,15,23,.35) 0%,rgba(17,17,26,.55) 45%,rgba(23,23,33,.98) 100%),
+      linear-gradient(180deg,rgba(15,13,20,.35) 0%,rgba(19,15,22,.6) 45%,rgba(23,19,25,.98) 100%),
       url('https://images.unsplash.com/photo-1444723121867-7a241cacace9?auto=format&fit=crop&w=2200&q=80') center 30%/cover no-repeat;
   }
   .hero-inner{max-width:720px;margin:0 auto;text-align:center;display:flex;flex-direction:column;align-items:center;}
@@ -154,7 +154,7 @@
     font-size:clamp(38px,6vw,var(--text-display));line-height:var(--lh-display);font-weight:480;
     margin-bottom:var(--sp-20);
   }
-  .hero h1 em{font-style:normal;color:var(--color-ash-text);}
+  .hero h1 em{font-style:italic;font-weight:400;color:var(--color-ash-text);}
   .hero > .wrap > .hero-inner > p{
     font-size:var(--text-body-lg);line-height:var(--lh-body-lg);font-weight:420;color:var(--color-ash-text);
     max-width:46ch;margin-bottom:var(--sp-32);
@@ -176,7 +176,7 @@
     background:rgba(30,30,42,.55);border:1px solid rgba(226,227,237,.16);color:var(--color-ash-text);
     font-size:var(--text-caption);font-weight:420;backdrop-filter:blur(4px);
   }
-  .hero-tags svg{width:13px;height:13px;color:var(--color-cobalt);}
+  .hero-tags svg{width:13px;height:13px;color:var(--color-accent);}
 
   /* ---------------- stats ---------------- */
   .stats{padding:var(--sp-72) 0;background:var(--color-onyx-canvas);}
@@ -206,6 +206,43 @@
   .adv-card .icon-chip{margin-bottom:var(--sp-20);}
   .adv-card h3{font-size:var(--text-subheading);line-height:var(--lh-subheading);font-weight:480;margin-bottom:var(--sp-8);}
   .adv-card p{color:var(--color-ash-text);font-size:var(--text-body-sm);line-height:1.6;}
+
+  /* ---------------- photo gallery ---------------- */
+  .gallery{padding:0 0 var(--section-gap);}
+  .gallery-grid{
+    display:grid;grid-template-columns:1.3fr 1fr;grid-template-rows:1fr 1fr;gap:var(--sp-16);height:520px;
+  }
+  .gallery-item{position:relative;border-radius:var(--radius-cards);overflow:hidden;}
+  .gallery-item:first-child{grid-row:1 / 3;}
+  .gallery-item img{width:100%;height:100%;object-fit:cover;filter:saturate(.88) contrast(1.05) brightness(.9);transition:transform .6s ease;}
+  .gallery-item:hover img{transform:scale(1.05);}
+  .gallery-item::after{
+    content:"";position:absolute;inset:0;background:linear-gradient(180deg,transparent 55%,rgba(10,9,14,.85) 100%);
+  }
+  .gallery-cap{position:absolute;left:var(--sp-20);right:var(--sp-20);bottom:var(--sp-20);z-index:2;}
+  .gallery-cap .tag{
+    display:inline-block;font-size:var(--text-caption);letter-spacing:.1em;text-transform:uppercase;
+    color:var(--color-accent);font-weight:480;margin-bottom:6px;
+  }
+  .gallery-cap h4{font-size:var(--text-subheading);font-weight:480;color:var(--color-pure-white);}
+
+  /* ---------------- quote banner ---------------- */
+  .quote-banner{
+    padding:calc(var(--section-gap) + 24px) 0;margin-bottom:var(--section-gap);
+    background:
+      linear-gradient(180deg,rgba(15,13,18,.72) 0%,rgba(15,13,18,.55) 50%,rgba(17,17,21,.9) 100%),
+      url('https://images.unsplash.com/photo-1512453979798-5ea266f8880c?auto=format&fit=crop&w=2000&q=80') center/cover;
+    text-align:center;
+  }
+  .quote-banner blockquote{
+    max-width:800px;margin:0 auto;font-family:var(--font-arcadia-display);font-style:italic;font-weight:400;
+    font-size:clamp(24px,3.4vw,38px);line-height:1.32;color:var(--color-pure-white);
+  }
+  .quote-banner cite{
+    display:block;margin-top:var(--sp-24);font-style:normal;font-size:var(--text-body-sm);color:var(--color-accent);
+    letter-spacing:.04em;
+  }
+  .quote-banner cite span{display:block;color:var(--color-ash-text);font-size:var(--text-caption);margin-top:4px;}
 
   /* ---------------- catalog ---------------- */
   .catalog{padding:var(--section-gap) 0;}
@@ -245,7 +282,7 @@
   .prop-specs b{display:block;color:var(--color-ivory-text);font-size:var(--text-body-sm);font-weight:480;font-variant-numeric:tabular-nums;}
   .prop-footer{display:flex;align-items:center;justify-content:space-between;padding-top:var(--sp-16);border-top:1px solid rgba(226,227,237,.1);}
   .prop-price .label{color:var(--color-ash-text);font-size:var(--text-caption);}
-  .prop-price .value{color:var(--color-ivory-text);font-weight:480;font-size:var(--text-body-lg);font-family:var(--font-arcadia-display);}
+  .prop-price .value{color:var(--color-accent);font-weight:500;font-size:var(--text-body-lg);font-family:var(--font-arcadia-display);}
   .prop-link{display:inline-flex;align-items:center;gap:6px;color:var(--color-ivory-text);font-size:var(--text-body-sm);font-weight:480;}
   .prop-link svg{width:14px;height:14px;transition:transform .2s;}
   .prop-link:hover svg{transform:translateX(3px);}
@@ -261,9 +298,10 @@
   }
   .process-step{position:relative;}
   .process-step .n{
-    width:44px;height:44px;border-radius:50%;background:var(--color-obsidian-button);color:var(--color-ivory-text);
+    width:44px;height:44px;border-radius:50%;background:var(--color-obsidian-button);color:var(--color-accent);
     display:flex;align-items:center;justify-content:center;font-family:var(--font-arcadia-display);
     font-weight:480;font-size:var(--text-body);margin-bottom:var(--sp-20);position:relative;z-index:2;
+    border:1px solid rgba(255,106,31,.35);
   }
   .process-step h4{font-size:var(--text-body-lg);font-weight:480;margin-bottom:var(--sp-8);}
   .process-step p{color:var(--color-ash-text);font-size:var(--text-body-sm);line-height:1.6;}
@@ -279,7 +317,7 @@
   .booking-points{display:flex;flex-direction:column;gap:var(--sp-16);}
   .booking-points li{display:flex;gap:var(--sp-12);align-items:flex-start;font-size:var(--text-body-sm);color:var(--color-ivory-text);}
   .booking-points .icon-chip{width:32px;height:32px;border-radius:var(--radius-default);}
-  .booking-points .icon-chip svg{width:14px;height:14px;color:var(--color-cobalt);}
+  .booking-points .icon-chip svg{width:14px;height:14px;color:var(--color-accent);}
 
   .booking-form{background:var(--color-graphite-card);border-radius:16px;padding:var(--card-padding);}
   .booking-form h3{font-size:var(--text-subheading);font-weight:480;margin-bottom:4px;}
@@ -294,10 +332,10 @@
     color:var(--color-ivory-text);font-size:var(--text-body-sm);padding:13px 18px;transition:border-color .2s;
   }
   .field input::placeholder{color:var(--color-ash-text);}
-  .field input:focus,.field select:focus{outline:none;border-color:var(--color-cobalt);}
+  .field input:focus,.field select:focus{outline:none;border-color:var(--color-accent);}
   .field-row{display:grid;grid-template-columns:1fr 1fr;gap:var(--sp-12);}
   .consent{display:flex;gap:10px;align-items:flex-start;margin:var(--sp-16) 0 var(--sp-20);}
-  .consent input{margin-top:3px;width:16px;height:16px;accent-color:var(--color-cobalt);flex-shrink:0;}
+  .consent input{margin-top:3px;width:16px;height:16px;accent-color:var(--color-accent);flex-shrink:0;}
   .consent span{font-size:var(--text-caption);color:var(--color-ash-text);line-height:1.55;}
   .consent a{color:var(--color-ivory-text);text-decoration:underline;}
   .form-note{display:flex;align-items:center;gap:8px;justify-content:center;margin-top:var(--sp-16);color:var(--color-ash-text);font-size:var(--text-caption);}
@@ -314,7 +352,7 @@
     display:flex;align-items:center;justify-content:center;flex-shrink:0;transition:transform .3s,background .2s;
   }
   .faq-q .plus svg{width:14px;height:14px;}
-  .faq-item.open .plus{transform:rotate(45deg);background:var(--color-cobalt);}
+  .faq-item.open .plus{transform:rotate(45deg);background:var(--color-accent);}
   .faq-a{max-height:0;overflow:hidden;transition:max-height .35s ease;color:var(--color-ash-text);font-size:var(--text-body-sm);line-height:1.65;}
   .faq-item.open .faq-a{max-height:220px;margin-top:var(--sp-16);}
 
@@ -328,12 +366,12 @@
     display:flex;align-items:center;justify-content:center;transition:.2s;
   }
   .social-row a svg{width:16px;height:16px;}
-  .social-row a:hover{background:var(--color-cobalt);}
+  .social-row a:hover{background:var(--color-accent);}
   footer h5{font-size:var(--text-caption);letter-spacing:.1em;text-transform:uppercase;color:var(--color-ash-text);font-weight:480;margin-bottom:var(--sp-20);}
   footer ul li{margin-bottom:var(--sp-12);font-size:var(--text-body-sm);color:var(--color-ash-text);}
   footer ul li a:hover{color:var(--color-ivory-text);}
   .foot-contact li{display:flex;gap:10px;margin-bottom:var(--sp-16);align-items:flex-start;}
-  .foot-contact li svg{width:15px;height:15px;flex-shrink:0;margin-top:2px;color:var(--color-cobalt);}
+  .foot-contact li svg{width:15px;height:15px;flex-shrink:0;margin-top:2px;color:var(--color-accent);}
   .disclaimer-bar{
     border-top:1px solid rgba(226,227,237,.08);padding:var(--sp-24) 0;
     display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:var(--sp-12);
@@ -359,6 +397,8 @@
   @media (max-width:1080px){
     .stats-grid{grid-template-columns:repeat(2,1fr);}
     .adv-grid{grid-template-columns:repeat(2,1fr);}
+    .gallery-grid{height:auto;grid-template-columns:1fr 1fr;grid-template-rows:260px 260px;}
+    .gallery-item:first-child{grid-row:auto;grid-column:1 / 3;}
     .prop-grid{grid-template-columns:repeat(2,1fr);}
     .process-grid{grid-template-columns:repeat(2,1fr);row-gap:var(--sp-40);}
     .process-grid::before{display:none;}
@@ -375,6 +415,9 @@
     .lead-capture button{border-radius:var(--radius-buttons);}
     .stats-grid{grid-template-columns:1fr;}
     .adv-grid{grid-template-columns:1fr;}
+    .gallery-grid{grid-template-columns:1fr;grid-template-rows:none;}
+    .gallery-item:first-child{grid-column:auto;height:260px;}
+    .gallery-item{height:220px;}
     .prop-grid{grid-template-columns:1fr;}
     .process-grid{grid-template-columns:1fr;}
     .field-row{grid-template-columns:1fr;}
@@ -518,6 +561,26 @@
         <div class="icon-chip"><svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.6" stroke-linecap="round" stroke-linejoin="round"><use href="#i-clock"/></svg></div>
         <h3>Срок — это обязательство</h3>
         <p>98% домов Apex сдаются в заявленную дату. Прогресс стройки виден онлайн в личном кабинете покупателя.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ================= GALLERY ================= -->
+<section class="gallery">
+  <div class="wrap">
+    <div class="gallery-grid">
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600585154340-be6161a56a0c?auto=format&fit=crop&w=1400&q=80" alt="Гостиная в квартире Apex Development с панорамными окнами">
+        <div class="gallery-cap"><span class="tag">Гостиные</span><h4>Панорамное остекление в каждой квартире</h4></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?auto=format&fit=crop&w=1000&q=80" alt="Современная кухня в отделке от Apex Development">
+        <div class="gallery-cap"><span class="tag">Кухни</span><h4>Отделка от дизайн-студии Apex</h4></div>
+      </div>
+      <div class="gallery-item">
+        <img src="https://images.unsplash.com/photo-1616486338812-3dadae4b4ace?auto=format&fit=crop&w=1000&q=80" alt="Спальня в жилом комплексе Apex Development">
+        <div class="gallery-cap"><span class="tag">Спальни</span><h4>Тишина и естественный свет</h4></div>
       </div>
     </div>
   </div>
@@ -673,6 +736,14 @@
     <div class="catalog-cta">
       <a href="#booking" class="btn btn-ghost">Показать все 24 объекта</a>
     </div>
+  </div>
+</section>
+
+<!-- ================= QUOTE BANNER ================= -->
+<section class="quote-banner">
+  <div class="wrap">
+    <blockquote>«Мы проектируем не квадратные метры, а сценарии жизни — двор, в который хочется выйти, и вид, на который хочется смотреть»</blockquote>
+    <cite>Игорь Свиридов<span>Главный архитектор Apex Development</span></cite>
   </div>
 </section>
 
