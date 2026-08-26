@@ -126,7 +126,57 @@
   .nav-links{ display:flex; gap:28px; }
   .nav-links a{ font-size:14px; color:rgba(255,255,255,.65); transition:color .2s ease; }
   .nav-links a:hover{ color:var(--text-white); }
-  .nav-burger{ display:none; }
+  .nav-actions{ display:flex; align-items:center; gap:10px; }
+
+  .nav-burger{
+    display:none;
+    width:40px; height:40px;
+    align-items:center; justify-content:center;
+    flex-direction:column; gap:4px;
+    background:transparent;
+    border:1px solid var(--border-color);
+    border-radius:50%;
+    cursor:pointer;
+    flex-shrink:0;
+  }
+  .nav-burger span{
+    display:block; width:16px; height:2px; background:var(--text-white);
+    transition:transform .25s ease, opacity .25s ease;
+  }
+  .nav-burger.is-open span:nth-child(1){ transform:translateY(6px) rotate(45deg); }
+  .nav-burger.is-open span:nth-child(2){ opacity:0; }
+  .nav-burger.is-open span:nth-child(3){ transform:translateY(-6px) rotate(-45deg); }
+
+  .mobile-menu{
+    position:fixed;
+    top:76px; left:16px; right:16px;
+    z-index:199;
+    max-width:1080px;
+    margin:0 auto;
+    background:rgba(11,12,14,.95);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--border-color);
+    border-radius:20px;
+    padding:10px;
+    display:flex;
+    flex-direction:column;
+    gap:2px;
+    opacity:0;
+    transform:translateY(-10px);
+    pointer-events:none;
+    transition:opacity .25s ease, transform .25s ease;
+  }
+  .mobile-menu.is-open{ opacity:1; transform:translateY(0); pointer-events:auto; }
+  .mobile-menu a{
+    padding:14px 16px;
+    border-radius:12px;
+    color:var(--text-white);
+    font-size:15px;
+    transition:background-color .2s ease;
+  }
+  .mobile-menu a:hover{ background:var(--bg-card); }
+  .mobile-menu .btn{ margin-top:6px; justify-content:center; }
 
   /* ---------- Hero ---------- */
   .hero{ padding:168px 0 90px; }
@@ -419,6 +469,7 @@
     .hero{ padding:140px 0 60px; }
     .hero-visual{ order:-1; aspect-ratio:16/10; }
     .nav-links{ display:none; }
+    .nav-burger{ display:flex; }
     .case-card, .case-card:nth-child(even){ grid-template-columns:1fr; }
     .case-card:nth-child(even) .mock-frame{ order:0; border-left:none; border-bottom:1px solid var(--border-color); }
     .mock-frame{ border-right:none; border-bottom:1px solid var(--border-color); }
@@ -438,8 +489,21 @@
         <li><a href="#portfolio">Работы</a></li>
         <li><a href="#contact">Контакты</a></li>
       </ul>
-      <a href="#contact" class="btn btn-primary btn-sm">Обсудить проект</a>
+      <div class="nav-actions">
+        <a href="#contact" class="btn btn-primary btn-sm">Обсудить проект</a>
+        <button class="nav-burger" id="navBurger" aria-label="Открыть меню" aria-expanded="false" aria-controls="mobileMenu">
+          <span></span><span></span><span></span>
+        </button>
+      </div>
     </nav>
+  </div>
+
+  <div class="mobile-menu" id="mobileMenu">
+    <a href="#about">Обо мне</a>
+    <a href="#services">Услуги</a>
+    <a href="#portfolio">Работы</a>
+    <a href="#contact">Контакты</a>
+    <a href="#contact" class="btn btn-primary">Обсудить проект</a>
   </div>
 
   <main>
@@ -648,6 +712,25 @@
       }
       window.addEventListener('scroll', onScroll, { passive:true });
       onScroll();
+
+      var burger = document.getElementById('navBurger');
+      var mobileMenu = document.getElementById('mobileMenu');
+      function closeMenu(){
+        mobileMenu.classList.remove('is-open');
+        burger.classList.remove('is-open');
+        burger.setAttribute('aria-expanded', 'false');
+      }
+      burger.addEventListener('click', function(){
+        var isOpen = mobileMenu.classList.toggle('is-open');
+        burger.classList.toggle('is-open', isOpen);
+        burger.setAttribute('aria-expanded', String(isOpen));
+      });
+      mobileMenu.querySelectorAll('a').forEach(function(a){
+        a.addEventListener('click', closeMenu);
+      });
+      window.addEventListener('resize', function(){
+        if(window.innerWidth > 900){ closeMenu(); }
+      });
     })();
   </script>
 
