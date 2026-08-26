@@ -395,6 +395,7 @@
     font-family:ui-monospace, monospace;
   }
   .browser-view{ height:260px; position:relative; overflow:hidden; background:#0d1220; }
+  .browser-view picture{ display:block; width:100%; height:100%; }
   .case-shot{ width:100%; height:100%; object-fit:contain; object-position:center; }
   .browser-view.pad-shot{ padding:18px; }
   .browser-view.pad-shot .case-shot{ border-radius:8px; }
@@ -598,7 +599,10 @@
                   <span class="url">novadent.ru</span>
                 </div>
                 <div class="browser-view pad-shot">
-                  <img class="case-shot" src="assets/case-novadent.png" alt="Скриншот сайта NOVADENT">
+                  <picture>
+                    <source media="(max-width: 900px)" srcset="assets/case-novadent-mobile.png">
+                    <img class="case-shot" src="assets/case-novadent.png" alt="Скриншот сайта NOVADENT">
+                  </picture>
                 </div>
               </div>
             </a>
@@ -623,7 +627,10 @@
                   <span class="url">apex-development.ru</span>
                 </div>
                 <div class="browser-view">
-                  <img class="case-shot" src="assets/case-apex.png" alt="Скриншот сайта Apex Development">
+                  <picture>
+                    <source media="(max-width: 900px)" srcset="assets/case-apex-mobile.png">
+                    <img class="case-shot" src="assets/case-apex.png" alt="Скриншот сайта Apex Development">
+                  </picture>
                 </div>
               </div>
             </a>
@@ -648,7 +655,10 @@
                   <span class="url">morningvibe.coffee</span>
                 </div>
                 <div class="browser-view">
-                  <img class="case-shot" src="assets/case-morningvibe.png" alt="Скриншот сайта Morning Vibe">
+                  <picture>
+                    <source media="(max-width: 900px)" srcset="assets/case-morningvibe-mobile.png">
+                    <img class="case-shot" src="assets/case-morningvibe.png" alt="Скриншот сайта Morning Vibe">
+                  </picture>
                 </div>
               </div>
             </a>
