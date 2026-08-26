@@ -1,0 +1,605 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Дарья Гуданис — Web Design &amp; Frontend Development</title>
+<meta name="description" content="Дарья Гуданис — веб-дизайнер и frontend-разработчик. Продающие Landing Page, UI/UX дизайн и адаптивная верстка для бизнеса.">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<style>
+  :root{
+    --bg-main:#0b0c0e;
+    --bg-card:#151e32;
+    --bg-card-hover:#172540;
+    --border-color:#24375a;
+    --navy-deep:#12244f;
+    --blue-accent:#2862d7;
+    --blue-hover:#305fbd;
+    --text-light:#85a6e9;
+    --text-white:#ffffff;
+    --text-muted:#5f7099;
+
+    --radial-glow: radial-gradient(79.43% 95.88% at 38.94% -53.46%, rgba(98, 95, 255, 0.38) 0px, rgba(0, 0, 0, 0));
+
+    --text-caption:12px;   --ls-caption:.02em;
+    --text-body:16px;      --lh-body:1.6;
+    --text-body-lg:18px;   --lh-body-lg:1.5;
+    --text-heading-sm:22px;--ls-heading-sm:-.01em;
+    --text-heading:32px;   --ls-heading:-.015em;
+    --text-heading-lg:44px;--ls-heading-lg:-.02em;
+    --text-display:60px;   --ls-display:-.025em;
+
+    --radius-card:16px;
+    --radius-pill:9999px;
+  }
+
+  *{ box-sizing:border-box; margin:0; padding:0; }
+
+  html{ scroll-behavior:smooth; }
+
+  body{
+    font-family:'Inter', ui-sans-serif, system-ui, sans-serif;
+    background-color:var(--bg-main);
+    background-image:var(--radial-glow);
+    background-repeat:no-repeat;
+    color:var(--text-white);
+    line-height:1.6;
+    -webkit-font-smoothing:antialiased;
+  }
+
+  img{ max-width:100%; display:block; }
+  a{ color:inherit; text-decoration:none; }
+  ul{ list-style:none; }
+
+  .container{ max-width:1160px; margin:0 auto; padding:0 24px; }
+
+  section{ padding:96px 0; }
+
+  h1,h2,h3{ font-weight:400; letter-spacing:-.02em; }
+
+  .eyebrow{
+    display:inline-block;
+    font-size:13px;
+    font-weight:600;
+    letter-spacing:.12em;
+    text-transform:uppercase;
+    color:var(--text-light);
+    margin-bottom:18px;
+  }
+
+  /* ---------- Buttons ---------- */
+  .btn{
+    display:inline-flex;
+    align-items:center;
+    gap:8px;
+    padding:14px 28px;
+    border-radius:var(--radius-pill);
+    font-size:15px;
+    font-weight:600;
+    letter-spacing:-.01em;
+    white-space:nowrap;
+    transition:all .2s ease;
+    border:1px solid transparent;
+    cursor:pointer;
+  }
+  .btn-primary{
+    background:var(--blue-accent);
+    color:var(--text-white);
+    box-shadow:0 8px 28px rgba(40,98,215,.35);
+  }
+  .btn-primary:hover{ background:var(--blue-hover); transform:translateY(-2px); box-shadow:0 10px 32px rgba(40,98,215,.5); }
+  .btn-ghost{
+    background:transparent;
+    color:var(--text-white);
+    border-color:var(--border-color);
+  }
+  .btn-ghost:hover{ border-color:var(--text-light); color:var(--text-light); }
+  .btn-sm{ padding:10px 18px; font-size:13px; }
+
+  /* ---------- Floating pill nav ---------- */
+  .nav-wrap{
+    position:fixed;
+    top:18px;
+    left:50%;
+    transform:translateX(-50%);
+    width:calc(100% - 32px);
+    max-width:1080px;
+    z-index:200;
+  }
+  .nav-pill{
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:16px;
+    background:rgba(11,12,14,.72);
+    backdrop-filter:blur(16px);
+    -webkit-backdrop-filter:blur(16px);
+    border:1px solid var(--border-color);
+    border-radius:var(--radius-pill);
+    padding:10px 10px 10px 26px;
+    box-shadow:0 14px 40px -12px rgba(0,0,0,.6);
+  }
+  .logo{ font-size:17px; font-weight:700; letter-spacing:-.01em; white-space:nowrap; }
+  .logo span{ color:var(--text-light); font-weight:400; }
+  .nav-links{ display:flex; gap:28px; }
+  .nav-links a{ font-size:14px; color:rgba(255,255,255,.65); transition:color .2s ease; }
+  .nav-links a:hover{ color:var(--text-white); }
+  .nav-burger{ display:none; }
+
+  /* ---------- Hero ---------- */
+  .hero{ padding:168px 0 90px; }
+  .hero-grid{
+    display:grid;
+    grid-template-columns:1.15fr .85fr;
+    gap:56px;
+    align-items:center;
+  }
+  .hero-title{
+    font-size:clamp(36px,5.4vw,var(--text-display));
+    line-height:1.04;
+    letter-spacing:var(--ls-display);
+    margin-bottom:26px;
+  }
+  .hero-title em{ font-style:normal; color:var(--text-light); }
+  .hero-sub{
+    font-size:var(--text-body-lg);
+    color:var(--text-light);
+    max-width:480px;
+    opacity:.9;
+    margin-bottom:36px;
+  }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px; }
+  .trust-row{
+    display:flex;
+    gap:20px;
+    flex-wrap:wrap;
+    font-size:13px;
+    color:var(--text-muted);
+    letter-spacing:.01em;
+  }
+  .trust-row span{ display:flex; align-items:center; gap:6px; }
+  .trust-row span::before{ content:'✓'; color:var(--blue-accent); font-weight:700; }
+
+  .hero-visual{
+    position:relative;
+    border-radius:var(--radius-card);
+    overflow:hidden;
+    border:1px solid var(--border-color);
+    background:var(--bg-card);
+    aspect-ratio:4/5;
+    display:flex;
+    align-items:center;
+    justify-content:center;
+  }
+  .hero-visual::before{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(155deg, var(--navy-deep) 0%, var(--bg-card) 55%, var(--bg-main) 100%);
+  }
+  .hero-visual .ph-label{
+    position:relative;
+    z-index:1;
+    text-align:center;
+    color:var(--text-muted);
+    font-size:14px;
+    padding:0 24px;
+  }
+  .hero-visual .ph-tag{
+    position:absolute;
+    z-index:1;
+    top:20px; left:20px;
+    background:rgba(11,12,14,.6);
+    border:1px solid var(--border-color);
+    border-radius:var(--radius-pill);
+    padding:6px 14px;
+    font-size:12px;
+    color:var(--text-light);
+  }
+
+  /* ---------- Section header ---------- */
+  .section-header{ margin-bottom:52px; max-width:640px; }
+  .section-header h2{
+    font-size:clamp(28px,3.6vw,var(--text-heading-lg));
+    letter-spacing:var(--ls-heading-lg);
+  }
+  .section-header p{ color:var(--text-light); opacity:.85; margin-top:14px; font-size:var(--text-body-lg); }
+  .section-top{
+    display:flex;
+    justify-content:space-between;
+    align-items:flex-end;
+    gap:24px;
+    flex-wrap:wrap;
+  }
+
+  section + section{ border-top:1px solid var(--border-color); }
+
+  /* ---------- About ---------- */
+  .about-grid{
+    display:grid;
+    grid-template-columns:.8fr 1.2fr;
+    gap:56px;
+    align-items:center;
+  }
+  .about-avatar{
+    aspect-ratio:1;
+    border-radius:var(--radius-card);
+    border:1px dashed var(--border-color);
+    background:var(--bg-card);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    color:var(--text-muted);
+    font-size:14px;
+    text-align:center;
+    padding:20px;
+  }
+  .about-text p{ color:var(--text-light); opacity:.9; margin-bottom:18px; font-size:var(--text-body-lg); max-width:560px; }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .skill-tag{
+    font-size:13px;
+    padding:8px 16px;
+    border-radius:var(--radius-pill);
+    border:1px solid var(--border-color);
+    background:var(--bg-card);
+    color:var(--text-light);
+  }
+
+  /* ---------- Services ---------- */
+  .grid-3{ display:grid; grid-template-columns:repeat(3,1fr); gap:24px; }
+  .card{
+    background:var(--bg-card);
+    border:1px solid var(--border-color);
+    border-radius:var(--radius-card);
+    padding:32px;
+    transition:transform .2s ease, background-color .2s ease, border-color .2s ease;
+  }
+  .card:hover{ transform:translateY(-4px); background:var(--bg-card-hover); border-color:var(--blue-accent); }
+  .card .num{ font-size:13px; color:var(--text-muted); font-weight:600; margin-bottom:16px; display:block; }
+  .card h3{ font-size:20px; margin-bottom:12px; letter-spacing:-.01em; }
+  .card p{ color:var(--text-light); font-size:15px; opacity:.85; }
+
+  /* ---------- Portfolio ---------- */
+  .case-grid{ display:flex; flex-direction:column; gap:28px; }
+  .case-card{
+    display:grid;
+    grid-template-columns:.95fr 1.05fr;
+    gap:0;
+    background:var(--bg-card);
+    border:1px solid var(--border-color);
+    border-radius:var(--radius-card);
+    overflow:hidden;
+    transition:border-color .3s ease;
+  }
+  .case-card:hover{ border-color:var(--blue-accent); }
+  .case-card:nth-child(even){ grid-template-columns:1.05fr .95fr; }
+  .case-card:nth-child(even) .mock-frame{ order:2; }
+
+  .mock-frame{
+    background:var(--navy-deep);
+    border-right:1px solid var(--border-color);
+    display:flex;
+    align-items:center;
+    justify-content:center;
+    padding:28px;
+    min-height:340px;
+  }
+  .case-card:nth-child(even) .mock-frame{ border-right:none; border-left:1px solid var(--border-color); }
+
+  .browser{
+    width:100%;
+    max-width:420px;
+    border-radius:10px;
+    overflow:hidden;
+    box-shadow:0 30px 60px -25px rgba(0,0,0,.7);
+    border:1px solid rgba(255,255,255,.08);
+  }
+  .browser-bar{
+    display:flex;
+    align-items:center;
+    gap:8px;
+    padding:9px 12px;
+    background:#0d1220;
+  }
+  .browser-bar .dot{ width:8px; height:8px; border-radius:50%; background:rgba(255,255,255,.18); }
+  .browser-bar .url{
+    flex:1;
+    margin-left:6px;
+    background:rgba(255,255,255,.06);
+    border-radius:6px;
+    padding:4px 10px;
+    font-size:10px;
+    color:rgba(255,255,255,.4);
+    font-family:ui-monospace, monospace;
+  }
+  .browser-view{ height:260px; position:relative; overflow:hidden; }
+  .browser-view .mini{
+    position:absolute; inset:0;
+    display:flex; flex-direction:column;
+    padding:22px 20px;
+  }
+
+  /* mini mockup: NOVADENT */
+  .mini-dental{ background:#0A0B0D; color:#fff; font-family:'Inter',sans-serif; }
+  .mini-dental .mini-logo{ font-weight:800; font-size:13px; letter-spacing:.04em; margin-bottom:34px; }
+  .mini-dental .mini-h{ font-size:22px; font-weight:700; line-height:1.2; max-width:210px; margin-bottom:10px; }
+  .mini-dental .mini-h b{ color:#5683DA; font-weight:800; }
+  .mini-dental .mini-p{ font-size:10px; color:#7c8798; max-width:200px; margin-bottom:18px; }
+  .mini-dental .mini-btn{ align-self:flex-start; background:#5683DA; color:#fff; font-size:10px; font-weight:700; padding:8px 16px; border-radius:999px; }
+
+  /* mini mockup: Stroy-Master */
+  .mini-stroy{ background:#080D1A; color:#fff; font-family:'Inter',sans-serif; }
+  .mini-stroy .mini-logo{ font-weight:800; font-size:13px; letter-spacing:.02em; margin-bottom:6px; }
+  .mini-stroy .mini-logo b{ color:#FF5500; }
+  .mini-stroy .mini-tag{ font-size:9px; color:#FF6A1A; text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; }
+  .mini-stroy .mini-h{ font-size:18px; font-weight:800; line-height:1.25; max-width:230px; margin-bottom:10px; }
+  .mini-stroy .mini-p{ font-size:10px; color:#94A3B8; max-width:200px; margin-bottom:14px; }
+  .mini-stroy .mini-btn{ align-self:flex-start; background:#FF5500; color:#fff; font-size:10px; font-weight:700; padding:8px 16px; border-radius:4px; }
+
+  /* mini mockup: Morning Vibe */
+  .mini-coffee{ background:#120B08; color:#F3ECDE; font-family:'Inter',sans-serif; align-items:center; text-align:center; }
+  .mini-coffee .mini-logo{ font-family:'Dancing Script',cursive; font-weight:700; font-size:22px; color:#E4C989; margin-bottom:22px; }
+  .mini-coffee .mini-h{ font-family:'Playfair Display',serif; font-style:italic; font-size:24px; color:#E4C989; line-height:1.2; margin-bottom:10px; }
+  .mini-coffee .mini-p{ font-size:10px; color:#B7A88F; max-width:190px; margin:0 auto 18px; }
+  .mini-coffee .mini-btn{ background:#C9A45C; color:#120B08; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:9px 20px; border-radius:4px; }
+
+  .case-body{ padding:36px 40px; display:flex; flex-direction:column; }
+  .case-tag{
+    font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
+    color:var(--text-light); margin-bottom:12px;
+  }
+  .case-body h3{ font-size:24px; margin-bottom:12px; letter-spacing:-.01em; }
+  .case-body p{ color:var(--text-light); opacity:.85; font-size:15px; margin-bottom:20px; }
+  .case-meta{ display:flex; flex-wrap:wrap; gap:8px; }
+  .case-meta span{
+    font-size:12px; color:var(--text-muted);
+    border:1px solid var(--border-color);
+    padding:6px 12px; border-radius:var(--radius-pill);
+  }
+
+  /* ---------- Contact ---------- */
+  .contact-box{
+    background:var(--navy-deep);
+    border:1px solid var(--border-color);
+    border-radius:24px;
+    padding:64px;
+    text-align:center;
+    max-width:760px;
+    margin:0 auto;
+    box-shadow:0 20px 60px -20px rgba(0,0,0,.5);
+  }
+  .contact-box h2{ font-size:clamp(28px,3.4vw,38px); margin-bottom:16px; letter-spacing:-.02em; }
+  .contact-box p{ color:var(--text-light); font-size:18px; margin-bottom:32px; opacity:.9; }
+  .contact-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
+
+  footer{
+    padding:36px 0;
+    border-top:1px solid var(--border-color);
+    text-align:center;
+    color:var(--text-muted);
+    font-size:13px;
+  }
+
+  @media (max-width:900px){
+    .hero-grid, .about-grid, .grid-3{ grid-template-columns:1fr; }
+    .hero{ padding:140px 0 60px; }
+    .hero-visual{ order:-1; aspect-ratio:16/10; }
+    .nav-links{ display:none; }
+    .case-card, .case-card:nth-child(even){ grid-template-columns:1fr; }
+    .case-card:nth-child(even) .mock-frame{ order:0; border-left:none; border-bottom:1px solid var(--border-color); }
+    .mock-frame{ border-right:none; border-bottom:1px solid var(--border-color); }
+    .case-body{ padding:28px; }
+    .contact-box{ padding:40px 24px; }
+  }
+</style>
+</head>
+<body>
+
+  <div class="nav-wrap">
+    <nav class="nav-pill">
+      <a href="#" class="logo">Daria <span>Gudanis</span></a>
+      <ul class="nav-links">
+        <li><a href="#about">Обо мне</a></li>
+        <li><a href="#services">Услуги</a></li>
+        <li><a href="#portfolio">Работы</a></li>
+        <li><a href="#contact">Контакты</a></li>
+      </ul>
+      <a href="#contact" class="btn btn-primary btn-sm">Обсудить проект</a>
+    </nav>
+  </div>
+
+  <main>
+    <section class="hero">
+      <div class="container hero-grid">
+        <div class="hero-text">
+          <span class="eyebrow">Web Design &amp; Frontend Development</span>
+          <h1 class="hero-title">Создаю <em>сайты, которые продают</em>, а не просто хорошо выглядят</h1>
+          <p class="hero-sub">Проектирую интерфейсы и верстаю Landing Page для бизнеса — от структуры и дизайна до адаптивной верстки, готовой к запуску.</p>
+          <div class="hero-actions">
+            <a href="#portfolio" class="btn btn-primary">Смотреть работы</a>
+            <a href="#contact" class="btn btn-ghost">Связаться со мной</a>
+          </div>
+          <div class="trust-row">
+            <span>3+ проекта под ключ</span>
+            <span>Landing Page</span>
+            <span>UI/UX дизайн</span>
+            <span>Адаптивная верстка</span>
+          </div>
+        </div>
+        <div class="hero-visual">
+          <span class="ph-tag">Фото автора</span>
+          <span class="ph-label">Место для вашего фото / портрета</span>
+        </div>
+      </div>
+    </section>
+
+    <section id="about">
+      <div class="container about-grid">
+        <div class="about-avatar">Фото / аватар</div>
+        <div class="about-text">
+          <span class="eyebrow">Обо мне</span>
+          <h2 style="font-size:32px;margin-bottom:18px;">Дарья Гуданис</h2>
+          <p>Веб-дизайнер и frontend-разработчик. Делаю сайты для бизнеса — от идеи и прототипа до готовой адаптивной верстки, которую можно сразу публиковать.</p>
+          <p>Работаю с коммерческими проектами: медицина, строительство, HoReCa и услуги — везде, где сайту нужно не просто «быть красивым», а приводить заявки.</p>
+          <div class="skill-tags">
+            <span class="skill-tag">Figma</span>
+            <span class="skill-tag">HTML / CSS</span>
+            <span class="skill-tag">UI/UX Design</span>
+            <span class="skill-tag">Адаптивная верстка</span>
+            <span class="skill-tag">Tilda</span>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="services" id="services">
+      <div class="container">
+        <div class="section-header">
+          <h2>Чем я могу помочь</h2>
+          <p>Полный цикл создания сайта — от структуры и дизайна до кода, готового к продакшену.</p>
+        </div>
+        <div class="grid-3">
+          <div class="card">
+            <span class="num">01</span>
+            <h3>Landing Page под ключ</h3>
+            <p>Анализ аудитории, продающая структура, дизайн и верстка — от первого экрана до формы заявки.</p>
+          </div>
+          <div class="card">
+            <span class="num">02</span>
+            <h3>UI/UX Дизайн</h3>
+            <p>Пользовательские сценарии, прототипирование в Figma и чистый визуальный стиль под вашу нишу.</p>
+          </div>
+          <div class="card">
+            <span class="num">03</span>
+            <h3>HTML/CSS Верстка</h3>
+            <p>Быстрая, адаптивная и кроссбраузерная верстка — чистый код без лишних зависимостей.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section class="portfolio" id="portfolio">
+      <div class="container">
+        <div class="section-header">
+          <h2>Избранные проекты</h2>
+          <p>Три реальных коммерческих проекта — из разных ниш, с разной стилистикой и задачами.</p>
+        </div>
+
+        <div class="case-grid">
+
+          <article class="case-card">
+            <div class="mock-frame">
+              <div class="browser">
+                <div class="browser-bar">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="url">novadent.ru</span>
+                </div>
+                <div class="browser-view">
+                  <div class="mini mini-dental">
+                    <div class="mini-logo">NOVADENT</div>
+                    <div class="mini-h">Стоматология без <b>страха</b> и переплат</div>
+                    <div class="mini-p">3D-томограф, компьютерная анестезия, гарантия до 5 лет</div>
+                    <div class="mini-btn">Записаться онлайн</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-body">
+              <span class="case-tag">Landing Page · Медицина</span>
+              <h3>NOVADENT — стоматологическая клиника</h3>
+              <p>Продающий Landing Page для стоматологии премиум-сегмента: акцент на диагностике, безболезненном лечении и доверии через гарантии. Двухцветная тёмная палитра с единым синим акцентом, форма записи и блок отзывов.</p>
+              <div class="case-meta">
+                <span>UI/UX дизайн</span>
+                <span>HTML / CSS</span>
+                <span>Форма записи</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="mock-frame">
+              <div class="browser">
+                <div class="browser-bar">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="url">stroy-master-b2b.ru</span>
+                </div>
+                <div class="browser-view">
+                  <div class="mini mini-stroy">
+                    <div class="mini-logo">СТРОЙ-<b>МАСТЕР</b></div>
+                    <div class="mini-tag">Капитальный ремонт</div>
+                    <div class="mini-h">Ремонт объектов точно в срок</div>
+                    <div class="mini-p">Договор СРО, гарантия 5 лет, онлайн-расчёт сметы</div>
+                    <div class="mini-btn">Рассчитать смету</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-body">
+              <span class="case-tag">Landing Page · Строительство / B2B</span>
+              <h3>Строй-Мастер — капитальный ремонт объектов</h3>
+              <p>Индустриальный дизайн в тёмно-синей палитре с оранжевым акцентом для строительного холдинга: калькулятор сметы, портфолио объектов и блок доверия (СРО, гарантии). Верстка адаптирована под грид Tilda 1200px.</p>
+              <div class="case-meta">
+                <span>Дизайн-система</span>
+                <span>Калькулятор сметы</span>
+                <span>Tilda-верстка</span>
+              </div>
+            </div>
+          </article>
+
+          <article class="case-card">
+            <div class="mock-frame">
+              <div class="browser">
+                <div class="browser-bar">
+                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
+                  <span class="url">morningvibe.coffee</span>
+                </div>
+                <div class="browser-view">
+                  <div class="mini mini-coffee">
+                    <div class="mini-logo">Morning Vibe</div>
+                    <div class="mini-h">Утро начинается с аромата</div>
+                    <div class="mini-p">Авторские напитки, десерты и уютная атмосфера каждый день</div>
+                    <div class="mini-btn">Забронировать стол</div>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <div class="case-body">
+              <span class="case-tag">Landing Page · HoReCa</span>
+              <h3>Morning Vibe — кофейня</h3>
+              <p>Тёмный элегантный стиль (dark &amp; gold): Playfair Display и Dancing Script в паре с Poppins, золотой акцент вместо привычного «кофейного» коричневого. Меню, галерея интерьера и форма бронирования столика.</p>
+              <div class="case-meta">
+                <span>Дизайн-система</span>
+                <span>Меню и галерея</span>
+                <span>Форма бронирования</span>
+              </div>
+            </div>
+          </article>
+
+        </div>
+      </div>
+    </section>
+
+    <section class="contact" id="contact">
+      <div class="container">
+        <div class="contact-box">
+          <span class="eyebrow">Контакты</span>
+          <h2>Готовы запустить новый проект?</h2>
+          <p>Напишите мне, и мы обсудим задачи, сроки и подходящий формат работы.</p>
+          <div class="contact-actions">
+            <a href="mailto:hello@daryagudanis.ru" class="btn btn-primary">Написать на почту</a>
+            <a href="https://t.me/" class="btn btn-ghost">Telegram</a>
+          </div>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <footer>
+    <div class="container">
+      <p>© 2026 Дарья Гуданис. Все права защищены.</p>
+    </div>
+  </footer>
+
+</body>
+</html>
