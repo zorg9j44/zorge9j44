@@ -300,7 +300,21 @@
     justify-content:center;
     padding:28px;
     min-height:340px;
+    cursor:pointer;
   }
+  .case-link{
+    display:inline-flex;
+    align-items:center;
+    gap:6px;
+    margin-top:18px;
+    font-size:14px;
+    font-weight:600;
+    color:var(--text-white);
+    align-self:flex-start;
+  }
+  .case-link span{ transition:transform .2s ease; }
+  .case-link:hover{ color:var(--text-light); }
+  .case-link:hover span{ transform:translateX(3px); }
   .case-card:nth-child(even) .mock-frame{ border-right:none; border-left:1px solid var(--border-color); }
 
   .browser{
@@ -512,7 +526,7 @@
         <div class="case-grid">
 
           <article class="case-card reveal">
-            <div class="mock-frame">
+            <a class="mock-frame" href="https://zorge9j44-dily.vercel.app/dental-clinic.html" target="_blank" rel="noopener">
               <div class="browser">
                 <div class="browser-bar">
                   <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -522,7 +536,7 @@
                   <img class="case-shot" src="assets/case-novadent.png" alt="Скриншот сайта NOVADENT">
                 </div>
               </div>
-            </div>
+            </a>
             <div class="case-body">
               <span class="case-tag">Landing Page · Медицина</span>
               <h3>NOVADENT — стоматологическая клиника</h3>
@@ -532,11 +546,12 @@
                 <span>HTML / CSS</span>
                 <span>Форма записи</span>
               </div>
+              <a class="case-link" href="https://zorge9j44-dily.vercel.app/dental-clinic.html" target="_blank" rel="noopener">Смотреть сайт <span>→</span></a>
             </div>
           </article>
 
           <article class="case-card reveal">
-            <div class="mock-frame">
+            <a class="mock-frame" href="https://zorge9j44-3b7e.vercel.app/" target="_blank" rel="noopener">
               <div class="browser">
                 <div class="browser-bar">
                   <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -546,7 +561,7 @@
                   <img class="case-shot" src="assets/case-apex.png" alt="Скриншот сайта Apex Development">
                 </div>
               </div>
-            </div>
+            </a>
             <div class="case-body">
               <span class="case-tag">Landing Page · Недвижимость</span>
               <h3>Apex Development — жилой комплекс</h3>
@@ -556,11 +571,12 @@
                 <span>Форма заявки</span>
                 <span>UI/UX дизайн</span>
               </div>
+              <a class="case-link" href="https://zorge9j44-3b7e.vercel.app/" target="_blank" rel="noopener">Смотреть сайт <span>→</span></a>
             </div>
           </article>
 
           <article class="case-card reveal">
-            <div class="mock-frame">
+            <a class="mock-frame" href="https://morningvibe-ex7n62vpa-zorge9j44.vercel.app/" target="_blank" rel="noopener">
               <div class="browser">
                 <div class="browser-bar">
                   <span class="dot"></span><span class="dot"></span><span class="dot"></span>
@@ -570,7 +586,7 @@
                   <img class="case-shot" src="assets/case-morningvibe.png" alt="Скриншот сайта Morning Vibe">
                 </div>
               </div>
-            </div>
+            </a>
             <div class="case-body">
               <span class="case-tag">Landing Page · HoReCa</span>
               <h3>Morning Vibe — кофейня</h3>
@@ -580,6 +596,7 @@
                 <span>Меню и галерея</span>
                 <span>Форма бронирования</span>
               </div>
+              <a class="case-link" href="https://morningvibe-ex7n62vpa-zorge9j44.vercel.app/" target="_blank" rel="noopener">Смотреть сайт <span>→</span></a>
             </div>
           </article>
 
