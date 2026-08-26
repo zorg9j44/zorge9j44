@@ -7,7 +7,7 @@
 <meta name="description" content="Дарья Гуданис — веб-дизайнер и frontend-разработчик. Продающие Landing Page, UI/UX дизайн и адаптивная верстка для бизнеса.">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:ital,wght@0,600;1,600&family=Dancing+Script:wght@700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&display=swap" rel="stylesheet">
 <style>
   :root{
     --bg-main:#0b0c0e;
@@ -330,19 +330,7 @@
     font-family:ui-monospace, monospace;
   }
   .browser-view{ height:260px; position:relative; overflow:hidden; background:#0d1220; }
-  .browser-view .mini{
-    position:absolute; inset:0;
-    display:flex; flex-direction:column;
-    padding:22px 20px;
-  }
   .case-shot{ width:100%; height:100%; object-fit:cover; object-position:top center; }
-
-  /* mini mockup: Morning Vibe (pending real screenshot) */
-  .mini-coffee{ background:#120B08; color:#F3ECDE; font-family:'Inter',sans-serif; align-items:center; text-align:center; }
-  .mini-coffee .mini-logo{ font-family:'Dancing Script',cursive; font-weight:700; font-size:22px; color:#E4C989; margin-bottom:22px; }
-  .mini-coffee .mini-h{ font-family:'Playfair Display',serif; font-style:italic; font-size:24px; color:#E4C989; line-height:1.2; margin-bottom:10px; }
-  .mini-coffee .mini-p{ font-size:10px; color:#B7A88F; max-width:190px; margin:0 auto 18px; }
-  .mini-coffee .mini-btn{ background:#C9A45C; color:#120B08; font-size:10px; font-weight:700; text-transform:uppercase; letter-spacing:.06em; padding:9px 20px; border-radius:4px; }
 
   .case-body{ padding:36px 40px; display:flex; flex-direction:column; }
   .case-tag{
@@ -548,12 +536,7 @@
                   <span class="url">morningvibe.coffee</span>
                 </div>
                 <div class="browser-view">
-                  <div class="mini mini-coffee">
-                    <div class="mini-logo">Morning Vibe</div>
-                    <div class="mini-h">Утро начинается с аромата</div>
-                    <div class="mini-p">Авторские напитки, десерты и уютная атмосфера каждый день</div>
-                    <div class="mini-btn">Забронировать стол</div>
-                  </div>
+                  <img class="case-shot" src="assets/case-morningvibe.png" alt="Скриншот сайта Morning Vibe">
                 </div>
               </div>
             </div>
