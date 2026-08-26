@@ -197,6 +197,13 @@
     font-size:12px;
     color:var(--text-light);
   }
+  .hero-visual .real-photo{
+    position:absolute; inset:0; z-index:2;
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  .hero-visual.has-photo .ph-tag,
+  .hero-visual.has-photo .ph-label{ display:none; }
 
   /* ---------- Section header ---------- */
   .section-header{ margin-bottom:52px; max-width:640px; }
@@ -223,6 +230,7 @@
     align-items:center;
   }
   .about-avatar{
+    position:relative;
     aspect-ratio:1;
     border-radius:var(--radius-card);
     border:1px dashed var(--border-color);
@@ -234,7 +242,15 @@
     font-size:14px;
     text-align:center;
     padding:20px;
+    overflow:hidden;
   }
+  .about-avatar .real-photo{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover;
+  }
+  .about-avatar.has-photo{ border-style:solid; }
+  .about-avatar.has-photo .ph-label{ display:none; }
   .about-text p{ color:var(--text-light); opacity:.9; margin-bottom:18px; font-size:var(--text-body-lg); max-width:560px; }
   .skill-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
   .skill-tag{
@@ -313,31 +329,15 @@
     color:rgba(255,255,255,.4);
     font-family:ui-monospace, monospace;
   }
-  .browser-view{ height:260px; position:relative; overflow:hidden; }
+  .browser-view{ height:260px; position:relative; overflow:hidden; background:#0d1220; }
   .browser-view .mini{
     position:absolute; inset:0;
     display:flex; flex-direction:column;
     padding:22px 20px;
   }
+  .case-shot{ width:100%; height:100%; object-fit:cover; object-position:top center; }
 
-  /* mini mockup: NOVADENT */
-  .mini-dental{ background:#0A0B0D; color:#fff; font-family:'Inter',sans-serif; }
-  .mini-dental .mini-logo{ font-weight:800; font-size:13px; letter-spacing:.04em; margin-bottom:34px; }
-  .mini-dental .mini-h{ font-size:22px; font-weight:700; line-height:1.2; max-width:210px; margin-bottom:10px; }
-  .mini-dental .mini-h b{ color:#5683DA; font-weight:800; }
-  .mini-dental .mini-p{ font-size:10px; color:#7c8798; max-width:200px; margin-bottom:18px; }
-  .mini-dental .mini-btn{ align-self:flex-start; background:#5683DA; color:#fff; font-size:10px; font-weight:700; padding:8px 16px; border-radius:999px; }
-
-  /* mini mockup: Stroy-Master */
-  .mini-stroy{ background:#080D1A; color:#fff; font-family:'Inter',sans-serif; }
-  .mini-stroy .mini-logo{ font-weight:800; font-size:13px; letter-spacing:.02em; margin-bottom:6px; }
-  .mini-stroy .mini-logo b{ color:#FF5500; }
-  .mini-stroy .mini-tag{ font-size:9px; color:#FF6A1A; text-transform:uppercase; letter-spacing:.08em; margin-bottom:14px; }
-  .mini-stroy .mini-h{ font-size:18px; font-weight:800; line-height:1.25; max-width:230px; margin-bottom:10px; }
-  .mini-stroy .mini-p{ font-size:10px; color:#94A3B8; max-width:200px; margin-bottom:14px; }
-  .mini-stroy .mini-btn{ align-self:flex-start; background:#FF5500; color:#fff; font-size:10px; font-weight:700; padding:8px 16px; border-radius:4px; }
-
-  /* mini mockup: Morning Vibe */
+  /* mini mockup: Morning Vibe (pending real screenshot) */
   .mini-coffee{ background:#120B08; color:#F3ECDE; font-family:'Inter',sans-serif; align-items:center; text-align:center; }
   .mini-coffee .mini-logo{ font-family:'Dancing Script',cursive; font-weight:700; font-size:22px; color:#E4C989; margin-bottom:22px; }
   .mini-coffee .mini-h{ font-family:'Playfair Display',serif; font-style:italic; font-size:24px; color:#E4C989; line-height:1.2; margin-bottom:10px; }
@@ -428,6 +428,7 @@
           </div>
         </div>
         <div class="hero-visual">
+          <img class="real-photo" src="assets/avatar.jpg" alt="Дарья Гуданис" onerror="this.remove()" onload="this.closest('.hero-visual').classList.add('has-photo')">
           <span class="ph-tag">Фото автора</span>
           <span class="ph-label">Место для вашего фото / портрета</span>
         </div>
@@ -436,7 +437,10 @@
 
     <section id="about">
       <div class="container about-grid">
-        <div class="about-avatar">Фото / аватар</div>
+        <div class="about-avatar">
+          <img class="real-photo" src="assets/avatar.jpg" alt="Дарья Гуданис" onerror="this.remove()" onload="this.closest('.about-avatar').classList.add('has-photo')">
+          <span class="ph-label">Фото / аватар</span>
+        </div>
         <div class="about-text">
           <span class="eyebrow">Обо мне</span>
           <h2 style="font-size:32px;margin-bottom:18px;">Дарья Гуданис</h2>
@@ -496,12 +500,7 @@
                   <span class="url">novadent.ru</span>
                 </div>
                 <div class="browser-view">
-                  <div class="mini mini-dental">
-                    <div class="mini-logo">NOVADENT</div>
-                    <div class="mini-h">Стоматология без <b>страха</b> и переплат</div>
-                    <div class="mini-p">3D-томограф, компьютерная анестезия, гарантия до 5 лет</div>
-                    <div class="mini-btn">Записаться онлайн</div>
-                  </div>
+                  <img class="case-shot" src="assets/case-novadent.jpg" alt="Скриншот сайта NOVADENT">
                 </div>
               </div>
             </div>
@@ -525,13 +524,7 @@
                   <span class="url">stroy-master-b2b.ru</span>
                 </div>
                 <div class="browser-view">
-                  <div class="mini mini-stroy">
-                    <div class="mini-logo">СТРОЙ-<b>МАСТЕР</b></div>
-                    <div class="mini-tag">Капитальный ремонт</div>
-                    <div class="mini-h">Ремонт объектов точно в срок</div>
-                    <div class="mini-p">Договор СРО, гарантия 5 лет, онлайн-расчёт сметы</div>
-                    <div class="mini-btn">Рассчитать смету</div>
-                  </div>
+                  <img class="case-shot" src="assets/case-stroymaster.jpg" alt="Скриншот сайта Строй-Мастер">
                 </div>
               </div>
             </div>
@@ -587,8 +580,8 @@
           <h2>Готовы запустить новый проект?</h2>
           <p>Напишите мне, и мы обсудим задачи, сроки и подходящий формат работы.</p>
           <div class="contact-actions">
-            <a href="mailto:hello@daryagudanis.ru" class="btn btn-primary">Написать на почту</a>
-            <a href="https://t.me/" class="btn btn-ghost">Telegram</a>
+            <a href="https://t.me/gudanisd" class="btn btn-primary">Написать в Telegram</a>
+            <a href="mailto:zorg9ej44@gmail.com" class="btn btn-ghost">Почта</a>
           </div>
         </div>
       </div>
