@@ -182,7 +182,7 @@
   .hero{ padding:112px 0 48px; }
   .hero-card{
     position:relative;
-    border-radius:32px;
+    border-radius:0;
     overflow:hidden;
     background:linear-gradient(155deg, var(--navy-deep) 0%, var(--bg-card) 55%, var(--bg-main) 100%);
     border:1px solid var(--border-color);
@@ -214,7 +214,7 @@
     position:relative; z-index:2;
     width:clamp(220px,26vw,360px);
     aspect-ratio:3/4;
-    border-radius:20px;
+    border-radius:0;
     overflow:hidden;
     border:1px solid var(--border-color);
     background:var(--bg-card);
@@ -279,14 +279,24 @@
   }
 
   /* ---------- Section header ---------- */
-  .section-header{ margin-bottom:52px; max-width:720px; }
+  .section-header{ margin-bottom:52px; max-width:100%; padding-bottom:28px; border-bottom:1px solid var(--border-color); }
+  .section-header-top{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
   .section-header h2{
     font-size:clamp(34px,6vw,76px);
     font-weight:800;
     line-height:.98;
     letter-spacing:-.03em;
   }
-  .section-header p{ color:var(--text-light); opacity:.85; margin-top:14px; font-size:var(--text-body-lg); }
+  .section-header p{ color:var(--text-light); opacity:.85; margin-top:14px; font-size:var(--text-body-lg); max-width:640px; }
+  .section-count{
+    width:44px; height:44px; flex-shrink:0;
+    border-radius:50%;
+    border:1px solid var(--border-color);
+    display:flex; align-items:center; justify-content:center;
+    font-family:ui-monospace, monospace;
+    font-size:13px;
+    color:var(--text-light);
+  }
   .section-top{
     display:flex;
     justify-content:space-between;
@@ -327,13 +337,15 @@
   .about-avatar.has-photo{ border-style:solid; }
   .about-avatar.has-photo .ph-label{ display:none; }
   .about-text p{ color:var(--text-light); opacity:.9; margin-bottom:18px; font-size:var(--text-body-lg); max-width:560px; }
-  .skill-tags{ display:flex; flex-wrap:wrap; gap:10px; margin-top:24px; }
+  .skill-tags{ display:flex; flex-wrap:wrap; gap:8px; margin-top:24px; }
   .skill-tag{
-    font-size:13px;
-    padding:8px 16px;
-    border-radius:var(--radius-pill);
-    border:1px solid var(--border-color);
-    background:var(--bg-card);
+    font-family:ui-monospace, monospace;
+    font-size:12px;
+    text-transform:uppercase;
+    letter-spacing:.04em;
+    padding:7px 12px;
+    border-radius:0;
+    background:var(--navy-deep);
     color:var(--text-light);
   }
 
@@ -342,9 +354,9 @@
   .card{
     background:var(--bg-card);
     border:1px solid var(--border-color);
-    border-radius:var(--radius-card);
+    border-radius:0;
     padding:32px;
-    transition:transform .2s ease, background-color .2s ease, border-color .2s ease;
+    transition:transform .35s cubic-bezier(.32,.72,0,1), background-color .35s cubic-bezier(.32,.72,0,1), border-color .35s cubic-bezier(.32,.72,0,1);
   }
   .card:hover{ transform:translateY(-4px); background:var(--bg-card-hover); border-color:var(--blue-accent); }
   .card .num{ font-size:13px; color:var(--text-muted); font-weight:600; margin-bottom:16px; display:block; }
@@ -359,9 +371,9 @@
     gap:0;
     background:var(--bg-card);
     border:1px solid var(--border-color);
-    border-radius:var(--radius-card);
+    border-radius:0;
     overflow:hidden;
-    transition:border-color .3s ease;
+    transition:border-color .35s cubic-bezier(.32,.72,0,1);
   }
   .case-card:hover{ border-color:var(--blue-accent); }
   .case-card:nth-child(even){ grid-template-columns:1.05fr .95fr; }
@@ -431,18 +443,20 @@
   }
   .case-body h3{ font-size:24px; margin-bottom:12px; letter-spacing:-.01em; }
   .case-body p{ color:var(--text-light); opacity:.85; font-size:15px; margin-bottom:20px; }
-  .case-meta{ display:flex; flex-wrap:wrap; gap:8px; }
+  .case-meta{ display:flex; flex-wrap:wrap; gap:6px; }
   .case-meta span{
-    font-size:12px; color:var(--text-muted);
-    border:1px solid var(--border-color);
-    padding:6px 12px; border-radius:var(--radius-pill);
+    font-family:ui-monospace, monospace;
+    font-size:11px; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--text-light);
+    background:var(--navy-deep);
+    padding:6px 10px; border-radius:0;
   }
 
   /* ---------- Contact ---------- */
   .contact-box{
     background:var(--navy-deep);
     border:1px solid var(--border-color);
-    border-radius:24px;
+    border-radius:0;
     padding:64px;
     text-align:center;
     max-width:760px;
@@ -493,7 +507,7 @@
   @media (max-width:900px){
     .about-grid, .grid-3{ grid-template-columns:1fr; }
     .hero{ padding:110px 0 40px; }
-    .hero-card{ min-height:420px; border-radius:24px; }
+    .hero-card{ min-height:420px; }
     .hero-card-photo{ width:clamp(140px,40vw,220px); }
     .hero-card-tag{ top:18px; left:18px; font-size:11px; }
     .hero-card-scroll{ bottom:18px; right:18px; }
@@ -596,7 +610,10 @@
     <section class="services" id="services">
       <div class="container">
         <div class="section-header reveal">
-          <h2>Чем я могу помочь</h2>
+          <div class="section-header-top">
+            <h2>Чем я могу помочь</h2>
+            <span class="section-count">03</span>
+          </div>
           <p>Полный цикл создания сайта — от структуры и дизайна до кода, готового к продакшену.</p>
         </div>
         <div class="grid-3">
@@ -622,7 +639,10 @@
     <section class="portfolio" id="portfolio">
       <div class="container">
         <div class="section-header reveal">
-          <h2>Избранные проекты</h2>
+          <div class="section-header-top">
+            <h2>Избранные проекты</h2>
+            <span class="section-count">03</span>
+          </div>
           <p>Три реальных коммерческих проекта — из разных ниш, с разной стилистикой и задачами.</p>
         </div>
 
