@@ -884,13 +884,7 @@
       if(window.gsap && window.ScrollTrigger && !reduceMotion){
         gsap.registerPlugin(ScrollTrigger);
 
-        /* Hero parallax: name and floating mockup drift at different speeds */
-        gsap.to('.hero-type', {
-          yPercent: -16,
-          opacity: 0.25,
-          ease: 'none',
-          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
-        });
+        /* Hero parallax: the name stays fully visible and static; only the floating mockup drifts */
         gsap.to('.hero-mock', {
           yPercent: 14,
           ease: 'none',
