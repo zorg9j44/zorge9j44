@@ -281,7 +281,12 @@
   }
 
   /* ---------- Section header ---------- */
-  .section-header{ margin-bottom:52px; max-width:100%; padding-bottom:28px; border-bottom:1px solid var(--border-color); }
+  .section-header{ position:relative; margin-bottom:52px; max-width:100%; padding-bottom:28px; border-bottom:1px solid var(--border-color); }
+  .header-line{
+    position:absolute; left:0; right:0; bottom:-1px; height:1px;
+    background:var(--blue-accent);
+    transform:scaleX(0); transform-origin:left center;
+  }
   .section-header-top{ display:flex; align-items:flex-end; justify-content:space-between; gap:20px; }
   .section-header h2{
     font-size:clamp(34px,6vw,76px);
@@ -309,12 +314,41 @@
 
   section + section{ border-top:1px solid var(--border-color); }
 
+  /* ---------- Marquee ---------- */
+  .marquee{
+    overflow:hidden;
+    border-top:1px solid var(--border-color);
+    border-bottom:1px solid var(--border-color);
+    background:var(--navy-deep);
+    padding:16px 0;
+  }
+  .marquee-track{
+    display:flex; align-items:center;
+    gap:32px;
+    width:max-content;
+    animation:marqueeScroll 26s linear infinite;
+  }
+  .marquee-track span{
+    font-family:ui-monospace, monospace;
+    font-size:14px;
+    text-transform:uppercase;
+    letter-spacing:.08em;
+    color:var(--text-light);
+    white-space:nowrap;
+  }
+  .marquee-track span.sep{ color:var(--blue-accent); }
+  @keyframes marqueeScroll{ from{ transform:translateX(0); } to{ transform:translateX(-50%); } }
+  @media (prefers-reduced-motion:reduce){ .marquee-track{ animation:none; } }
+
   /* ---------- About ---------- */
   .about-grid{
     display:grid;
     grid-template-columns:.8fr 1.2fr;
     gap:56px;
-    align-items:center;
+    align-items:start;
+  }
+  @media (min-width:901px){
+    .about-avatar{ position:sticky; top:112px; }
   }
   .about-avatar{
     position:relative;
@@ -366,36 +400,79 @@
   .card p{ color:var(--text-light); font-size:15px; opacity:.85; }
 
   /* ---------- Portfolio ---------- */
-  .case-grid{ display:flex; flex-direction:column; gap:28px; }
-  .case-card{
-    display:grid;
-    grid-template-columns:.95fr 1.05fr;
-    gap:0;
-    background:var(--bg-card);
-    border:1px solid var(--border-color);
-    border-radius:0;
-    overflow:hidden;
-    transition:border-color .35s cubic-bezier(.32,.72,0,1);
+  .portfolio{ position:relative; overflow:hidden; }
+  .portfolio-bg-word{
+    position:absolute; top:-.06em; left:0; right:0;
+    text-align:center;
+    font-size:clamp(64px,15vw,230px);
+    font-weight:800;
+    text-transform:uppercase;
+    letter-spacing:-.03em;
+    line-height:1;
+    color:var(--bg-card);
+    z-index:0;
+    pointer-events:none;
   }
-  .case-card:hover{ border-color:var(--blue-accent); }
-  .case-card:nth-child(even){ grid-template-columns:1.05fr .95fr; }
-  .case-card:nth-child(even) .mock-frame{ order:2; }
+  .h-progress{ position:relative; z-index:1; height:2px; background:var(--border-color); margin-top:28px; overflow:hidden; }
+  .h-progress-bar{ display:block; height:100%; width:0; background:var(--blue-accent); }
+  .h-hint{ position:relative; z-index:1; margin-top:10px; font-size:12px; color:var(--text-muted); font-family:ui-monospace, monospace; text-transform:uppercase; letter-spacing:.05em; }
 
-  .mock-frame{
-    background:var(--navy-deep);
-    border-right:1px solid var(--border-color);
-    display:flex;
-    align-items:center;
-    justify-content:center;
-    padding:28px;
-    min-height:340px;
-    cursor:pointer;
+  .case-track-wrap{ position:relative; z-index:1; margin-top:12px; overflow:hidden; }
+  .case-track{ display:flex; gap:28px; width:max-content; padding:8px clamp(16px,4vw,56px) 48px; }
+
+  .grid-plus{
+    position:absolute; top:6px; z-index:2;
+    font-size:14px; color:var(--border-color);
+    pointer-events:none;
   }
+  .grid-plus-1{ left:calc(33.333% - 7px); }
+  .grid-plus-2{ left:calc(66.666% - 7px); }
+  .grid-plus-3{ right:clamp(16px,4vw,56px); }
+
+  .work-card{
+    width:min(520px,80vw);
+    flex-shrink:0;
+    display:flex; flex-direction:column;
+    border:1px solid var(--border-color);
+    background:var(--bg-card);
+    transition:border-color .35s cubic-bezier(.32,.72,0,1), transform .35s cubic-bezier(.32,.72,0,1);
+  }
+  .work-card:hover{ border-color:var(--blue-accent); transform:translateY(-4px); }
+  .work-card-media{ position:relative; display:block; aspect-ratio:4/3; overflow:hidden; background:var(--navy-deep); }
+  .work-card-media img{
+    position:absolute; inset:0;
+    width:100%; height:100%;
+    object-fit:cover; object-position:top center;
+    transition:transform .5s cubic-bezier(.32,.72,0,1);
+  }
+  .work-card:hover .work-card-media img{ transform:scale(1.06); }
+  .work-card-media::after{
+    content:''; position:absolute; inset:0;
+    background:linear-gradient(180deg, rgba(11,12,14,0) 45%, rgba(11,12,14,.92) 100%);
+  }
+  .work-card-plus{
+    position:absolute; top:14px; right:14px; z-index:2;
+    width:28px; height:28px;
+    display:flex; align-items:center; justify-content:center;
+    border:1px solid rgba(255,255,255,.35);
+    color:#fff; font-size:15px; line-height:1;
+    border-radius:50%;
+    background:rgba(11,12,14,.45);
+  }
+  .work-card-tag{
+    position:absolute; left:16px; bottom:14px; z-index:2;
+    font-family:ui-monospace, monospace; font-size:11px; text-transform:uppercase; letter-spacing:.04em;
+    color:var(--text-light);
+  }
+  .work-card-body{ position:relative; z-index:1; padding:24px 26px 28px; display:flex; flex-direction:column; flex:1; }
+  .work-card-body h3{ font-size:clamp(22px,2.2vw,28px); font-weight:800; letter-spacing:-.01em; margin-bottom:10px; }
+  .work-card-body p{ color:var(--text-light); opacity:.85; font-size:14px; margin-bottom:16px; }
+
   .case-link{
     display:inline-flex;
     align-items:center;
     gap:6px;
-    margin-top:18px;
+    margin-top:auto;
     font-size:14px;
     font-weight:600;
     color:var(--text-white);
@@ -404,7 +481,6 @@
   .case-link span{ transition:transform .2s ease; }
   .case-link:hover{ color:var(--text-light); }
   .case-link:hover span{ transform:translateX(3px); }
-  .case-card:nth-child(even) .mock-frame{ border-right:none; border-left:1px solid var(--border-color); }
 
   .browser{
     width:100%;
@@ -438,14 +514,7 @@
   .browser-view.pad-shot{ padding:18px; }
   .browser-view.pad-shot .case-shot{ border-radius:8px; }
 
-  .case-body{ padding:36px 40px; display:flex; flex-direction:column; }
-  .case-tag{
-    font-size:12px; font-weight:600; letter-spacing:.08em; text-transform:uppercase;
-    color:var(--text-light); margin-bottom:12px;
-  }
-  .case-body h3{ font-size:24px; margin-bottom:12px; letter-spacing:-.01em; }
-  .case-body p{ color:var(--text-light); opacity:.85; font-size:15px; margin-bottom:20px; }
-  .case-meta{ display:flex; flex-wrap:wrap; gap:6px; }
+  .case-meta{ display:flex; flex-wrap:wrap; gap:6px; margin-bottom:16px; }
   .case-meta span{
     font-family:ui-monospace, monospace;
     font-size:11px; text-transform:uppercase; letter-spacing:.04em;
@@ -494,16 +563,17 @@
 
   .grid-3 .card:nth-child(2){ transition-delay:.08s; }
   .grid-3 .card:nth-child(3){ transition-delay:.16s; }
-  .case-grid .case-card:nth-child(2){ transition-delay:.06s; }
-  .case-grid .case-card:nth-child(3){ transition-delay:.12s; }
+  .case-track .work-card:nth-child(2){ transition-delay:.06s; }
+  .case-track .work-card:nth-child(3){ transition-delay:.12s; }
 
   .case-shot{ transition:transform .5s ease; }
   .mock-frame:hover .case-shot{ transform:scale(1.045); }
 
   @media (prefers-reduced-motion:reduce){
     .reveal{ opacity:1; transform:none; transition:none; }
-    .case-shot{ transition:none; }
-    .mock-frame:hover .case-shot{ transform:none; }
+    .case-shot, .work-card-media img{ transition:none; }
+    .mock-frame:hover .case-shot, .work-card:hover .work-card-media img{ transform:none; }
+    .marquee-track{ animation:none; }
   }
 
   @media (max-width:900px){
@@ -512,10 +582,9 @@
     .hero-below{ flex-direction:column; align-items:flex-start; }
     .nav-links{ display:none; }
     .nav-burger{ display:flex; }
-    .case-card, .case-card:nth-child(even){ grid-template-columns:1fr; }
-    .case-card:nth-child(even) .mock-frame{ order:0; border-left:none; border-bottom:1px solid var(--border-color); }
-    .mock-frame{ border-right:none; border-bottom:1px solid var(--border-color); }
-    .case-body{ padding:28px; }
+    .case-track-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
+    .case-track-wrap::-webkit-scrollbar{ display:none; }
+    .grid-plus{ display:none; }
     .contact-box{ padding:40px 24px; }
   }
 </style>
@@ -598,6 +667,21 @@
       </div>
     </section>
 
+    <div class="marquee" aria-hidden="true">
+      <div class="marquee-track">
+        <span>Frontend &amp; Design</span><span class="sep">•</span>
+        <span>Landing Page</span><span class="sep">•</span>
+        <span>UI/UX дизайн</span><span class="sep">•</span>
+        <span>Адаптивная верстка</span><span class="sep">•</span>
+        <span>Figma → Код</span><span class="sep">•</span>
+        <span>Frontend &amp; Design</span><span class="sep">•</span>
+        <span>Landing Page</span><span class="sep">•</span>
+        <span>UI/UX дизайн</span><span class="sep">•</span>
+        <span>Адаптивная верстка</span><span class="sep">•</span>
+        <span>Figma → Код</span><span class="sep">•</span>
+      </div>
+    </div>
+
     <section id="about">
       <div class="container about-grid">
         <div class="about-avatar reveal">
@@ -628,6 +712,7 @@
             <span class="section-count">03</span>
           </div>
           <p>Полный цикл создания сайта — от структуры и дизайна до кода, готового к продакшену.</p>
+          <span class="header-line"></span>
         </div>
         <div class="grid-3">
           <div class="card reveal">
@@ -650,6 +735,7 @@
     </section>
 
     <section class="portfolio" id="portfolio">
+      <span class="portfolio-bg-word" aria-hidden="true">РАБОТЫ</span>
       <div class="container">
         <div class="section-header reveal">
           <div class="section-header-top">
@@ -657,29 +743,27 @@
             <span class="section-count">03</span>
           </div>
           <p>Три реальных коммерческих проекта — из разных ниш, с разной стилистикой и задачами.</p>
+          <span class="header-line"></span>
         </div>
+        <div class="h-progress" aria-hidden="true"><span class="h-progress-bar"></span></div>
+        <p class="h-hint">Скрольте вниз — карточки двигаются по горизонтали →</p>
+      </div>
 
-        <div class="case-grid">
+      <div class="case-track-wrap">
+        <span class="grid-plus grid-plus-1" aria-hidden="true">+</span>
+        <span class="grid-plus grid-plus-2" aria-hidden="true">+</span>
+        <span class="grid-plus grid-plus-3" aria-hidden="true">+</span>
+        <div class="case-track">
 
-          <article class="case-card reveal">
-            <a class="mock-frame" href="https://zorge9j44-dily.vercel.app/dental-clinic.html" target="_blank" rel="noopener">
-              <div class="browser">
-                <div class="browser-bar">
-                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                  <span class="url">novadent.ru</span>
-                </div>
-                <div class="browser-view pad-shot">
-                  <picture>
-                    <source media="(max-width: 900px)" srcset="assets/case-novadent-mobile.png">
-                    <img class="case-shot" src="assets/case-novadent.png" alt="Скриншот сайта NOVADENT">
-                  </picture>
-                </div>
-              </div>
+          <article class="work-card reveal">
+            <a class="work-card-media" href="https://zorge9j44-dily.vercel.app/dental-clinic.html" target="_blank" rel="noopener">
+              <img src="assets/case-novadent.png" alt="Скриншот сайта NOVADENT">
+              <span class="work-card-plus" aria-hidden="true">+</span>
+              <span class="work-card-tag">Landing Page · Медицина</span>
             </a>
-            <div class="case-body">
-              <span class="case-tag">Landing Page · Медицина</span>
-              <h3>NOVADENT — стоматологическая клиника</h3>
-              <p>Продающий Landing Page для стоматологии премиум-сегмента: акцент на диагностике, безболезненном лечении и доверии через гарантии. Двухцветная тёмная палитра с единым синим акцентом, форма записи и блок отзывов.</p>
+            <div class="work-card-body">
+              <h3>NOVADENT</h3>
+              <p>Продающий Landing Page для стоматологии премиум-сегмента: акцент на диагностике, безболезненном лечении и доверии через гарантии. Форма записи и блок отзывов.</p>
               <div class="case-meta">
                 <span>UI/UX дизайн</span>
                 <span>HTML / CSS</span>
@@ -689,25 +773,15 @@
             </div>
           </article>
 
-          <article class="case-card reveal">
-            <a class="mock-frame" href="https://zorge9j44-3b7e.vercel.app/" target="_blank" rel="noopener">
-              <div class="browser">
-                <div class="browser-bar">
-                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                  <span class="url">apex-development.ru</span>
-                </div>
-                <div class="browser-view">
-                  <picture>
-                    <source media="(max-width: 900px)" srcset="assets/case-apex-mobile.png">
-                    <img class="case-shot" src="assets/case-apex.png" alt="Скриншот сайта Apex Development">
-                  </picture>
-                </div>
-              </div>
+          <article class="work-card reveal">
+            <a class="work-card-media" href="https://zorge9j44-3b7e.vercel.app/" target="_blank" rel="noopener">
+              <img src="assets/case-apex.png" alt="Скриншот сайта Apex Development">
+              <span class="work-card-plus" aria-hidden="true">+</span>
+              <span class="work-card-tag">Landing Page · Недвижимость</span>
             </a>
-            <div class="case-body">
-              <span class="case-tag">Landing Page · Недвижимость</span>
-              <h3>Apex Development — жилой комплекс</h3>
-              <p>Лендинг для девелопера премиум-класса: полноэкранная ночная панорама города, крупный serif-заголовок и оранжевый CTA. Форма подбора квартиры и блок доверия — эскроу-счета, 214-ФЗ, локации у метро и парков.</p>
+            <div class="work-card-body">
+              <h3>Apex Development</h3>
+              <p>Лендинг для девелопера премиум-класса: полноэкранная ночная панорама города, крупный serif-заголовок и оранжевый CTA. Форма подбора квартиры и блок доверия.</p>
               <div class="case-meta">
                 <span>Дизайн-система</span>
                 <span>Форма заявки</span>
@@ -717,25 +791,15 @@
             </div>
           </article>
 
-          <article class="case-card reveal">
-            <a class="mock-frame" href="https://morningvibe-ex7n62vpa-zorge9j44.vercel.app/" target="_blank" rel="noopener">
-              <div class="browser">
-                <div class="browser-bar">
-                  <span class="dot"></span><span class="dot"></span><span class="dot"></span>
-                  <span class="url">morningvibe.coffee</span>
-                </div>
-                <div class="browser-view">
-                  <picture>
-                    <source media="(max-width: 900px)" srcset="assets/case-morningvibe-mobile.png">
-                    <img class="case-shot" src="assets/case-morningvibe.png" alt="Скриншот сайта Morning Vibe">
-                  </picture>
-                </div>
-              </div>
+          <article class="work-card reveal">
+            <a class="work-card-media" href="https://morningvibe-ex7n62vpa-zorge9j44.vercel.app/" target="_blank" rel="noopener">
+              <img src="assets/case-morningvibe.png" alt="Скриншот сайта Morning Vibe">
+              <span class="work-card-plus" aria-hidden="true">+</span>
+              <span class="work-card-tag">Landing Page · HoReCa</span>
             </a>
-            <div class="case-body">
-              <span class="case-tag">Landing Page · HoReCa</span>
-              <h3>Morning Vibe — кофейня</h3>
-              <p>Тёмный элегантный стиль (dark &amp; gold): Playfair Display и Dancing Script в паре с Poppins, золотой акцент вместо привычного «кофейного» коричневого. Меню, галерея интерьера и форма бронирования столика.</p>
+            <div class="work-card-body">
+              <h3>Morning Vibe</h3>
+              <p>Тёмный элегантный стиль (dark &amp; gold): золотой акцент вместо привычного «кофейного» коричневого. Меню, галерея интерьера и форма бронирования столика.</p>
               <div class="case-meta">
                 <span>Дизайн-система</span>
                 <span>Меню и галерея</span>
@@ -770,6 +834,8 @@
     </div>
   </footer>
 
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/gsap.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.5/ScrollTrigger.min.js"></script>
   <script>
     (function(){
       var els = document.querySelectorAll('.reveal');
@@ -812,6 +878,65 @@
       window.addEventListener('resize', function(){
         if(window.innerWidth > 900){ closeMenu(); }
       });
+
+      var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      if(window.gsap && window.ScrollTrigger && !reduceMotion){
+        gsap.registerPlugin(ScrollTrigger);
+
+        /* Hero parallax: name and floating mockup drift at different speeds */
+        gsap.to('.hero-type', {
+          yPercent: -16,
+          opacity: 0.25,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+        gsap.to('.hero-mock', {
+          yPercent: 14,
+          ease: 'none',
+          scrollTrigger: { trigger: '.hero', start: 'top top', end: 'bottom top', scrub: true }
+        });
+
+        /* Section headers: hairline draws in as it enters view */
+        gsap.utils.toArray('.header-line').forEach(function(line){
+          gsap.to(line, {
+            scaleX: 1,
+            ease: 'none',
+            scrollTrigger: { trigger: line, start: 'top 88%', end: 'top 50%', scrub: true }
+          });
+        });
+
+        /* Portfolio: horizontal-scroll pinned gallery on wide screens */
+        ScrollTrigger.matchMedia({
+          '(min-width: 901px)': function(){
+            var wrap = document.querySelector('.case-track-wrap');
+            var track = document.querySelector('.case-track');
+            var bar = document.querySelector('.h-progress-bar');
+            if(!wrap || !track) return;
+
+            function scrollAmount(){
+              return Math.max(0, track.scrollWidth - wrap.clientWidth);
+            }
+
+            gsap.to(track, {
+              x: function(){ return -scrollAmount(); },
+              ease: 'none',
+              scrollTrigger: {
+                trigger: '.portfolio',
+                start: 'top top',
+                end: function(){ return '+=' + (scrollAmount() + window.innerHeight * 0.5); },
+                scrub: 1,
+                pin: true,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+                onUpdate: function(self){
+                  if(bar){ bar.style.width = (self.progress * 100) + '%'; }
+                }
+              }
+            });
+          }
+        });
+      }
     })();
   </script>
 
