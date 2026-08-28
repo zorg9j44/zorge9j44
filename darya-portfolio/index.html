@@ -231,8 +231,21 @@
     width:100%;
     max-width:520px;
     transition:transform .5s cubic-bezier(.22,.61,.36,1);
+    transform-style:preserve-3d;
+    will-change:transform;
   }
   .hero-orb:hover .hero-orb-inner{ transform:scale(1.08); }
+  .hero-orb-particles{ position:absolute; inset:-14%; z-index:2; pointer-events:none; }
+  .orb-particle{
+    position:absolute;
+    width:12px; height:12px;
+    border:1.5px solid var(--blue-accent);
+    clip-path:polygon(50% 4%, 4% 96%, 96% 96%);
+    opacity:.6;
+    transition:transform .6s cubic-bezier(.22,.61,.36,1);
+    will-change:transform;
+  }
+  .orb-particle.alt{ border-color:var(--text-light); width:8px; height:8px; }
   .hero-orb-img{
     width:100%;
     aspect-ratio:1;
@@ -619,7 +632,21 @@
           </div>
         </div>
 
-        <div class="hero-orb reveal">
+        <div class="hero-orb reveal" id="heroOrb">
+          <div class="hero-orb-particles" aria-hidden="true">
+            <span class="orb-particle" style="top:8%;left:18%;"></span>
+            <span class="orb-particle alt" style="top:4%;left:52%;"></span>
+            <span class="orb-particle" style="top:14%;left:82%;"></span>
+            <span class="orb-particle alt" style="top:38%;left:6%;"></span>
+            <span class="orb-particle" style="top:46%;left:94%;"></span>
+            <span class="orb-particle alt" style="top:62%;left:12%;"></span>
+            <span class="orb-particle" style="top:70%;left:88%;"></span>
+            <span class="orb-particle alt" style="top:86%;left:30%;"></span>
+            <span class="orb-particle" style="top:90%;left:60%;"></span>
+            <span class="orb-particle alt" style="top:24%;left:38%;"></span>
+            <span class="orb-particle" style="top:56%;left:70%;"></span>
+            <span class="orb-particle alt" style="top:78%;left:50%;"></span>
+          </div>
           <div class="hero-orb-inner">
             <img class="hero-orb-img" src="assets/figma-orb.jpg" alt="Figma">
           </div>
@@ -840,6 +867,48 @@
       });
 
       var reduceMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+      var heroOrb = document.getElementById('heroOrb');
+      if(heroOrb && !reduceMotion){
+        var orbInner = heroOrb.querySelector('.hero-orb-inner');
+        var orbParticles = heroOrb.querySelectorAll('.orb-particle');
+        var REPEL_RADIUS = 140;
+        var REPEL_STRENGTH = 34;
+
+        heroOrb.addEventListener('mousemove', function(e){
+          var rect = heroOrb.getBoundingClientRect();
+          var relX = (e.clientX - rect.left) / rect.width - 0.5;
+          var relY = (e.clientY - rect.top) / rect.height - 0.5;
+          if(orbInner){
+            orbInner.style.transform =
+              'perspective(900px) rotateX(' + (-relY * 18).toFixed(2) + 'deg) ' +
+              'rotateY(' + (relX * 18).toFixed(2) + 'deg) scale(1.06)';
+          }
+
+          orbParticles.forEach(function(p){
+            var pRect = p.getBoundingClientRect();
+            var pCenterX = pRect.left + pRect.width / 2;
+            var pCenterY = pRect.top + pRect.height / 2;
+            var dx = pCenterX - e.clientX;
+            var dy = pCenterY - e.clientY;
+            var dist = Math.sqrt(dx * dx + dy * dy);
+            if(dist < REPEL_RADIUS){
+              var force = (1 - dist / REPEL_RADIUS) * REPEL_STRENGTH;
+              var angle = Math.atan2(dy, dx);
+              var tx = Math.cos(angle) * force;
+              var ty = Math.sin(angle) * force;
+              p.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px)';
+            } else {
+              p.style.transform = '';
+            }
+          });
+        });
+
+        heroOrb.addEventListener('mouseleave', function(){
+          if(orbInner){ orbInner.style.transform = ''; }
+          orbParticles.forEach(function(p){ p.style.transform = ''; });
+        });
+      }
 
       if(window.gsap && window.ScrollTrigger && !reduceMotion){
         gsap.registerPlugin(ScrollTrigger);
