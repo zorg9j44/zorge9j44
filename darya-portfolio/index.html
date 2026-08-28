@@ -417,7 +417,14 @@
   .h-progress-bar{ display:block; height:100%; width:0; background:var(--blue-accent); }
   .h-hint{ position:relative; z-index:1; margin-top:10px; font-size:12px; color:var(--text-muted); font-family:ui-monospace, monospace; text-transform:uppercase; letter-spacing:.05em; }
 
-  .case-track-wrap{ position:relative; z-index:1; margin-top:12px; overflow:hidden; }
+  .case-track-wrap{
+    position:relative; z-index:1; margin-top:12px;
+    overflow-x:auto; overflow-y:hidden;
+    -webkit-overflow-scrolling:touch;
+    scrollbar-width:none;
+  }
+  .case-track-wrap::-webkit-scrollbar{ display:none; }
+  .case-track-wrap.is-pinned{ overflow:hidden; }
   .case-track{ display:flex; gap:28px; width:max-content; padding:8px clamp(16px,4vw,56px) 48px; }
 
   .grid-plus{
@@ -582,8 +589,6 @@
     .hero-below{ flex-direction:column; align-items:flex-start; }
     .nav-links{ display:none; }
     .nav-burger{ display:flex; }
-    .case-track-wrap{ overflow-x:auto; -webkit-overflow-scrolling:touch; scrollbar-width:none; }
-    .case-track-wrap::-webkit-scrollbar{ display:none; }
     .grid-plus{ display:none; }
     .contact-box{ padding:40px 24px; }
   }
@@ -908,6 +913,9 @@
             var bar = document.querySelector('.h-progress-bar');
             if(!wrap || !track) return;
 
+            wrap.classList.add('is-pinned');
+            wrap.scrollLeft = 0;
+
             function scrollAmount(){
               return Math.max(0, track.scrollWidth - wrap.clientWidth);
             }
@@ -928,6 +936,11 @@
                 }
               }
             });
+
+            return function(){
+              wrap.classList.remove('is-pinned');
+              if(bar){ bar.style.width = '0%'; }
+            };
           }
         });
       }
