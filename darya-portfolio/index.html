@@ -226,26 +226,27 @@
   .trust-row span{ display:flex; align-items:center; gap:6px; }
   .trust-row span::before{ content:'✓'; color:var(--blue-accent); font-weight:700; }
 
-  .hero-orb{ position:relative; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .hero-orb{ position:relative; display:flex; align-items:center; justify-content:center; cursor:pointer; perspective:900px; }
   .hero-orb-inner{
+    position:relative;
     width:100%;
     max-width:520px;
-    transition:transform .5s cubic-bezier(.22,.61,.36,1);
+    transition:transform .4s cubic-bezier(.22,.61,.36,1);
     transform-style:preserve-3d;
     will-change:transform;
   }
-  .hero-orb:hover .hero-orb-inner{ transform:scale(1.08); }
-  .hero-orb-particles{ position:absolute; inset:-14%; z-index:2; pointer-events:none; }
+  .hero-orb:hover .hero-orb-inner{ transform:scale(1.1); }
+  .hero-orb-particles{ position:absolute; inset:-18%; z-index:2; pointer-events:none; }
   .orb-particle{
     position:absolute;
-    width:12px; height:12px;
-    border:1.5px solid var(--blue-accent);
+    width:16px; height:16px;
+    border:2px solid var(--blue-accent);
     clip-path:polygon(50% 4%, 4% 96%, 96% 96%);
-    opacity:.6;
+    opacity:.7;
     transition:transform .6s cubic-bezier(.22,.61,.36,1);
     will-change:transform;
   }
-  .orb-particle.alt{ border-color:var(--text-light); width:8px; height:8px; }
+  .orb-particle.alt{ border-color:var(--text-light); width:11px; height:11px; }
   .hero-orb-img{
     width:100%;
     aspect-ratio:1;
@@ -255,12 +256,20 @@
     display:block;
     animation:heroOrbSpin 26s linear infinite;
     filter:drop-shadow(0 0 70px rgba(40,98,215,.4));
-    transition:filter .5s ease;
+    transition:filter .3s ease;
   }
   .hero-orb:hover .hero-orb-img{
     animation-duration:6s;
-    filter:drop-shadow(0 0 110px rgba(40,98,215,.65));
   }
+  .hero-orb-sheen{
+    position:absolute; inset:0; border-radius:50%;
+    background:radial-gradient(circle at calc(50% + var(--mx,0) * 1%) calc(50% + var(--my,0) * 1%), rgba(255,255,255,.4), transparent 40%);
+    mix-blend-mode:screen;
+    opacity:0;
+    transition:opacity .4s ease;
+    pointer-events:none;
+  }
+  .hero-orb:hover .hero-orb-sheen{ opacity:1; }
   @keyframes heroOrbSpin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
 
   @media (prefers-reduced-motion:reduce){
@@ -649,6 +658,7 @@
           </div>
           <div class="hero-orb-inner">
             <img class="hero-orb-img" src="assets/figma-orb.jpg" alt="Figma">
+            <span class="hero-orb-sheen" aria-hidden="true"></span>
           </div>
         </div>
       </div>
@@ -871,18 +881,28 @@
       var heroOrb = document.getElementById('heroOrb');
       if(heroOrb && !reduceMotion){
         var orbInner = heroOrb.querySelector('.hero-orb-inner');
+        var orbImg = heroOrb.querySelector('.hero-orb-img');
         var orbParticles = heroOrb.querySelectorAll('.orb-particle');
-        var REPEL_RADIUS = 140;
-        var REPEL_STRENGTH = 34;
+        var REPEL_RADIUS = 220;
+        var REPEL_STRENGTH = 70;
+        var TILT_DEG = 34;
 
         heroOrb.addEventListener('mousemove', function(e){
           var rect = heroOrb.getBoundingClientRect();
           var relX = (e.clientX - rect.left) / rect.width - 0.5;
           var relY = (e.clientY - rect.top) / rect.height - 0.5;
+
           if(orbInner){
             orbInner.style.transform =
-              'perspective(900px) rotateX(' + (-relY * 18).toFixed(2) + 'deg) ' +
-              'rotateY(' + (relX * 18).toFixed(2) + 'deg) scale(1.06)';
+              'perspective(700px) rotateX(' + (-relY * TILT_DEG).toFixed(2) + 'deg) ' +
+              'rotateY(' + (relX * TILT_DEG).toFixed(2) + 'deg) scale(1.1)';
+            orbInner.style.setProperty('--mx', (relX * 80).toFixed(1));
+            orbInner.style.setProperty('--my', (relY * 80).toFixed(1));
+          }
+          if(orbImg){
+            var shadowX = (relX * 50).toFixed(1);
+            var shadowY = (relY * 50).toFixed(1);
+            orbImg.style.filter = 'drop-shadow(' + shadowX + 'px ' + shadowY + 'px 90px rgba(40,98,215,.65))';
           }
 
           orbParticles.forEach(function(p){
@@ -897,7 +917,7 @@
               var angle = Math.atan2(dy, dx);
               var tx = Math.cos(angle) * force;
               var ty = Math.sin(angle) * force;
-              p.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px)';
+              p.style.transform = 'translate(' + tx.toFixed(1) + 'px,' + ty.toFixed(1) + 'px) scale(1.3)';
             } else {
               p.style.transform = '';
             }
@@ -906,6 +926,7 @@
 
         heroOrb.addEventListener('mouseleave', function(){
           if(orbInner){ orbInner.style.transform = ''; }
+          if(orbImg){ orbImg.style.filter = ''; }
           orbParticles.forEach(function(p){ p.style.transform = ''; });
         });
       }
