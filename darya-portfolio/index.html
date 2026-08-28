@@ -179,28 +179,61 @@
   .mobile-menu .btn{ margin-top:6px; justify-content:center; }
 
   /* ---------- Hero ---------- */
-  .hero{ padding:168px 0 90px; }
-  .hero-grid{
-    display:grid;
-    grid-template-columns:1.15fr .85fr;
-    gap:56px;
+  .hero{ padding:150px 0 60px; min-height:90vh; display:flex; flex-direction:column; justify-content:center; }
+  .hero-mast{
+    display:flex;
+    flex-wrap:wrap;
     align-items:center;
+    gap:18px clamp(16px,3vw,32px);
+    margin:20px 0 44px;
   }
-  .hero-title{
-    font-size:clamp(36px,5.4vw,var(--text-display));
-    line-height:1.04;
-    letter-spacing:var(--ls-display);
-    margin-bottom:26px;
+  .mast-word{
+    font-size:clamp(38px,8.6vw,120px);
+    font-weight:800;
+    line-height:.94;
+    letter-spacing:-.03em;
+    text-transform:uppercase;
   }
-  .hero-title em{ font-style:normal; color:var(--text-light); }
+  .mast-word.accent{ color:var(--text-light); }
+  .mast-photo{
+    position:relative;
+    flex-shrink:0;
+    width:clamp(96px,13vw,200px);
+    aspect-ratio:3/4;
+    border-radius:16px;
+    overflow:hidden;
+    border:1px solid var(--border-color);
+    background:var(--bg-card);
+    box-shadow:0 24px 50px -22px rgba(0,0,0,.7);
+  }
+  .mast-photo::before{
+    content:'';
+    position:absolute; inset:0;
+    background:linear-gradient(155deg, var(--navy-deep) 0%, var(--bg-card) 55%, var(--bg-main) 100%);
+  }
+  .mast-photo .ph-label{
+    position:relative; z-index:1;
+    display:flex; align-items:center; justify-content:center;
+    height:100%; text-align:center;
+    color:var(--text-muted); font-size:11px; padding:0 10px;
+  }
+  .mast-photo .real-photo{
+    position:absolute; inset:0; z-index:2;
+    width:100%; height:100%;
+    object-fit:cover; object-position:center 30%;
+  }
+  .mast-photo.has-photo .ph-label{ display:none; }
+
   .hero-sub{
     font-size:var(--text-body-lg);
     color:var(--text-light);
     max-width:480px;
     opacity:.9;
-    margin-bottom:36px;
+    margin-bottom:32px;
   }
-  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:28px; }
+  .hero-actions{ display:flex; gap:14px; flex-wrap:wrap; margin-bottom:40px; }
+
+  .hero-foot{ display:flex; justify-content:space-between; align-items:flex-end; flex-wrap:wrap; gap:20px; }
   .trust-row{
     display:flex;
     gap:20px;
@@ -212,49 +245,19 @@
   .trust-row span{ display:flex; align-items:center; gap:6px; }
   .trust-row span::before{ content:'✓'; color:var(--blue-accent); font-weight:700; }
 
-  .hero-visual{
-    position:relative;
-    border-radius:var(--radius-card);
-    overflow:hidden;
-    border:1px solid var(--border-color);
-    background:var(--bg-card);
-    aspect-ratio:4/5;
-    display:flex;
-    align-items:center;
-    justify-content:center;
-  }
-  .hero-visual::before{
-    content:'';
-    position:absolute; inset:0;
-    background:linear-gradient(155deg, var(--navy-deep) 0%, var(--bg-card) 55%, var(--bg-main) 100%);
-  }
-  .hero-visual .ph-label{
-    position:relative;
-    z-index:1;
-    text-align:center;
+  .scroll-cue{
+    display:flex; flex-direction:column; align-items:center; gap:8px;
+    font-size:11px; letter-spacing:.14em; text-transform:uppercase;
     color:var(--text-muted);
-    font-size:14px;
-    padding:0 24px;
   }
-  .hero-visual .ph-tag{
-    position:absolute;
-    z-index:1;
-    top:20px; left:20px;
-    background:rgba(11,12,14,.6);
-    border:1px solid var(--border-color);
-    border-radius:var(--radius-pill);
-    padding:6px 14px;
-    font-size:12px;
-    color:var(--text-light);
+  .scroll-cue svg{ animation:scrollBounce 1.7s ease-in-out infinite; color:var(--text-light); }
+  @keyframes scrollBounce{
+    0%,100%{ transform:translateY(0); opacity:.5; }
+    50%{ transform:translateY(7px); opacity:1; }
   }
-  .hero-visual .real-photo{
-    position:absolute; inset:0; z-index:2;
-    width:100%; height:100%;
-    object-fit:cover;
-    object-position:center 35%;
+  @media (prefers-reduced-motion:reduce){
+    .scroll-cue svg{ animation:none; }
   }
-  .hero-visual.has-photo .ph-tag,
-  .hero-visual.has-photo .ph-label{ display:none; }
 
   /* ---------- Section header ---------- */
   .section-header{ margin-bottom:52px; max-width:640px; }
@@ -467,9 +470,9 @@
   }
 
   @media (max-width:900px){
-    .hero-grid, .about-grid, .grid-3{ grid-template-columns:1fr; }
-    .hero{ padding:140px 0 60px; }
-    .hero-visual{ order:-1; aspect-ratio:16/10; }
+    .about-grid, .grid-3{ grid-template-columns:1fr; }
+    .hero{ padding:130px 0 50px; min-height:auto; }
+    .hero-mast{ gap:14px 16px; }
     .nav-links{ display:none; }
     .nav-burger{ display:flex; }
     .case-card, .case-card:nth-child(even){ grid-template-columns:1fr; }
@@ -510,26 +513,33 @@
 
   <main>
     <section class="hero">
-      <div class="container hero-grid">
-        <div class="hero-text reveal">
-          <span class="eyebrow">Web Design &amp; Frontend Development</span>
-          <h1 class="hero-title">Создаю <em>сайты, которые продают</em>, а не просто хорошо выглядят</h1>
-          <p class="hero-sub">Проектирую интерфейсы и верстаю Landing Page для бизнеса — от структуры и дизайна до адаптивной верстки, готовой к запуску.</p>
-          <div class="hero-actions">
-            <a href="#portfolio" class="btn btn-primary">Смотреть работы</a>
-            <a href="#contact" class="btn btn-ghost">Связаться со мной</a>
-          </div>
+      <div class="container">
+        <span class="eyebrow reveal">Web Design &amp; Frontend Development</span>
+        <h1 class="hero-mast reveal" aria-label="Создаю сайты, которые продают">
+          <span class="mast-word">Создаю</span>
+          <span class="mast-photo">
+            <img class="real-photo" src="assets/avatar.jpg" alt="Дарья Гуданис" onerror="this.remove()" onload="this.closest('.mast-photo').classList.add('has-photo')">
+            <span class="ph-label">Фото автора</span>
+          </span>
+          <span class="mast-word">сайты,</span>
+          <span class="mast-word accent">которые продают</span>
+        </h1>
+        <p class="hero-sub reveal">Проектирую интерфейсы и верстаю Landing Page для бизнеса — от структуры и дизайна до адаптивной верстки, готовой к запуску.</p>
+        <div class="hero-actions reveal">
+          <a href="#portfolio" class="btn btn-primary">Смотреть работы</a>
+          <a href="#contact" class="btn btn-ghost">Связаться со мной</a>
+        </div>
+        <div class="hero-foot reveal">
           <div class="trust-row">
             <span>3+ проекта под ключ</span>
             <span>Landing Page</span>
             <span>UI/UX дизайн</span>
             <span>Адаптивная верстка</span>
           </div>
-        </div>
-        <div class="hero-visual reveal">
-          <img class="real-photo" src="assets/avatar.jpg" alt="Дарья Гуданис" onerror="this.remove()" onload="this.closest('.hero-visual').classList.add('has-photo')">
-          <span class="ph-tag">Фото автора</span>
-          <span class="ph-label">Место для вашего фото / портрета</span>
+          <a href="#about" class="scroll-cue">
+            <span>Scroll</span>
+            <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 5v14M5 12l7 7 7-7"/></svg>
+          </a>
         </div>
       </div>
     </section>
