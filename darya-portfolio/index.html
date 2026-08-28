@@ -226,10 +226,15 @@
   .trust-row span{ display:flex; align-items:center; gap:6px; }
   .trust-row span::before{ content:'✓'; color:var(--blue-accent); font-weight:700; }
 
-  .hero-orb{ position:relative; display:flex; align-items:center; justify-content:center; }
-  .hero-orb-img{
+  .hero-orb{ position:relative; display:flex; align-items:center; justify-content:center; cursor:pointer; }
+  .hero-orb-inner{
     width:100%;
     max-width:520px;
+    transition:transform .5s cubic-bezier(.22,.61,.36,1);
+  }
+  .hero-orb:hover .hero-orb-inner{ transform:scale(1.08); }
+  .hero-orb-img{
+    width:100%;
     aspect-ratio:1;
     object-fit:cover;
     object-position:center;
@@ -237,16 +242,22 @@
     display:block;
     animation:heroOrbSpin 26s linear infinite;
     filter:drop-shadow(0 0 70px rgba(40,98,215,.4));
+    transition:filter .5s ease;
+  }
+  .hero-orb:hover .hero-orb-img{
+    animation-duration:6s;
+    filter:drop-shadow(0 0 110px rgba(40,98,215,.65));
   }
   @keyframes heroOrbSpin{ from{ transform:rotate(0deg); } to{ transform:rotate(360deg); } }
 
   @media (prefers-reduced-motion:reduce){
     .hero-orb-img{ animation:none; }
+    .hero-orb:hover .hero-orb-img{ animation-duration:26s; }
   }
 
   @media (max-width:900px){
     .hero-split{ grid-template-columns:1fr; gap:40px; }
-    .hero-orb-img{ max-width:320px; }
+    .hero-orb-inner{ max-width:320px; }
   }
   /* ---------- Section header ---------- */
   .section-header{ position:relative; margin-bottom:52px; max-width:100%; padding-bottom:28px; border-bottom:1px solid var(--border-color); }
@@ -609,7 +620,9 @@
         </div>
 
         <div class="hero-orb reveal">
-          <img class="hero-orb-img" src="assets/figma-orb.jpg" alt="Figma">
+          <div class="hero-orb-inner">
+            <img class="hero-orb-img" src="assets/figma-orb.jpg" alt="Figma">
+          </div>
         </div>
       </div>
     </section>
