@@ -279,10 +279,12 @@
   }
 
   /* ---------- Section header ---------- */
-  .section-header{ margin-bottom:52px; max-width:640px; }
+  .section-header{ margin-bottom:52px; max-width:720px; }
   .section-header h2{
-    font-size:clamp(28px,3.6vw,var(--text-heading-lg));
-    letter-spacing:var(--ls-heading-lg);
+    font-size:clamp(34px,6vw,76px);
+    font-weight:800;
+    line-height:.98;
+    letter-spacing:-.03em;
   }
   .section-header p{ color:var(--text-light); opacity:.85; margin-top:14px; font-size:var(--text-body-lg); }
   .section-top{
@@ -447,7 +449,7 @@
     margin:0 auto;
     box-shadow:0 20px 60px -20px rgba(0,0,0,.5);
   }
-  .contact-box h2{ font-size:clamp(28px,3.4vw,38px); margin-bottom:16px; letter-spacing:-.02em; }
+  .contact-box h2{ font-size:clamp(30px,4.4vw,54px); font-weight:800; margin-bottom:16px; letter-spacing:-.03em; line-height:1.05; }
   .contact-box p{ color:var(--text-light); font-size:18px; margin-bottom:32px; opacity:.9; }
   .contact-actions{ display:flex; gap:14px; justify-content:center; flex-wrap:wrap; }
 
@@ -577,7 +579,7 @@
         </div>
         <div class="about-text reveal">
           <span class="eyebrow">Обо мне</span>
-          <h2 style="font-size:32px;margin-bottom:18px;">Дарья Гуданис</h2>
+          <h2 style="font-size:clamp(30px,4.6vw,56px);font-weight:800;letter-spacing:-.03em;line-height:1.02;margin-bottom:18px;">Дарья Гуданис</h2>
           <p>Веб-дизайнер и frontend-разработчик. Делаю сайты для бизнеса — от идеи и прототипа до готовой адаптивной верстки, которую можно сразу публиковать.</p>
           <p>Работаю с коммерческими проектами: медицина, строительство, HoReCa и услуги — везде, где сайту нужно не просто «быть красивым», а приводить заявки.</p>
           <div class="skill-tags">
