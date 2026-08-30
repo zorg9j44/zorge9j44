@@ -947,9 +947,9 @@
           });
         });
 
-        /* Portfolio: horizontal-scroll pinned gallery on wide screens */
+        /* Portfolio: horizontal-scroll pinned gallery on all screen sizes */
         ScrollTrigger.matchMedia({
-          '(min-width: 901px)': function(){
+          'all': function(){
             var wrap = document.querySelector('.case-track-wrap');
             var track = document.querySelector('.case-track');
             var bar = document.querySelector('.h-progress-bar');
