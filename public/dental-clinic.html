@@ -761,6 +761,35 @@
     .final-cta .btn{width:100%;}
     .booking-card{padding:26px;}
   }
+
+  /* Large / very large desktop monitors: give the page more room to breathe
+     instead of centering a fixed 1200px column (with headline sizes capped by
+     clamp()) inside a lot of dead margin. */
+  @media (min-width:1600px){
+    :root{ --container:1520px; }
+    section{padding:130px 0;}
+    .hero{padding:120px 0 140px;}
+    .hero-grid{gap:80px;}
+    .hero h1{font-size:64px;}
+    .hero p.lede{font-size:19px;max-width:600px;}
+    .hero-trust-item b{font-size:27px;}
+    h2.section-title{font-size:46px;}
+    .section-lede{font-size:18px;max-width:700px;}
+    .benefits-grid,.services-grid{gap:32px;}
+    .process-grid{gap:36px;}
+    .team-layout,.booking-grid{gap:80px;}
+    .final-cta{padding:64px 72px;}
+    .final-cta h2{font-size:36px;}
+  }
+  @media (min-width:2200px){
+    :root{ --container:1880px; }
+    section{padding:160px 0;}
+    .hero{padding:150px 0 170px;}
+    .hero h1{font-size:76px;}
+    .hero p.lede{font-size:20px;max-width:660px;}
+    h2.section-title{font-size:54px;}
+    .section-lede{font-size:19px;max-width:760px;}
+  }
 </style>
 </head>
 <body>
