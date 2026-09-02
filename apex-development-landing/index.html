@@ -41,7 +41,7 @@
     --radius-nav:40px; --radius-tags:40px; --radius-cards:12px;
     --radius-inputs:32px; --radius-buttons:32px; --radius-default:4px;
 
-    --page-max-width:1200px;
+    --page-max-width:1440px;
     --section-gap:72px;
     --card-padding:32px;
     --element-gap:12px;
@@ -391,6 +391,23 @@
   .mobile-nav a{
     color:var(--color-ivory-text);font-size:22px;font-family:var(--font-arcadia-display);font-weight:480;
     padding:var(--sp-16) 0;border-bottom:1px solid rgba(226,227,237,.1);
+  }
+
+  /* ---------------- large / ultra-wide screens ---------------- */
+  @media (min-width:1800px){
+    :root{
+      --page-max-width:1760px;
+      --section-gap:96px;
+    }
+    .hero-inner{max-width:840px;}
+    .gallery-grid{height:620px;}
+    .prop-grid{grid-template-columns:repeat(4,1fr);}
+    .quote-banner blockquote{max-width:960px;}
+  }
+  @media (min-width:2200px){
+    :root{
+      --page-max-width:2040px;
+    }
   }
 
   /* ---------------- responsive ---------------- */
