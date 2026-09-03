@@ -394,20 +394,51 @@
   }
 
   /* ---------------- large / ultra-wide screens ---------------- */
-  @media (min-width:1800px){
+  @media (min-width:1600px){
     :root{
-      --page-max-width:1760px;
-      --section-gap:96px;
+      --page-max-width:1520px;
+      --section-gap:88px;
+
+      --text-caption:13px;
+      --text-body-sm:16px;
+      --text-body:18px;
+      --text-body-lg:21px;
+      --text-subheading:24px;
+      --text-heading-sm:32px;
+      --text-heading:37px;
+      --text-heading-lg:50px;
+      --text-display:80px;
+
+      --sp-8:10px; --sp-12:15px; --sp-16:20px; --sp-20:25px; --sp-24:30px;
+      --sp-32:40px; --sp-40:50px; --sp-56:68px;
+
+      --radius-cards:14px;
     }
-    .hero-inner{max-width:840px;}
-    .gallery-grid{height:620px;}
-    .prop-grid{grid-template-columns:repeat(4,1fr);}
-    .quote-banner blockquote{max-width:960px;}
+    .btn{padding:17px 30px;font-size:18px;}
+    .btn svg{width:19px;height:19px;}
+    .btn-sm{padding:13px 22px;font-size:16px;}
+    .icon-chip{width:52px;height:52px;}
+    .icon-chip svg{width:24px;height:24px;}
+    nav.main-nav a{font-size:17px;padding:12px 24px;}
+    .logo .word{font-size:23px;}
+    .logo .mark{width:36px;height:36px;}
+    .hero-inner{max-width:880px;}
+    .hero-badge p{font-size:14px;}
+    .hero-tags span{font-size:15px;padding:10px 20px;}
+    .lead-capture input{font-size:19px;padding:17px 0 17px 24px;}
+    .prop-price .value{font-size:26px;}
+    .prop-specs b{font-size:17px;}
+    .field label{font-size:14px;}
+    .field input,.field select{font-size:17px;padding:16px 22px;}
   }
-  @media (min-width:2200px){
+  @media (min-width:2000px){
     :root{
-      --page-max-width:2040px;
+      --page-max-width:1800px;
+      --text-display:92px;
+      --text-heading-lg:56px;
     }
+    .prop-grid{grid-template-columns:repeat(4,1fr);}
+    .gallery-grid{height:640px;}
   }
 
   /* ---------------- responsive ---------------- */
