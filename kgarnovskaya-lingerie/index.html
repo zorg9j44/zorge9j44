@@ -1,0 +1,256 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>K. Garnovskaya Lingerie — бельё, в котором ты себе нравишься</title>
+<meta name="description" content="Авторское нижнее бельё K. Garnovskaya: кружево, шёлк и комплекты, которые подчёркивают женственность. Смотрите каталог и бестселлеры.">
+<meta name="theme-color" content="#F6F1EC">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,400;0,500;0,600;1,400&family=Great+Vibes&family=Montserrat:wght@400;500&display=swap" rel="stylesheet">
+<!--
+  ЗАМЕНИТЬ ПЕРЕД ПОКАЗОМ / ПУБЛИКАЦИЕЙ:
+  - фото: положить в ./assets/ файлы hero-main.jpg, hero-second.jpg, hero-detail.jpg
+    (берём из Instagram клиента: крупный ч/б портрет, кадр в интерьере, деталь кружева);
+    пока файлов нет — показываются аккуратные тоновые заглушки;
+  - названия/цены бестселлеров в карточке, ссылки на Instagram и каталог;
+  - преимущества в нижней полосе — согласовать с клиентом (доставка, подбор размера, упаковка).
+-->
+<style>
+  :root{
+    --cream:#F6F1EC;
+    --paper:#FBF8F4;
+    --wine:#9B1C2E;
+    --wine-dark:#7A1222;
+    --ink:#2B1B1E;
+    --muted:#8A7A76;
+    --line:#E6DCD4;
+    --serif:'Cormorant Garamond', 'Times New Roman', serif;
+    --script:'Great Vibes', cursive;
+    --sans:'Montserrat', system-ui, sans-serif;
+  }
+  *{box-sizing:border-box;margin:0;padding:0}
+  html,body{background:var(--cream);color:var(--ink)}
+  body{font-family:var(--sans);-webkit-font-smoothing:antialiased;overflow-x:hidden}
+  a{color:inherit;text-decoration:none}
+  img{display:block;max-width:100%}
+
+  /* ---------- Header ---------- */
+  .header{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;
+    max-width:1440px;margin:0 auto;padding:28px clamp(16px,4vw,64px)}
+  .logo{display:flex;align-items:baseline;gap:8px;color:var(--wine);line-height:1}
+  .logo .k{font-family:var(--script);font-size:40px}
+  .logo .name{font-family:var(--serif);font-size:24px;letter-spacing:.14em;text-transform:uppercase}
+  .logo .sub{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.42em;color:var(--muted);margin-top:4px}
+  .nav{display:flex;gap:clamp(20px,2.6vw,40px);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
+  .nav a{position:relative;padding:4px 0}
+  .nav a::after{content:"";position:absolute;left:0;right:100%;bottom:0;height:1px;background:var(--wine);transition:right .3s}
+  .nav a:hover::after{right:0}
+  .actions{display:flex;gap:18px;align-items:center}
+  .icon-btn{width:40px;height:40px;border-radius:50%;border:1px solid var(--line);display:grid;place-items:center;transition:.25s}
+  .icon-btn:hover{border-color:var(--wine);color:var(--wine)}
+  .icon-btn svg{width:18px;height:18px}
+  .burger{display:none}
+
+  /* ---------- Hero ---------- */
+  .hero{position:relative;max-width:1440px;margin:0 auto;padding:12px clamp(16px,4vw,64px) 0;
+    display:grid;grid-template-columns:1.05fr 1fr;gap:clamp(24px,4vw,72px);align-items:center;
+    min-height:calc(100vh - 100px)}
+  .thread{position:absolute;inset:0;pointer-events:none;z-index:0}
+  .thread path{fill:none;stroke:var(--wine);stroke-width:1.2;opacity:.75;
+    stroke-dasharray:2400;stroke-dashoffset:2400;animation:draw 3.2s .3s ease forwards}
+  @keyframes draw{to{stroke-dashoffset:0}}
+  .heart{fill:var(--wine)}
+
+  .copy{position:relative;z-index:2;padding-bottom:40px}
+  .eyebrow{display:inline-flex;align-items:center;gap:12px;font-size:11px;letter-spacing:.32em;text-transform:uppercase;color:var(--wine)}
+  .eyebrow::before{content:"";width:36px;height:1px;background:var(--wine)}
+  h1{margin-top:26px;font-family:var(--serif);font-weight:500;color:var(--wine);
+    font-size:clamp(46px,6.2vw,104px);line-height:.95;letter-spacing:-.01em;text-transform:uppercase}
+  h1 .script{display:block;font-family:var(--script);text-transform:none;font-weight:400;
+    font-size:1.15em;line-height:1;letter-spacing:0;margin:-.02em 0 -.08em .2em;color:var(--wine)}
+  .lead{margin-top:28px;max-width:440px;font-family:var(--serif);font-size:clamp(19px,1.5vw,23px);line-height:1.45;color:var(--ink)}
+  .cta{margin-top:40px;display:flex;flex-wrap:wrap;gap:16px;align-items:center}
+  .btn{display:inline-flex;align-items:center;gap:12px;padding:18px 38px;border-radius:999px;
+    font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
+  .btn-primary{background:var(--wine);color:#fff;box-shadow:0 14px 30px -14px rgba(155,28,46,.6)}
+  .btn-primary:hover{background:var(--wine-dark);transform:translateY(-2px)}
+  .btn-ghost{border:1px solid var(--wine);color:var(--wine)}
+  .btn-ghost:hover{background:var(--wine);color:#fff}
+  .meta{margin-top:48px;display:flex;gap:36px;color:var(--muted);font-size:12px;letter-spacing:.06em}
+  .meta b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;color:var(--wine);letter-spacing:0;margin-bottom:2px}
+
+  /* ---------- Visual ---------- */
+  .visual{position:relative;z-index:1;height:min(78vh,760px);min-height:520px}
+  .photo{position:absolute;overflow:hidden;background:linear-gradient(160deg,#D9D3CE,#9C9490 60%,#6E6765)}
+  .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+  .photo .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.75);
+    font-family:var(--script);font-size:34px}
+  .photo-main{right:0;top:0;width:72%;height:88%;border-radius:999px 999px 18px 18px}
+  .photo-second{left:0;bottom:4%;width:40%;height:44%;border-radius:18px;border:8px solid var(--paper);
+    box-shadow:0 30px 60px -30px rgba(43,27,30,.45);background:linear-gradient(160deg,#E7E1DA,#B8AEA6)}
+  .photo-second img{filter:none}
+
+  .card{position:absolute;right:-6px;bottom:0;z-index:3;width:240px;padding:14px;border-radius:18px;
+    background:var(--paper);box-shadow:0 30px 60px -28px rgba(43,27,30,.4);display:flex;gap:14px;align-items:center}
+  .card .thumb{position:relative;width:64px;height:78px;border-radius:12px;overflow:hidden;flex:none;
+    background:linear-gradient(160deg,#E9D6D3,#B98C8C)}
+  .card .thumb img{width:100%;height:100%;object-fit:cover}
+  .card small{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
+  .card strong{display:block;margin-top:4px;font-family:var(--serif);font-weight:500;font-size:20px;color:var(--ink)}
+  .card span{font-size:13px;color:var(--wine)}
+
+  .badge{position:absolute;left:16%;top:8%;z-index:3;width:118px;height:118px;border-radius:50%;
+    background:var(--wine);color:#fff;display:grid;place-items:center;text-align:center;
+    font-family:var(--serif);font-size:15px;line-height:1.2;letter-spacing:.04em;
+    animation:float 6s ease-in-out infinite}
+  .badge em{display:block;font-family:var(--script);font-style:normal;font-size:30px;line-height:.9}
+  @keyframes float{50%{transform:translateY(-10px) rotate(-4deg)}}
+
+  /* ---------- Bottom strip ---------- */
+  .strip{position:relative;z-index:2;max-width:1440px;margin:0 auto;padding:0 clamp(16px,4vw,64px) 36px}
+  .strip ul{list-style:none;display:grid;grid-template-columns:repeat(3,1fr);border-top:1px solid var(--line)}
+  .strip li{padding:22px 0;display:flex;gap:14px;align-items:center;font-size:13px;color:var(--muted)}
+  .strip li+li{padding-left:28px;border-left:1px solid var(--line)}
+  .strip li b{font-family:var(--serif);font-weight:500;font-size:19px;color:var(--ink);margin-right:4px}
+  .strip svg{width:22px;height:22px;color:var(--wine);flex:none}
+
+  .reveal{opacity:0;transform:translateY(24px);animation:in 1s ease forwards}
+  .d1{animation-delay:.1s}.d2{animation-delay:.25s}.d3{animation-delay:.4s}.d4{animation-delay:.55s}.d5{animation-delay:.7s}
+  @keyframes in{to{opacity:1;transform:none}}
+  @media (prefers-reduced-motion:reduce){*{animation:none!important;opacity:1!important;transform:none!important;stroke-dashoffset:0!important}}
+
+  /* ---------- Large screens ---------- */
+  @media (min-width:1800px){
+    .header,.hero,.strip{max-width:1720px}
+    .nav{font-size:14px}
+    .lead{max-width:520px}
+  }
+
+  /* ---------- Tablet / mobile ---------- */
+  @media (max-width:1024px){
+    .nav{display:none}
+    .burger{display:grid}
+    .hero{grid-template-columns:1fr;min-height:auto;padding-top:8px}
+    .copy{padding-bottom:0;text-align:left}
+    .visual{height:auto;min-height:0;aspect-ratio:4/4.4;margin-top:8px}
+  }
+  @media (max-width:640px){
+    .header{padding-top:18px;padding-bottom:18px}
+    .logo .k{font-size:32px}.logo .name{font-size:18px}
+    .actions .hide-sm{display:none}
+    h1{font-size:clamp(40px,12vw,56px);margin-top:18px}
+    .lead{font-size:18px;margin-top:20px}
+    .cta{margin-top:28px}
+    .btn{width:100%;justify-content:center;padding:17px 24px}
+    .meta{gap:24px;margin-top:32px}
+    .meta b{font-size:28px}
+    .photo-main{width:78%;height:86%}
+    .photo-second{width:44%;height:40%;border-width:5px}
+    .card{width:200px;padding:10px;right:0}
+    .card .thumb{width:50px;height:62px}
+    .card strong{font-size:17px}
+    .badge{width:90px;height:90px;font-size:12px;left:6%;top:4%}
+    .badge em{font-size:24px}
+    .strip ul{grid-template-columns:1fr}
+    .strip li+li{padding-left:0;border-left:0;border-top:1px solid var(--line)}
+    .strip li{padding:16px 0}
+  }
+</style>
+<script>
+  // Если фото ещё не загружено в ./assets — убираем битую картинку, остаётся тоновая заглушка.
+  function noImg(img){ img.onerror=null; img.remove(); }
+</script>
+</head>
+<body>
+
+<header class="header">
+  <a href="#" class="logo" aria-label="K. Garnovskaya Lingerie">
+    <span class="k">K.</span>
+    <span><span class="name">Garnovskaya</span><span class="sub">LINGERIE</span></span>
+  </a>
+  <nav class="nav" aria-label="Основное меню">
+    <a href="#catalog">Каталог</a>
+    <a href="#bestsellers">Бестселлеры</a>
+    <a href="#about">О бренде</a>
+    <a href="#size">Подбор размера</a>
+    <a href="#contacts">Контакты</a>
+  </nav>
+  <div class="actions">
+    <a class="icon-btn hide-sm" href="https://www.instagram.com/kgarnovskaya_lingerie" target="_blank" rel="noopener" aria-label="Instagram">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><rect x="3" y="3" width="18" height="18" rx="5"/><circle cx="12" cy="12" r="4"/><circle cx="17.5" cy="6.5" r=".8" fill="currentColor"/></svg>
+    </a>
+    <a class="icon-btn" href="#cart" aria-label="Корзина">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 8h14l-1.2 12H6.2z"/><path d="M9 8V6a3 3 0 0 1 6 0v2"/></svg>
+    </a>
+    <button class="icon-btn burger" aria-label="Меню" style="background:none;cursor:pointer;color:inherit">
+      <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M4 8h16M4 16h16"/></svg>
+    </button>
+  </div>
+</header>
+
+<main>
+  <section class="hero">
+    <!-- Тонкая «нить» с сердечками — фирменный элемент из референса -->
+    <svg class="thread" viewBox="0 0 1440 820" preserveAspectRatio="none" aria-hidden="true">
+      <path d="M-20 600 C 180 520, 260 760, 470 700 S 700 420, 640 300 S 760 80, 900 160 S 1080 520, 1240 470 S 1460 300, 1480 360"/>
+      <path class="heart" d="M640 302c-6-10-22-8-22 4 0 8 12 15 22 23 10-8 22-15 22-23 0-12-16-14-22-4z" transform="rotate(-12 640 312)"/>
+    </svg>
+
+    <div class="copy">
+      <span class="eyebrow reveal d1">Новая коллекция</span>
+      <h1 class="reveal d2">Бельё,<span class="script">в котором</span>ты себе нравишься</h1>
+      <p class="lead reveal d3">Кружево, шёлк и мягкие линии — комплекты, которые раскрывают твою женственность и остаются удобными с утра до вечера.</p>
+      <div class="cta reveal d4">
+        <a href="#catalog" class="btn btn-primary">Смотреть каталог
+          <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
+        </a>
+        <a href="#size" class="btn btn-ghost">Подобрать размер</a>
+      </div>
+      <div class="meta reveal d5">
+        <div><b>XS–XL</b>размерная сетка</div>
+        <div><b>♡</b>упаковка в подарок</div>
+      </div>
+    </div>
+
+    <div class="visual reveal d3">
+      <div class="photo photo-main">
+        <span class="ph">Garnovskaya</span>
+        <img src="assets/hero-main.jpg" alt="Модель в комплекте белья K. Garnovskaya" onerror="noImg(this)">
+      </div>
+      <div class="photo photo-second">
+        <img src="assets/hero-second.jpg" alt="Комплект белья в интерьере" onerror="noImg(this)">
+      </div>
+      <div class="badge"><div><em>new</em>коллекция<br>2026</div></div>
+      <a href="#bestsellers" class="card">
+        <div class="thumb"><img src="assets/hero-detail.jpg" alt="" onerror="noImg(this)"></div>
+        <div>
+          <small>Бестселлер</small>
+          <strong>Silk dream</strong>
+          <span>6 390 ₽ →</span>
+        </div>
+      </a>
+    </div>
+  </section>
+
+  <div class="strip reveal d5">
+    <ul>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>
+        <span><b>Доставка</b>по всей стране</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12h16M4 12l3-3M4 12l3 3M20 12l-3-3M20 12l-3 3"/></svg>
+        <span><b>Подбор размера</b>бесплатно в директ</span>
+      </li>
+      <li>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M4 13h16M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 .5 6-1.5S14 5 12 9z"/></svg>
+        <span><b>Красивая упаковка</b>готово к подарку</span>
+      </li>
+    </ul>
+  </div>
+</main>
+
+</body>
+</html>
