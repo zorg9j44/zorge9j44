@@ -3,8 +3,8 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>K. Garnovskaya Lingerie — бельё, в котором ты себе нравишься</title>
-<meta name="description" content="Авторское нижнее бельё K. Garnovskaya: кружево, шёлк и комплекты, которые подчёркивают женственность. Смотрите каталог и бестселлеры.">
+<title>K. Garnovskaya — авторское нижнее бельё ручной работы, Минск</title>
+<meta name="description" content="Авторское нижнее бельё ручной работы в Минске. Почувствуй себя дизайнером своего белья: шью по твоим меркам и пожеланиям. Готовые комплекты в наличии, подарочные сертификаты.">
 <meta name="theme-color" content="#F6F1EC">
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
@@ -12,17 +12,17 @@
 <!--
   ЗАМЕНИТЬ ПЕРЕД ПОКАЗОМ / ПУБЛИКАЦИЕЙ:
   - фото: положить в ./assets/ файлы hero-main.jpg, hero-second.jpg, hero-detail.jpg
-    (берём из Instagram клиента: крупный ч/б портрет, кадр в интерьере, деталь кружева);
+    (из Instagram клиента: модель в бордовом кружеве, комплект в коробке с упаковкой, деталь кружева/silk);
     пока файлов нет — показываются аккуратные тоновые заглушки;
-  - названия/цены бестселлеров в карточке, ссылки на Instagram и каталог;
-  - преимущества в нижней полосе — согласовать с клиентом (доставка, подбор размера, упаковка).
+  - доставка по Беларуси/РФ и сроки пошива — уточнить у клиента и при необходимости добавить в полосу.
 -->
 <style>
   :root{
     --cream:#F6F1EC;
     --paper:#FBF8F4;
-    --wine:#9B1C2E;
-    --wine-dark:#7A1222;
+    --wine:#8A1730;
+    --wine-dark:#6A0F22;
+    --blush:#F2DCDF;
     --ink:#2B1B1E;
     --muted:#8A7A76;
     --line:#E6DCD4;
@@ -40,7 +40,7 @@
   .header{position:relative;z-index:5;display:flex;align-items:center;justify-content:space-between;
     max-width:1440px;margin:0 auto;padding:28px clamp(16px,4vw,64px)}
   .logo{display:flex;align-items:baseline;gap:8px;color:var(--wine);line-height:1}
-  .logo .k{font-family:var(--script);font-size:40px}
+  .logo .k{width:42px;height:42px;border:1px solid var(--wine);border-radius:50%;display:grid;place-items:center;font-family:var(--serif);font-size:22px;align-self:center}
   .logo .name{font-family:var(--serif);font-size:24px;letter-spacing:.14em;text-transform:uppercase}
   .logo .sub{display:block;font-family:var(--sans);font-size:9px;letter-spacing:.42em;color:var(--muted);margin-top:4px}
   .nav{display:flex;gap:clamp(20px,2.6vw,40px);font-size:12px;letter-spacing:.16em;text-transform:uppercase}
@@ -76,26 +76,25 @@
     font-size:12px;letter-spacing:.2em;text-transform:uppercase;transition:.3s}
   .btn-primary{background:var(--wine);color:#fff;box-shadow:0 14px 30px -14px rgba(155,28,46,.6)}
   .btn-primary:hover{background:var(--wine-dark);transform:translateY(-2px)}
-  .btn-ghost{border:1px solid var(--wine);color:var(--wine)}
+  .btn-ghost{border:1px solid var(--wine);color:var(--wine);background:var(--cream)}
   .btn-ghost:hover{background:var(--wine);color:#fff}
   .meta{margin-top:48px;display:flex;gap:36px;color:var(--muted);font-size:12px;letter-spacing:.06em}
   .meta b{display:block;font-family:var(--serif);font-weight:500;font-size:34px;color:var(--wine);letter-spacing:0;margin-bottom:2px}
 
   /* ---------- Visual ---------- */
   .visual{position:relative;z-index:1;height:min(78vh,760px);min-height:520px}
-  .photo{position:absolute;overflow:hidden;background:linear-gradient(160deg,#D9D3CE,#9C9490 60%,#6E6765)}
-  .photo img{width:100%;height:100%;object-fit:cover;filter:grayscale(1) contrast(1.05)}
+  .photo{position:absolute;overflow:hidden;background:linear-gradient(160deg,#C9566A,#8A1730 55%,#4E0A18)}
+  .photo img{width:100%;height:100%;object-fit:cover}
   .photo .ph{position:absolute;inset:0;display:grid;place-items:center;color:rgba(255,255,255,.75);
     font-family:var(--script);font-size:34px}
   .photo-main{right:0;top:0;width:72%;height:88%;border-radius:999px 999px 18px 18px}
   .photo-second{left:0;bottom:4%;width:40%;height:44%;border-radius:18px;border:8px solid var(--paper);
-    box-shadow:0 30px 60px -30px rgba(43,27,30,.45);background:linear-gradient(160deg,#E7E1DA,#B8AEA6)}
-  .photo-second img{filter:none}
+    box-shadow:0 30px 60px -30px rgba(43,27,30,.45);background:linear-gradient(160deg,#FBEFF1,#E7BFC6)}
 
   .card{position:absolute;right:-6px;bottom:0;z-index:3;width:240px;padding:14px;border-radius:18px;
     background:var(--paper);box-shadow:0 30px 60px -28px rgba(43,27,30,.4);display:flex;gap:14px;align-items:center}
   .card .thumb{position:relative;width:64px;height:78px;border-radius:12px;overflow:hidden;flex:none;
-    background:linear-gradient(160deg,#E9D6D3,#B98C8C)}
+    background:linear-gradient(160deg,#E3C2A6,#A86F4E)}
   .card .thumb img{width:100%;height:100%;object-fit:cover}
   .card small{display:block;font-size:10px;letter-spacing:.24em;text-transform:uppercase;color:var(--muted)}
   .card strong{display:block;margin-top:4px;font-family:var(--serif);font-weight:500;font-size:20px;color:var(--ink)}
@@ -138,7 +137,7 @@
   }
   @media (max-width:640px){
     .header{padding-top:18px;padding-bottom:18px}
-    .logo .k{font-size:32px}.logo .name{font-size:18px}
+    .logo .k{width:34px;height:34px;font-size:18px}.logo .name{font-size:18px}
     .actions .hide-sm{display:none}
     h1{font-size:clamp(40px,12vw,56px);margin-top:18px}
     .lead{font-size:18px;margin-top:20px}
@@ -167,15 +166,15 @@
 
 <header class="header">
   <a href="#" class="logo" aria-label="K. Garnovskaya Lingerie">
-    <span class="k">K.</span>
-    <span><span class="name">Garnovskaya</span><span class="sub">LINGERIE</span></span>
+    <span class="k">K</span>
+    <span><span class="name">Garnovskaya</span><span class="sub">LINGERIE · MINSK</span></span>
   </a>
   <nav class="nav" aria-label="Основное меню">
-    <a href="#catalog">Каталог</a>
-    <a href="#bestsellers">Бестселлеры</a>
-    <a href="#about">О бренде</a>
-    <a href="#size">Подбор размера</a>
-    <a href="#contacts">Контакты</a>
+    <a href="#instock">В наличии</a>
+    <a href="#silk">Silk</a>
+    <a href="#swim">Купальники</a>
+    <a href="#gift">Сертификаты</a>
+    <a href="#reviews">Отзывы</a>
   </nav>
   <div class="actions">
     <a class="icon-btn hide-sm" href="https://www.instagram.com/kgarnovskaya_lingerie" target="_blank" rel="noopener" aria-label="Instagram">
@@ -199,36 +198,36 @@
     </svg>
 
     <div class="copy">
-      <span class="eyebrow reveal d1">Новая коллекция</span>
-      <h1 class="reveal d2">Бельё,<span class="script">в котором</span>ты себе нравишься</h1>
-      <p class="lead reveal d3">Кружево, шёлк и мягкие линии — комплекты, которые раскрывают твою женственность и остаются удобными с утра до вечера.</p>
+      <span class="eyebrow reveal d1">Авторское бельё ручной работы · Минск</span>
+      <h1 class="reveal d2">Почувствуй себя<span class="script">дизайнером</span>своего белья</h1>
+      <p class="lead reveal d3">Шью вручную по твоим меркам и учитываю все пожелания: кружево, шёлк, цвет и посадку. Комплект, который создан только для тебя.</p>
       <div class="cta reveal d4">
-        <a href="#catalog" class="btn btn-primary">Смотреть каталог
+        <a href="https://ig.me/m/kgarnovskaya_lingerie" target="_blank" rel="noopener" class="btn btn-primary">Создать свой комплект
           <svg width="16" height="16" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"><path d="M5 12h14M13 6l6 6-6 6"/></svg>
         </a>
-        <a href="#size" class="btn btn-ghost">Подобрать размер</a>
+        <a href="#instock" class="btn btn-ghost">Смотреть в наличии</a>
       </div>
       <div class="meta reveal d5">
-        <div><b>XS–XL</b>размерная сетка</div>
-        <div><b>♡</b>упаковка в подарок</div>
+        <div><b>580+</b>публикаций с работами</div>
+        <div><b>♡</b>отзывы клиенток</div>
       </div>
     </div>
 
     <div class="visual reveal d3">
       <div class="photo photo-main">
         <span class="ph">Garnovskaya</span>
-        <img src="assets/hero-main.jpg" alt="Модель в комплекте белья K. Garnovskaya" onerror="noImg(this)">
+        <img src="assets/hero-main.jpg" alt="Модель в кружевном комплекте K. Garnovskaya" onerror="noImg(this)">
       </div>
       <div class="photo photo-second">
-        <img src="assets/hero-second.jpg" alt="Комплект белья в интерьере" onerror="noImg(this)">
+        <img src="assets/hero-second.jpg" alt="Комплект в фирменной упаковке" onerror="noImg(this)">
       </div>
-      <div class="badge"><div><em>new</em>коллекция<br>2026</div></div>
-      <a href="#bestsellers" class="card">
+      <a href="#gift" class="badge"><div><em>gift</em>сертификаты<br>в наличии</div></a>
+      <a href="#silk" class="card">
         <div class="thumb"><img src="assets/hero-detail.jpg" alt="" onerror="noImg(this)"></div>
         <div>
-          <small>Бестселлер</small>
-          <strong>Silk dream</strong>
-          <span>6 390 ₽ →</span>
+          <small>Коллекция</small>
+          <strong>Silk</strong>
+          <span>Смотреть →</span>
         </div>
       </a>
     </div>
@@ -237,16 +236,16 @@
   <div class="strip reveal d5">
     <ul>
       <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M3 7h11v9H3zM14 10h4l3 3v3h-7"/><circle cx="7" cy="17.5" r="1.6"/><circle cx="17" cy="17.5" r="1.6"/></svg>
-        <span><b>Доставка</b>по всей стране</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><circle cx="6" cy="18" r="2.5"/><circle cx="6" cy="6" r="2.5"/><path d="M8 7.5 20 17M8 16.5 20 7"/></svg>
+        <span><b>Пошив по меркам</b>под твою фигуру</span>
       </li>
       <li>
-        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M4 12h16M4 12l3-3M4 12l3 3M20 12l-3-3M20 12l-3 3"/></svg>
-        <span><b>Подбор размера</b>бесплатно в директ</span>
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><path d="M12 7a2 2 0 1 1 2-2c0 1.2-2 1.5-2 3l8.5 6.2c.8.6.4 1.8-.6 1.8H4.1c-1 0-1.4-1.2-.6-1.8L12 8"/></svg>
+        <span><b>В наличии</b>готовые комплекты</span>
       </li>
       <li>
         <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4"><rect x="4" y="9" width="16" height="11" rx="1"/><path d="M4 13h16M12 9v11M12 9c-2-4-6-4-6-1.5S10 9 12 9c2 0 6 .5 6-1.5S14 5 12 9z"/></svg>
-        <span><b>Красивая упаковка</b>готово к подарку</span>
+        <span><b>Сертификаты</b>идеальный подарок</span>
       </li>
     </ul>
   </div>
